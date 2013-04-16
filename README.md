@@ -1,0 +1,4 @@
+mage
+====
+
+Mage application.
