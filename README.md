@@ -1,4 +1,4 @@
-mage
+Mage
 ====
 
-Mage application.
+An application for the not-so-ephemeral.
