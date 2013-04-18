@@ -1,14 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mage</title>
+  <title>Mage | Resource Sharing De-Ephemeralized</title>
+  <link href='http://fonts.googleapis.com/css?family=Arbutus+Slab' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<header>
+	<div class="header-bar">
+		<div class="header-bar-part">
+		</div>
+		<div class="header-bar-part">
+		</div>
+		<div class="header-bar-part">
+		</div>
+		<div class="header-bar-part">
+		</div>
+		<div class="header-bar-part">
+		</div>
+		<div class="header-bar-part">
+		</div>
+		<div class="header-bar-part">
+		</div>
+		<div class="header-bar-part">
+		</div>
+		<div class="header-bar-part">
+		</div>
+		<div class="header-bar-part">
+		</div>
+	</div>
+	<div class='wrapper'>
+		<span class='logo'>Mage</span>
+		<form>
+			<input type="text" placeholder="Search">
+		</form>
+		<nav>
+			<a href="#" class="active">Home</a>
+			<a href="#">Learn</a>
+			<a href="#">About</a>
+			<a href="#" class="button log-in">Sign In</a>
+		</nav>
+	</div>
+</header>
 <%= yield %>
 
 </body>
+<%= javascript_include_tag "application" %>
 </html>

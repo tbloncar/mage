@@ -13,3 +13,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore DS_Store
+.DS_Store
+
+# Ignore all image files
+/assets/images/
