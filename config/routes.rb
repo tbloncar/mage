@@ -1,5 +1,9 @@
 Mage::Application.routes.draw do
-  match "/" => "Home#home"
+  get "/" => "Home#home"
+  get "/user/:user_name" => "Users#view_profile"
+
+  get "/:category/:craft_path" => "Crafts#show"
+
   
 
 

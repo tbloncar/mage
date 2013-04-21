@@ -37,3 +37,6 @@ gem 'normalize-rails', '~> 2.0.1'
 
 # To use debugger
 # gem 'debugger'
+
+# To use Gravatar avatars for user profiles
+gem 'gravatar_image_tag'

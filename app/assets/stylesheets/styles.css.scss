@@ -207,6 +207,7 @@ header {
 		color: #797979;
 		padding: 10px 15px;
 		background: #f8f8f8;
+		border-bottom: 2px solid #ddd;
 		@include rounded(5px);
 		width: 71%;
 		float: left;
@@ -289,8 +290,7 @@ header {
 		}
 		.top-item-container {
 			padding: 10px;
-			background: #fafafa;
-			background: #fff;
+			background: #fcfcfc;
 			.top-item {
 				height: 80px;
 				position: relative;
