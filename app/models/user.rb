@@ -2,6 +2,8 @@ require 'digest'
 class User < ActiveRecord::Base
 	attr_accessor :password
 
+	validates :username, :uniqueness => true
+	validates :email, :uniqueness => true
 
 	before_save :encrypt_password
 
@@ -9,13 +11,19 @@ class User < ActiveRecord::Base
 		encrypted_password = encrypt(submitted_password)
 	end
 
-	def self.authenticate(email, submitted_password)
-	    user = find_by_email(email)
+	def authenticate(email, submitted_password)
+	    user = User.find_by_email(email)
 	    if user.nil?
 	      nil
 	    elsif user.has_password?(submitted_password)
 	      user
 	    end
+	end
+
+	def self.home_list
+		uncached do
+			order("upvotes DESC").limit(4)
+		end
 	end
 
 	private

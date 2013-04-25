@@ -7,44 +7,32 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<header>
-	<div class="header-bar">
-		<div class="header-bar-part">
+<header class="navbar navbar-fixed-top">
+	<div class="container">
+		<div class="row-fluid">
+			<div class="span12">
+				<a class='logo' href="/">Mage</a>
+				<nav>
+					<form class="search-header pull-right">
+						<input type="text" placeholder="Search">
+					</form>
+					<a class="pull-right nav-link link-purple" href="/sign-in">Sign In</a>
+					<a class="pull-right nav-link link-gold" href="/register">Create Account</a>
+				</nav>
+			</div>
 		</div>
-		<div class="header-bar-part">
-		</div>
-		<div class="header-bar-part">
-		</div>
-		<div class="header-bar-part">
-		</div>
-		<div class="header-bar-part">
-		</div>
-		<div class="header-bar-part">
-		</div>
-		<div class="header-bar-part">
-		</div>
-		<div class="header-bar-part">
-		</div>
-		<div class="header-bar-part">
-		</div>
-		<div class="header-bar-part">
-		</div>
-	</div>
-	<div class='wrapper'>
-		<span class='logo'>Mage</span>
-		<form>
-			<input type="text" placeholder="Search">
-		</form>
-		<nav>
-			<a href="/" class="active">Home</a>
-			<a href="#">Learn</a>
-			<a href="#">About</a>
-			<a href="#" class="button log-in">Sign In</a>
-		</nav>
 	</div>
 </header>
 <%= yield %>
-
-</body>
+<div class="container">
+	<footer>
+		<div class="row-fluid">
+			<div class="span12">
+				<p>&copy; <%= Time.new.year %></p>
+			</div>
+		</div>
+	</footer>
+</div>
 <%= javascript_include_tag "application" %>
+</body>
 </html>

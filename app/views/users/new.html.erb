@@ -1,0 +1,58 @@
+<div class="container">
+	<div class="row-fluid">
+		<div class="span12 page-header">
+			<h1>Create a Mage Account</h1>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span5 form-container">
+			<%= form_tag "/users", :method => "post" do %>
+				<div class="form-input control-group">
+					<label for="email" class="control-label">Email Address</label>
+					<div class="controls">
+						<input type="email" name="email" id="email" placeholder="Email Address" class="form-text-input" required>
+						<span class="no">Make sure it's valid!</span>
+					</div>
+				</div>
+				<div class="form-input control-group">
+					<label for="username" class="control-label">Username</label>
+					<div class="controls">
+						<input type="text" name="username" id="username" placeholder="Username" class="form-text-input" required>
+						<span class="no">Thy name musn't change.</span>
+					</div>
+				</div>
+				<div class="form-input control-group">
+					<label for="password" class="control-label">Password</label>
+					<div class="controls">
+						<input type="password" name="password" id="password" placeholder="Password" class="form-text-input" required>
+						<span class="no">Choose wisely, young learner.</span>
+					</div>
+				</div>
+				<div class="form-input control-group">
+					<label for="first" class="control-label">First Name</label>
+					<div class="controls">
+						<input type="text" name="first" id="first" placeholder="First Name" class="form-text-input" required>
+						<span class="no">Keep it real.</span>
+					</div>
+				</div>
+				<div class="form-input control-group">
+					<label for="last" class="control-label">Last Name</label>
+					<div class="controls">
+						<input type="text" name="last" id="last" placeholder="Last Name" class="form-text-input" required>
+						<span class="no">We won't make this public.</span>
+					</div>
+				</div>
+				<div class="form-input control-group">
+					<label for="bio" class="control-label">Short Bio</label>
+					<div class="controls">
+						<textarea name="bio" id="bio" class="form-text-input" rows="10"></textarea>
+						<span class="no">Scribe your interests!</span>
+					</div>
+				</div>
+				<div class="form-input control-group">
+					<button class="form-button link-gold">Create Account</button>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

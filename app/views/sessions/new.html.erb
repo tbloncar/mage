@@ -1,0 +1,28 @@
+<div class="container">
+	<div class="row-fluid">
+		<div class="span12 page-header">
+			<h1>Sign Into Your Mage Account</h1>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span5 form-container">
+			<form action="/sessions" method="post">
+				<div class="form-input control-group">
+					<label for="username" class="control-label">Username</label>
+					<div class="controls">
+						<input type="text" name="session[username]" id="username" placeholder="Username" class="form-text-input" required>
+					</div>
+				</div>
+				<div class="form-input control-group">
+					<label for="password" class="control-label">Password</label>
+					<div class="controls">
+						<input type="password" name="session[password]" id="password" placeholder="Password" class="form-text-input" required>
+					</div>
+				</div>
+				<div class="form-input control-group">
+					<button class="form-button link-gold">Sign In</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

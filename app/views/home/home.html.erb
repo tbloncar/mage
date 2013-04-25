@@ -1,132 +1,77 @@
-<div class="wrapper">
-	<div class="info-wrapper">
-		<p>Share the resources that helped you master your craft, vote up others' shares, and learn something new!</p>
-		<a href="#" class="button sign-up">Sign Up Free!</a>
-	</div>
-	<section class="top-search">
-		<span></span>
-		<form action="#" method="#">
-			<input type="text" class="home-search" placeholder="What Do You Want to Learn?">
-			<button class="button">Search!</button>
-		</form>
-	</section>
-	<section class="top-wrapper">
-		<div class="top-left">
-			<h3>Top Mages</h3>
-			<div class="top-item-container">
-				<div class="top-item">
-					<div class="top-item-number">
-						<span>1</span>
+<div class="container">
+	<section class="home-content">
+		<div class="row-fluid">
+			<div class="span12 subhead">
+				<h2>Top Resources / <span>This week's top resources</h2>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<% @resources.each do |resource| %>
+				<a href="/programming/<% resource.craft %>/<%= resource.path %>" class="span3 home-resource">
+					<div class="home-resource-inner">
+						<h3><%= resource.name %></h3>
+						<div style="background: url('<%= resource.image_url %>') no-repeat;" class="home-resource-image">
+						</div>
+						<p class="home-resource-description"><%= resource.description %></p>
 					</div>
-					<img src="/assets/travis.jpg">
-					<div class="top-item-info">
-						<h4>tbloncar</h4>
-						<span class="upvotes">20 upvotes</span>
+				</a>
+			<% end %>
+		</div>
+		<div class="row-fluid">
+			<div class="span12 subhead">
+				<h2>Top Crafts / <span>This week's top areas of learning</span></h2>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span3 home-resource">
+				<div class="home-resource-inner">
+					<h3>Ruby on Rails</h3>
+					<div style="background: url('http://www.brandsoftheworld.com/sites/default/files/styles/logo-original-577x577/public/112012/rails.png') no-repeat;" class="home-resource-image">
 					</div>
-					<span class="add-user"></span>
+					<p class="home-resource-description">Chris Pine's "Learn to Program" is great for absolute beginners!</p>
 				</div>
-				<div class="top-item">
-					<div class="top-item-number">
-						<span>2</span>
+			</div>
+			<div class="span3 home-resource">
+				<div class="home-resource-inner">
+					<h3>HTML5</h3>
+					<div style="background: url('http://www.blog-nouvelles-technologies.fr/wp-content/uploads/2011/03/les-10-meilleures-ressources-pour-apprendre-html5.jpg') no-repeat;" class="home-resource-image">
 					</div>
-					<img src="/assets/fernando.jpg">
-					<div class="top-item-info">
-						<h4>fernando</h4>
-						<span class="upvotes">18 upvotes</span>
-					</div>
-					<span class="add-user"></span>
+					<p class="home-resource-description">Chris Pine's "Learn to Program" is great for absolute beginners!</p>
 				</div>
-				<div class="top-item">
-					<div class="top-item-number">
-						<span>3</span>
+			</div>
+			<div class="span3 home-resource">
+				<div class="home-resource-inner">
+					<h3>Caligraphy</h3>
+					<div style="background: url('http://designworklife.com/wp-content/uploads/2011/02/kateforrester_calligraphy_01.jpg') no-repeat;" class="home-resource-image">
 					</div>
-					<img src="/assets/creighton.jpg">
-					<div class="top-item-info">
-						<h4>creighton</h4>
-						<span class="upvotes">17 upvotes</span>
+					<p class="home-resource-description">Chris Pine's "Learn to Program" is great for absolute beginners!</p>
+				</div>
+			</div>
+			<div class="span3 home-resource">
+				<div class="home-resource-inner">
+					<h3>jQuery UI</h3>
+					<div style="background: url('https://www.cs.washington.edu/education/courses/190m/12su/lectures/slides/images/jquery_ui_logo_small.gif') no-repeat;" class="home-resource-image">
 					</div>
-					<span class="add-user"></span>
+					<p class="home-resource-description">Chris Pine's "Learn to Program" is great for absolute beginners!</p>
 				</div>
 			</div>
 		</div>
-		<div class="top-middle">
-			<h3>Top Crafts</h3>
-			<div class="top-item-container">
-				<div class="top-item">
-					<div class="top-item-number">
-						<span>1</span>
-					</div>
-					<img src="/assets/rails.png">
-					<div class="top-item-info">
-						<h4>Ruby on Rails</h4>
-						<span class="upvotes">1123 upvotes</span>
-					</div>
-					<span class="add-user"></span>
-				</div>
-				<div class="top-item">
-					<div class="top-item-number">
-						<span>2</span>
-					</div>
-					<img src="/assets/entrepreneur.jpg">
-					<div class="top-item-info">
-						<h4>Entrepreneurship</h4>
-						<span class="upvotes">314 upvotes</span>
-					</div>
-					<span class="add-user"></span>
-				</div>
-				<div class="top-item">
-					<div class="top-item-number">
-						<span>3</span>
-					</div>
-					<img src="/assets/scuba.jpg">
-					<div class="top-item-info">
-						<h4>Scuba Diving</h4>
-						<span class="upvotes">200 upvotes</span>
-					</div>
-					<span class="add-user"></span>
-				</div>
+		<div class="row-fluid">
+			<div class="span12 subhead">
+				<h2>Top Mages / <span>This week's top sharers</span></h2>
 			</div>
 		</div>
-		<div class="top-right">
-			<h3>Top Resources</h3>
-			<div class="top-item-container">
-				<div class="top-item">
-					<div class="top-item-number">
-						<span>1</span>
+		<div class="row-fluid">
+			<% @users.each do |user| %>
+				<div class="span3 home-resource">
+					<div class="home-resource-inner">
+						<h3><%= user.username %></h3>
+						<%= gravatar_image_tag(user.email, :alt => "#{user.first_name} #{user.last_name}", :class => 'home-resource-image', :gravatar => { :size => 250 }) %>
+						<p class="home-resource-description"><%= user.bio %></p>
 					</div>
-					<img src="/assets/learn_to_program.jpg">
-					<div class="top-item-info">
-						<h4>Learn to Program</h4>
-						<span class="author">Chris Pine</span>
-						<span class="upvotes">101</span>
-					</div>
-					<span class="add-user"></span>
 				</div>
-				<div class="top-item">
-					<div class="top-item-number">
-						<span>2</span>
-					</div>
-					<img src="/assets/chess.jpg">
-					<div class="top-item-info">
-						<h4>Chess for Dummies</h4>
-						<span class="author">James Eade</span>
-						<span class="upvotes">91</span>
-					</div>
-					<span class="add-user"></span>
-				</div>
-				<div class="top-item">
-					<div class="top-item-number">
-						<span>3</span>
-					</div>
-					<img src="/assets/eloquent.jpg">
-					<div class="top-item-info">
-						<h4>Eloquent JavaScript</h4>
-						<span class="author">Marijn Haverbeke</span>
-						<span class="upvotes">83</span>
-					</div>
-					<span class="add-user"></span>
-				</div>
-			</div>
+			<% end %>
+		</div>
 		</div>
 	</section>
 </div>

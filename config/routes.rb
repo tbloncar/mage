@@ -1,10 +1,52 @@
 Mage::Application.routes.draw do
   get "/" => "Home#home"
-  get "/user/:user_name" => "Users#view_profile"
+
+  # User
+  # ---------------------------------------------
+
+  # CREATE
+
+  get "/register" => "Users#new"
+  post "/users" => "Users#create"
+
+  # READ
+
+  # get "/users" => "Users#index"
+  get "/users/:user_name" => "Users#show"
+
+  # UPDATE
+
+  get "/users/:user_name/edit" => "Users#edit"
+  put "/users/:user_name" => "Users#update"
+
+  # DELETE
+
+  delete "/users/:user_name" => "Users#destroy"
+
+  # Resource
+  # ---------------------------------------------
+
+  # CREATE
+
+  # READ
+
+  get "/:category/:craft_path/:resource_name" => "Resources#show"
+
+  # UPDATE
+
+  # DELETE
+
+  # Craft
+  # ---------------------------------------------
 
   get "/:category/:craft_path" => "Crafts#show"
 
+
+  # Session
+  # ---------------------------------------------
   
+  match "/sign-in" => 'Sessions#new'
+  match "/sign-out" => 'Sessions#destroy'
 
 
 

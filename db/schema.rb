@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130421072957) do
+ActiveRecord::Schema.define(:version => 20130424214924) do
 
   create_table "crafts", :force => true do |t|
     t.string "name"
@@ -21,14 +21,27 @@ ActiveRecord::Schema.define(:version => 20130421072957) do
     t.string "path"
   end
 
+  create_table "resources", :force => true do |t|
+    t.string  "name"
+    t.string  "author"
+    t.text    "description"
+    t.string  "image_url"
+    t.integer "upvotes"
+    t.string  "link"
+    t.string  "path"
+    t.string  "craft"
+  end
+
   create_table "users", :force => true do |t|
-    t.string "username"
-    t.string "encrypted_password"
-    t.string "email"
-    t.text   "bio"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "salt"
+    t.string  "username"
+    t.string  "encrypted_password"
+    t.string  "email"
+    t.string  "first_name"
+    t.string  "last_name"
+    t.text    "bio"
+    t.string  "salt"
+    t.integer "upvotes"
+    t.string  "avatar_url"
   end
 
 end

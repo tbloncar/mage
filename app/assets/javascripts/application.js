@@ -13,3 +13,24 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+// Show form help tips on corresponding input click
+$('.form-text-input').focus(function() {
+	$(this).next().removeClass('no').addClass('form-help');
+});
+$('.form-text-input').blur(function() {
+	$(this).next().removeClass('form-help').addClass('no');
+});
+// Remove messages on span 'x' click
+$('.message span').click(function() {
+	$(this).parent().parent().fadeOut(1500);
+})
+$('#delete').keyup(function() {
+	v = $(this).val();
+	$(this).val(v.toUpperCase());
+	if (v.toUpperCase() == "DELETE") {
+		$(".delete-button").removeAttr('disabled');
+	}
+	else {
+		$(".delete-button").attr('disabled','disabled');
+	}
+});
