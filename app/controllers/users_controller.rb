@@ -41,7 +41,7 @@ class UsersController < ApplicationController
 
 		user.save
 
-		redirect_to "/users/#{params[:user_name]}"
+		redirect_to "/users/#{params[:user_name]}/edit"
 	end
 
 	def destroy

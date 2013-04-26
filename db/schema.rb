@@ -11,14 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130424214924) do
+ActiveRecord::Schema.define(:version => 20130426023710) do
 
-  create_table "crafts", :force => true do |t|
+  create_table "classifications", :force => true do |t|
     t.string "name"
     t.text   "short_description"
     t.text   "long_description"
     t.string "image_url"
     t.string "path"
+  end
+
+  create_table "crafts", :force => true do |t|
+    t.string  "name"
+    t.text    "short_description"
+    t.text    "long_description"
+    t.string  "image_url"
+    t.string  "path"
+    t.integer "classification_id", :limit => 255
   end
 
   create_table "resources", :force => true do |t|
@@ -29,7 +38,7 @@ ActiveRecord::Schema.define(:version => 20130424214924) do
     t.integer "upvotes"
     t.string  "link"
     t.string  "path"
-    t.string  "craft"
+    t.integer "craft_id",    :limit => 255
   end
 
   create_table "users", :force => true do |t|

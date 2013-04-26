@@ -34,3 +34,7 @@ $('#delete').keyup(function() {
 		$(".delete-button").attr('disabled','disabled');
 	}
 });
+function confirm_delete(m) {
+	$('#delete').val('');
+	return confirm('Are you sure you want to delete your account permanently?');
+};

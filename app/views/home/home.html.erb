@@ -7,7 +7,7 @@
 		</div>
 		<div class="row-fluid">
 			<% @resources.each do |resource| %>
-				<a href="/programming/<% resource.craft %>/<%= resource.path %>" class="span3 home-resource">
+				<a href="/computer-programming/<%= Craft.where('id = ?', resource.craft_id)[0].path %>/<%= resource.path %>" class="span3 		home-resource">
 					<div class="home-resource-inner">
 						<h3><%= resource.name %></h3>
 						<div style="background: url('<%= resource.image_url %>') no-repeat;" class="home-resource-image">
@@ -23,38 +23,16 @@
 			</div>
 		</div>
 		<div class="row-fluid">
-			<div class="span3 home-resource">
+			<% @crafts.each do |craft| %>
+			<a href="/computer-programming/<%= craft.path %>" class="span3 home-resource">
 				<div class="home-resource-inner">
-					<h3>Ruby on Rails</h3>
-					<div style="background: url('http://www.brandsoftheworld.com/sites/default/files/styles/logo-original-577x577/public/112012/rails.png') no-repeat;" class="home-resource-image">
+					<h3><%= craft.name %></h3>
+					<div style="background: url('<%= craft.image_url %>') no-repeat;" class="home-resource-image">
 					</div>
-					<p class="home-resource-description">Chris Pine's "Learn to Program" is great for absolute beginners!</p>
+					<p class="home-resource-description"><%= craft.short_description %></p>
 				</div>
-			</div>
-			<div class="span3 home-resource">
-				<div class="home-resource-inner">
-					<h3>HTML5</h3>
-					<div style="background: url('http://www.blog-nouvelles-technologies.fr/wp-content/uploads/2011/03/les-10-meilleures-ressources-pour-apprendre-html5.jpg') no-repeat;" class="home-resource-image">
-					</div>
-					<p class="home-resource-description">Chris Pine's "Learn to Program" is great for absolute beginners!</p>
-				</div>
-			</div>
-			<div class="span3 home-resource">
-				<div class="home-resource-inner">
-					<h3>Caligraphy</h3>
-					<div style="background: url('http://designworklife.com/wp-content/uploads/2011/02/kateforrester_calligraphy_01.jpg') no-repeat;" class="home-resource-image">
-					</div>
-					<p class="home-resource-description">Chris Pine's "Learn to Program" is great for absolute beginners!</p>
-				</div>
-			</div>
-			<div class="span3 home-resource">
-				<div class="home-resource-inner">
-					<h3>jQuery UI</h3>
-					<div style="background: url('https://www.cs.washington.edu/education/courses/190m/12su/lectures/slides/images/jquery_ui_logo_small.gif') no-repeat;" class="home-resource-image">
-					</div>
-					<p class="home-resource-description">Chris Pine's "Learn to Program" is great for absolute beginners!</p>
-				</div>
-			</div>
+			</a>
+			<% end %>
 		</div>
 		<div class="row-fluid">
 			<div class="span12 subhead">
@@ -63,13 +41,13 @@
 		</div>
 		<div class="row-fluid">
 			<% @users.each do |user| %>
-				<div class="span3 home-resource">
+				<a href="/users/<%= user.username %>" class="span3 home-resource">
 					<div class="home-resource-inner">
 						<h3><%= user.username %></h3>
 						<%= gravatar_image_tag(user.email, :alt => "#{user.first_name} #{user.last_name}", :class => 'home-resource-image', :gravatar => { :size => 250 }) %>
 						<p class="home-resource-description"><%= user.bio %></p>
 					</div>
-				</div>
+				</a>
 			<% end %>
 		</div>
 		</div>

@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Classification.destroy_all
 Craft.destroy_all
 Resource.destroy_all
 User.destroy_all
@@ -24,6 +25,7 @@ crafts.each do |craft|
 	c.long_description = craft[:long_description]
 	c.image_url = craft[:image_url]
 	c.path = craft[:path]
+	c.classification_id = 1
 	c.save
 end
 
@@ -36,7 +38,7 @@ resources = [
 		:upvotes => "0",
 		:link => "http://www.amazon.com/Program-Second-Edition-Facets-Series/dp/1934356360/ref=sr_1_1?ie=UTF8&qid=1366681854&sr=8-1&keywords=learn+to+program",
 		:path => "learn-to-program",
-		:craft => "Ruby on Rails"
+		:craft => 1
 	},
 	{
 		:name => "Eloquent JavaScript",
@@ -46,7 +48,7 @@ resources = [
 		:upvotes => "0",
 		:link => "http://www.amazon.com/Eloquent-JavaScript-Modern-Introduction-Programming/dp/1593272820/ref=sr_1_1?s=books&ie=UTF8&qid=1366681896&sr=1-1&keywords=eloquent+javascript",
 		:path => "eloquent-javascript",
-		:craft => "JavaScript"
+		:craft => 1
 	},
 	{
 		:name => "The Starter League",
@@ -56,7 +58,7 @@ resources = [
 		:upvotes => 0,
 		:link => "http://starterleague.com",
 		:path => "starter-league",
-		:craft => "Ruby on Rails"
+		:craft => 1
 	},
 	{
 		:name => "Team Treehouse",
@@ -66,7 +68,7 @@ resources = [
 		:upvotes => 2,
 		:link => "http://www.teamtreehouse.com",
 		:path => "team-treehouse",
-		:craft => "HTML"
+		:craft => 1
 	}
 ]
 
@@ -79,7 +81,7 @@ resources.each do |resource|
 	r.upvotes = resource[:upvotes]
 	r.link = resource[:link]
 	r.path = resource[:path]
-	r.craft = resource[:craft]
+	r.craft_id = resource[:craft]
 	r.save
 end
 
@@ -130,6 +132,25 @@ users.each do |user|
 end
 
 
+classifications = [
+	{
+		:name => "Programming",
+		:short_description => "Computer Programming is the practice of instructing computers how to behave.",
+		:long_description => "Computer Programming is the practice of instructing computers how to behave.",
+		:image_url => "http://www.whitefang.com/wp-content/uploads/2010/03/Computer-Programming1.jpg",
+		:path => "computer-programming"
+	}
+]
+
+classifications.each do |classification|
+	c = Classification.new
+	c.name = classification[:name]
+	c.short_description = classification[:short_description]
+	c.long_description = classification[:long_description]
+	c.image_url = classification[:image_url]
+	c.path = classification[:path]
+	c.save
+end
 
 
 

@@ -30,7 +30,7 @@ Mage::Application.routes.draw do
 
   # READ
 
-  get "/:category/:craft_path/:resource_name" => "Resources#show"
+  get "/:classification_path/:craft_path/:resource_path" => "Resources#show"
 
   # UPDATE
 
@@ -39,8 +39,17 @@ Mage::Application.routes.draw do
   # Craft
   # ---------------------------------------------
 
-  get "/:category/:craft_path" => "Crafts#show"
+  get "/:classification_path/:craft_path" => "Crafts#show"
 
+
+  # Classification
+  # ---------------------------------------------
+
+  # READ
+
+  get "/:classification_path" => "Classifications#show"
+
+  
 
   # Session
   # ---------------------------------------------
