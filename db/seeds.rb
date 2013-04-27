@@ -32,10 +32,10 @@ classifications.each do |classification|
 end
 
 crafts = [
-	{:name => "Ruby on Rails", :short_description => "Ruby on Rails is a framework for building web applications", :long_description => "Ruby on Rails is a framework for building web applications.", :image_url => "http://bari.the-hub.net/files/2013/02/railslogo.png", :path => "ruby-on-rails"},
-	{:name => "HTML5", :short_description => "HTML5 is the new standard for structuring websites.", :long_description => "HTML5 is the new standard for structuring websites.", :image_url => "http://www.blog-nouvelles-technologies.fr/wp-content/uploads/2011/03/les-10-meilleures-ressources-pour-apprendre-html5.jpg", :path => "html5"},
-	{:name => "JavaScript", :short_description => "JavaScript is used to enhance the behavioral components of web applications.", :long_description => "JavaScript is used to enhance the behavioral components of web applications.", :image_url => "http://austinjavascript.com/wp-content/uploads/2012/11/thanksgiving.js-400x400.png", :path => "javascript"},
-	{:name => "jQuery UI", :short_description => "jQuery UI offers a number of cool jQuery-based UI elements.", :long_description => "jQuery UI offers a number of cool jQuery-based UI elements.", :image_url => "https://www.cs.washington.edu/education/courses/190m/12su/lectures/slides/images/jquery_ui_logo_small.gif", :path => 'jquery-ui'}
+	{:name => "Ruby on Rails", :short_description => "Ruby on Rails is a framework for building web applications", :long_description => "Ruby on Rails is a framework for building web applications.", :image_url => "http://bari.the-hub.net/files/2013/02/railslogo.png", :path => "ruby-on-rails", :full_path => "/computer-programming/ruby-on-rails"},
+	{:name => "HTML5", :short_description => "HTML5 is the new standard for structuring websites.", :long_description => "HTML5 is the new standard for structuring websites.", :image_url => "http://www.blog-nouvelles-technologies.fr/wp-content/uploads/2011/03/les-10-meilleures-ressources-pour-apprendre-html5.jpg", :path => "html5", :full_path => "/computer-programming/html5"},
+	{:name => "JavaScript", :short_description => "JavaScript is used to enhance the behavioral components of web applications.", :long_description => "JavaScript is used to enhance the behavioral components of web applications.", :image_url => "http://austinjavascript.com/wp-content/uploads/2012/11/thanksgiving.js-400x400.png", :path => "javascript", :full_path => "/computer-programming/javascript"},
+	{:name => "jQuery UI", :short_description => "jQuery UI offers a number of cool jQuery-based UI elements.", :long_description => "jQuery UI offers a number of cool jQuery-based UI elements.", :image_url => "https://www.cs.washington.edu/education/courses/190m/12su/lectures/slides/images/jquery_ui_logo_small.gif", :path => 'jquery-ui', :full_path => "/computer-programming/jquery-ui"}
 	]
 
 crafts.each do |craft|
@@ -45,6 +45,7 @@ crafts.each do |craft|
 	c.long_description = craft[:long_description]
 	c.image_url = craft[:image_url]
 	c.path = craft[:path]
+	c.full_path = craft[:full_path]
 	c.classification_id = Classification.first.id
 	c.save
 end
@@ -58,6 +59,7 @@ resources = [
 		:upvotes => "0",
 		:link => "http://www.amazon.com/Program-Second-Edition-Facets-Series/dp/1934356360/ref=sr_1_1?ie=UTF8&qid=1366681854&sr=8-1&keywords=learn+to+program",
 		:path => "learn-to-program",
+		:full_path => "/computer-programming/ruby-on-rails/learn-to-program",
 		:craft => Craft.first.id
 	},
 	{
@@ -68,6 +70,7 @@ resources = [
 		:upvotes => "0",
 		:link => "http://www.amazon.com/Eloquent-JavaScript-Modern-Introduction-Programming/dp/1593272820/ref=sr_1_1?s=books&ie=UTF8&qid=1366681896&sr=1-1&keywords=eloquent+javascript",
 		:path => "eloquent-javascript",
+		:full_path => "/computer-programming/javascript/eloquent-javascript",
 		:craft => Craft.find_by_name("JavaScript").id
 	},
 	{
@@ -78,6 +81,7 @@ resources = [
 		:upvotes => 0,
 		:link => "http://starterleague.com",
 		:path => "starter-league",
+		:full_path => "/computer-programming/ruby-on-rails/starter-league",
 		:craft => Craft.first.id
 	},
 	{
@@ -88,6 +92,7 @@ resources = [
 		:upvotes => 2,
 		:link => "http://www.teamtreehouse.com",
 		:path => "team-treehouse",
+		:full_path => "/computer-programming/html5/team-treehouse",
 		:craft => Craft.find_by_name("HTML5").id
 	}
 ]
@@ -101,6 +106,7 @@ resources.each do |resource|
 	r.upvotes = resource[:upvotes]
 	r.link = resource[:link]
 	r.path = resource[:path]
+	r.full_path = resource[:full_path]
 	r.craft_id = resource[:craft]
 	r.save
 end

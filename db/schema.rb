@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130426023710) do
+ActiveRecord::Schema.define(:version => 20130427211400) do
 
   create_table "classifications", :force => true do |t|
     t.string "name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20130426023710) do
     t.string  "image_url"
     t.string  "path"
     t.integer "classification_id", :limit => 255
+    t.string  "full_path"
   end
 
   create_table "resources", :force => true do |t|
@@ -39,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20130426023710) do
     t.string  "link"
     t.string  "path"
     t.integer "craft_id",    :limit => 255
+    t.string  "full_path"
   end
 
   create_table "users", :force => true do |t|

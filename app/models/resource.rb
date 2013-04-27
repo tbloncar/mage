@@ -15,4 +15,10 @@ class Resource < ActiveRecord::Base
 		end
 	end
 
+	def self.craft_list(craft_id)
+		uncached do
+			where('craft_id' => craft_id).order("upvotes DESC").limit(10)
+		end
+	end
+
 end

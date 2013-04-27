@@ -95,6 +95,14 @@ body {
 	padding: 15px;
 	background: #fff;
 	border: 1px solid #ccc;
+	h3 {
+		font-size: 18px;
+		margin-top: 0;
+		line-height: 18px;
+	}
+	p {
+		margin-bottom: 0;
+	}
 }
 
 .page-header {
@@ -109,6 +117,7 @@ body {
 		border: 1px solid #333;
 		margin-right: 15px;
 		float: left;
+		background: #fff;
 	}
 	.breadcrumbs {
 		a {
@@ -326,19 +335,27 @@ header {
 }
 
 
-.home-resource:nth-of-type(odd) .home-resource-inner {
-	border-top: 5px solid $darkPurple;
+.home-resource:nth-of-type(odd) {
 	&:hover {
-		border-color: #66CD00;
-		color: #222;
+		.home-resource-inner {
+			border-color: #66CD00;
+			color: #222;
+		}
+	}
+	.home-resource-inner {
+		border-top: 5px solid $darkPurple;
 	}
 }
 
-.home-resource:nth-of-type(even) .home-resource-inner {
-	border-top: 5px solid $darkGold;
+.home-resource:nth-of-type(even) {
 	&:hover {
-		border-color: #66CD00;
-		color: #222;
+		.home-resource-inner {
+			border-color: #66CD00;
+			color: #222;
+		}
+	}
+	.home-resource-inner {
+		border-top: 5px solid $darkGold;
 	}
 }
 
@@ -465,6 +482,49 @@ form .form-help {
 	background: #fff;
 }
 
+.craft-resource {
+	display: block;
+	height: 100px;
+	padding: 10px;
+	border-bottom: 1px solid #ddd;
+	border-right: 5px solid #ddd;
+	border-left: 1px solid #ddd;
+	background-clip: content-box;
+	color: #333;
+	&:hover {
+		cursor: pointer;
+		text-decoration: none;
+		border-color: #bbb;
+		border-right: 5px solid $darkGold;
+		color: #333;
+	}
+	&:first-of-type {
+		border-top: 1px solid #ddd;
+		margin-top: 20px;
+	}
+	.craft-resource-number {
+		float: left;
+		font-size: 20px;
+		padding: 40px 20px;
+
+	}
+	.craft-resource-image {
+		float: left;
+		margin-right: 10px;
+		img {
+			height: 100px;
+			width: 100px;
+			border: 1px solid #555;
+		}
+	}
+	.craft-resource-content {
+		h4 {
+			margin-top: 0;
+			font-size: 16px;
+		}
+	}
+}
+
 
 // Resources --------------------- <<
 
@@ -474,14 +534,7 @@ form .form-help {
 }
 
 .resource-left {
-	h3 {
-		font-size: 18px;
-		margin-top: 0;
-		line-height: 18px;
-	}
-	p {
-		margin-bottom: 0;
-	}
+	
 }
 
 

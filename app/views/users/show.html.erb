@@ -10,25 +10,31 @@
 	</div>
 	<div class="row-fluid">
 		<div class="span12 page-header">
-			<h1><%= @user.username %></h1>
-		</div>
-	</div>
-	<div class="row-fluid">
-		<div class="span12 subhead">
-			<h2>Personal Story</h2>
-		</div>
-	</div>
-	<div class="row-fluid">
-		<div class="span6 profile-left">
 			<%= gravatar_image_tag(@user.email, :alt => "#{@user.first_name} #{@user.last_name}", :class => 'profile-avatar', :gravatar => { :size => 150 }) %>
-			<h3>Biography</h3>
-			<p>
-				<%= @user.bio %>
-			</p>
-		</div>
-		<div class="span6 profile-right">
-			<h3>Connect</h3>
+			<h1 class="resource-title"><span><%= @user.username %></span></h1>
+			<div class="breadcrumbs">
+				<span><%= @user.bio %></span>
+			</div>
 		</div>
 	</div>
-
+	<div class="row-fluid">
+		<div class="span4 subhead">
+			<h2>Upvotes</h2>
+			<div class="white-container">
+				Upvotes
+			</div>
+		</div>
+		<div class="span4 subhead">
+			<h2>Submissions</h2>
+			<div class="white-container">
+				Upvotes
+			</div>
+		</div>
+		<div class="span4 subhead">
+			<h2>Interests</h2>
+			<div class="white-container">
+				Upvotes
+			</div>
+		</div>
+	</div>
 </div>

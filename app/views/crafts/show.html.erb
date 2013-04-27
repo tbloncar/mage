@@ -4,7 +4,7 @@
 			<img src="<%= @craft.image_url %>">
 			<h1 class="resource-title"><span><%= @craft.name %></span></h1>
 			<div class="breadcrumbs">
-				<a href="#">Programming</a> > <a href="#"><%= @craft.name %></a>
+				<a href="/<%= @classification.path %>">Programming</a> > <a href="<% @craft.full_path %>"><%= @craft.name %></a>
 			</div>
 		</div>
 	</div>
@@ -14,7 +14,19 @@
 			<p><%= @craft.short_description %></p>
 		</div>
 		<div class="span7 white-container resource-right">
-			Details
+			<h3>Top Resources</h3>
+			<p>The top <%= @craft.name %> learning resources as voted by our mages.</p>
+			<% @resources.each_with_index do |resource, i| %>
+				<a class="craft-resource" href="<%= resource.full_path %>">
+					<div class="craft-resource-image">
+						<img src="<%= resource.image_url %>">
+					</div>
+					<div class="craft-resource-content">
+						<h4><%= (i + 1) %>) <%= resource.name %></h4>
+						<p><%= resource.description %></p>
+					</div>
+				</a>
+			<% end %>
 		</div>
 	</div>
 </div>
