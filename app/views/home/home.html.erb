@@ -10,6 +10,7 @@
 				<a href="/computer-programming/<%= Craft.where('id = ?', resource.craft_id)[0].path %>/<%= resource.path %>" class="span3 		home-resource">
 					<div class="home-resource-inner">
 						<h3><%= resource.name %></h3>
+						<h4><%= resource.author %> / <%= Craft.find_by_id(resource.craft_id).name %></h4>
 						<div style="background: url('<%= resource.image_url %>') no-repeat;" class="home-resource-image">
 						</div>
 						<p class="home-resource-description"><%= resource.description %></p>
@@ -41,7 +42,7 @@
 		</div>
 		<div class="row-fluid">
 			<% @users.each do |user| %>
-				<a href="/users/<%= user.username %>" class="span3 home-resource">
+				<a href="<%= user_url(user.username) %>" class="span3 home-resource">
 					<div class="home-resource-inner">
 						<h3><%= user.username %></h3>
 						<%= gravatar_image_tag(user.email, :alt => "#{user.first_name} #{user.last_name}", :class => 'home-resource-image', :gravatar => { :size => 250 }) %>

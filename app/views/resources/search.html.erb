@@ -1,0 +1,25 @@
+<div class="container">
+	<div class="row-fluid">
+		<div class="span12 page-header">
+			<h1>Search Results</h1>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span12">
+			<% @search.each_hit_with_result do |hit, resource| %>
+				<a class="search-result span6" href="<%= resource_url(resource.path, resource.path, resource.path) %>">
+					<div class="search-result-inner">
+						<div class="search-thumbnail">
+							<img src="<%= resource.image_url %>" alt="<%= resource.name %> - <%= resource.author %>">
+						</div>
+						<div class="search-content">
+							<h2><%= resource.name %> - <span><%= resource.author %></span></h2>
+							<p><%= resource.description %></p>
+						</div>
+					</div>
+				</a>
+			<% end %>
+		</div>
+	</div>
+</div>
+  

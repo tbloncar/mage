@@ -20,6 +20,10 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :development do
+	gem 'sunspot_solr'
+end
+
 gem 'jquery-rails'
 gem 'normalize-rails', '~> 2.0.1'
 
@@ -40,3 +44,6 @@ gem 'normalize-rails', '~> 2.0.1'
 
 # To use Gravatar avatars for user profiles
 gem 'gravatar_image_tag'
+
+# Sunspot search functionality
+gem 'sunspot_rails', '~> 1.3.0'

@@ -6,51 +6,51 @@
 	</div>
 	<div class="row-fluid">
 		<div class="span5 form-container">
-			<%= form_tag "/users", :method => "post" do %>
+			<%= form_tag users_url, :method => "post" do %>
 				<div class="form-input control-group">
-					<label for="email" class="control-label">Email Address</label>
+					<%= label_tag "email", nil, :class  => "control-label" %>
 					<div class="controls">
-						<input type="email" name="email" id="email" placeholder="Email Address" class="form-text-input" required>
+						<%= email_field_tag "email", nil, { :id => "email", :placeholder => "Email Address", :class => "form-text-input", :required => "true" } %>
 						<span class="no">Make sure it's valid!</span>
 					</div>
 				</div>
 				<div class="form-input control-group">
-					<label for="username" class="control-label">Username</label>
+					<%= label_tag "username", nil, :class => "control-label" %>
 					<div class="controls">
-						<input type="text" name="username" id="username" placeholder="Username" class="form-text-input" required>
+						<%= text_field_tag "username", nil, { :id => "username", :placeholder => "Username", :class => "form-text-input", :required => "true" } %>
 						<span class="no">Thy name musn't change.</span>
 					</div>
 				</div>
 				<div class="form-input control-group">
-					<label for="password" class="control-label">Password</label>
+					<%= label_tag "password", nil, :class => "control-label" %>
 					<div class="controls">
-						<input type="password" name="password" id="password" placeholder="Password" class="form-text-input" required>
+						<%= password_field_tag "password", nil, { :id => "password", :placeholder => "Password", :class => "form-text-input", :required => "true", :maxlength => 20 } %>
 						<span class="no">Choose wisely, young learner.</span>
 					</div>
 				</div>
 				<div class="form-input control-group">
-					<label for="first" class="control-label">First Name</label>
+					<%= label_tag "first", "First Name", :class => "control-label" %>
 					<div class="controls">
-						<input type="text" name="first" id="first" placeholder="First Name" class="form-text-input" required>
+						<%= text_field_tag "first", nil, { :id => "first", :placeholder => "First Name", :class => "form-text-input", :required => "true" } %>
 						<span class="no">Keep it real.</span>
 					</div>
 				</div>
 				<div class="form-input control-group">
-					<label for="last" class="control-label">Last Name</label>
+					<%= label_tag "last", "Last Name", :class => "control-label" %>
 					<div class="controls">
-						<input type="text" name="last" id="last" placeholder="Last Name" class="form-text-input" required>
+						<%= text_field_tag "last", nil, { :id => "last", :placeholder => "Last Name", :class => "form-text-input", :required => "true" } %>
 						<span class="no">We won't make this public.</span>
 					</div>
 				</div>
 				<div class="form-input control-group">
-					<label for="bio" class="control-label">Short Bio</label>
+					<%= label_tag "bio", nil, :class => "control-label" %>
 					<div class="controls">
-						<textarea name="bio" id="bio" class="form-text-input" rows="10"></textarea>
+						<%= text_area_tag "bio", nil, { :class => "form-text-input", :rows => 10 } %>
 						<span class="no">Scribe your interests!</span>
 					</div>
 				</div>
 				<div class="form-input control-group">
-					<button class="form-button link-gold">Create Account</button>
+					<%= button_tag "Create Account", :class => "form-button link-gold" %>
 				</div>
 			<% end %>
 		</div>

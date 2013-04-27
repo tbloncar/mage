@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
 		user.save
 
-		redirect_to "http://localhost:3000/users/#{params[:username]}/?success=yes"
+		redirect_to(user_url(params[:username]) + "?success=yes")
 	end
 
 
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
 
 		user.save
 
-		redirect_to "/users/#{params[:user_name]}/edit"
+		redirect_to edit_user_url(params[:user_name])
 	end
 
 	def destroy
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
 
 		user.destroy
 
-		redirect_to "/"
+		redirect_to home_url
 	end
 
 end

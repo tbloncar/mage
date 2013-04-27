@@ -1,45 +1,56 @@
 Mage::Application.routes.draw do
-  get "/" => "Home#home"
+  get "/" => "Home#home", :as => "home"
+
+  # Session
+  # ---------------------------------------------
+  
+  match "/sign-in" => 'Sessions#new'
+  match "/sign-out" => 'Sessions#destroy'
 
   # User
   # ---------------------------------------------
 
   # CREATE
 
-  get "/register" => "Users#new"
-  post "/users" => "Users#create"
+  get "/register" => "Users#new", :as => "new_user"
+  post "/users" => "Users#create", :as => "users"
 
   # READ
 
   # get "/users" => "Users#index"
-  get "/users/:user_name" => "Users#show"
+  get "/users/:user_name" => "Users#show", :as => "user"
 
   # UPDATE
 
-  get "/users/:user_name/edit" => "Users#edit"
-  put "/users/:user_name" => "Users#update"
+  get "/users/:user_name/edit" => "Users#edit", :as => "edit_user"
+  put "/users/:user_name" => "Users#update", :as => "user"
 
   # DELETE
 
-  delete "/users/:user_name" => "Users#destroy"
+  delete "/users/:user_name" => "Users#destroy", :as => "user"
 
   # Resource
   # ---------------------------------------------
 
   # CREATE
 
+
   # READ
 
-  get "/:classification_path/:craft_path/:resource_path" => "Resources#show"
+  get "/:classification_path/:craft_path/:resource_path" => "Resources#show", :as => "resource"
 
   # UPDATE
 
   # DELETE
 
+  # SEARCH
+
+  get "/search" => "Resources#search"
+
   # Craft
   # ---------------------------------------------
 
-  get "/:classification_path/:craft_path" => "Crafts#show"
+  get "/:classification_path/:craft_path" => "Crafts#show", :as => "craft"
 
 
   # Classification
@@ -47,15 +58,7 @@ Mage::Application.routes.draw do
 
   # READ
 
-  get "/:classification_path" => "Classifications#show"
-
-  
-
-  # Session
-  # ---------------------------------------------
-  
-  match "/sign-in" => 'Sessions#new'
-  match "/sign-out" => 'Sessions#destroy'
+  get "/:classification_path" => "Classifications#show", :as => "classification"
 
 
 

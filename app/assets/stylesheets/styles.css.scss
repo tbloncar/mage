@@ -103,6 +103,19 @@ body {
 	h1 {
 		font-size: 22px;
 	}
+	img {
+		height: 100px;
+		width: 100px;
+		border: 1px solid #333;
+		margin-right: 15px;
+		float: left;
+	}
+	.breadcrumbs {
+		a {
+			color: #333;
+			text-decoration: underline;
+		}
+	}
 }
 
 .no {
@@ -331,7 +344,15 @@ header {
 
 .home-resource-inner h3 {
 	font-size: 16px;
+	margin-top: 10px;
+	line-height: 16px;
+}
+
+.home-resource-inner h4 {
+	font-size: 14px;
 	margin-top: 0;
+	line-height: 16px;
+	font-weight: 300;
 }
 
 .home-resource-image {
@@ -339,6 +360,7 @@ header {
 	width: 100%;
 	border: 1px solid #CCC;
 	margin-bottom: 10px;
+	position: relative;
 }
 
 .home-resource-description {
@@ -405,7 +427,7 @@ form input:focus:required {
 	box-shadow: none !important;
 }
 
-input#delete:required:focus {
+input#delete:focus {
 	border-color: #FF4040 !important;
 }
 
@@ -446,10 +468,66 @@ form .form-help {
 
 // Resources --------------------- <<
 
+
+.resource-title {
+	margin: 0 0 5px 0;
+}
+
 .resource-left {
-	img {
-		width: 50%;
-		border: 1px solid #ccc;
+	h3 {
+		font-size: 18px;
+		margin-top: 0;
+		line-height: 18px;
+	}
+	p {
+		margin-bottom: 0;
+	}
+}
+
+
+// Search Results ------------------ <<
+
+
+.search-result {
+	display: block;
+	background: #fff;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-right: 5px solid #66CD00;
+	@include box-sizing;
+	&:hover {
+		cursor: pointer;
+		border-color: #bbb;
+		text-decoration: none;
+		border-right: 5px solid $darkGold;
+		.search-thumbnail {
+			opacity: 1.0;
+		}
+	}
+	.search-thumbnail {
+		width: 100px;
+		height: 100px;
+		float: left;
+		margin-right: 10px;
+		opacity: 0.85;
+		border: 1px solid #bbb;
+		img {
+			height: 100%;
+			width: 100%;
+		}
+	}
+	.search-content {
+		height: 100%;
+	 	color: #333;
+		h2 {
+			font-size: 18px;
+			line-height: 18px;
+			margin-top: 0;
+			span {
+				color: #555;
+				font-weight: 200;
+			}
+		}
 	}
 }
 

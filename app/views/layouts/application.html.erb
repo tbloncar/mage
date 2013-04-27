@@ -13,11 +13,11 @@
 			<div class="span12">
 				<a class='logo' href="/">Mage</a>
 				<nav>
-					<form class="search-header pull-right">
-						<input type="text" placeholder="Search">
+					<form action="/search" class="search-header pull-right" method="get">
+						<input type="text" placeholder="Search" name="q" value="<%= @q %>">
 					</form>
 					<a class="pull-right nav-link link-purple" href="/sign-in">Sign In</a>
-					<a class="pull-right nav-link link-gold" href="/register">Create Account</a>
+					<a class="pull-right nav-link link-gold" href="<%= new_user_url %>">Create Account</a>
 				</nav>
 			</div>
 		</div>
