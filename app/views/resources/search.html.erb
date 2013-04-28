@@ -7,10 +7,10 @@
 	<div class="row-fluid">
 		<div class="span12">
 			<% @search.each_hit_with_result do |hit, resource| %>
-				<a class="search-result span6" href="<%= resource_url(resource.path, resource.path, resource.path) %>">
+				<a class="search-result" href="<%= resource_url(resource.path, resource.path, resource.path) %>">
 					<div class="search-result-inner">
 						<div class="search-thumbnail">
-							<img src="<%= resource.image_url %>" alt="<%= resource.name %> - <%= resource.author %>">
+							<img src="<%= resource.avatar.url %>" alt="<%= resource.name %> - <%= resource.author %>">
 						</div>
 						<div class="search-content">
 							<h2><%= resource.name %> - <span><%= resource.author %></span></h2>
