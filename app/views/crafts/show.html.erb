@@ -19,7 +19,7 @@
 			<% @resources.each_with_index do |resource, i| %>
 				<a class="craft-resource" href="<%= resource.full_path %>">
 					<div class="craft-resource-image">
-						<img src="<%= resource.image_url %>">
+						<img src="<%= resource.avatar.url %>">
 					</div>
 					<div class="craft-resource-content">
 						<h4><%= (i + 1) %>) <%= resource.name %></h4>

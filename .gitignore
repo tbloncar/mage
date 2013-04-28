@@ -19,3 +19,6 @@
 
 # Ignore all image files
 /app/assets/images/
+
+# Ignore Solr data
+solr/data

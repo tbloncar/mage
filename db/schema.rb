@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130427211400) do
+ActiveRecord::Schema.define(:version => 20130428051009) do
 
   create_table "classifications", :force => true do |t|
     t.string "name"
@@ -32,15 +32,19 @@ ActiveRecord::Schema.define(:version => 20130427211400) do
   end
 
   create_table "resources", :force => true do |t|
-    t.string  "name"
-    t.string  "author"
-    t.text    "description"
-    t.string  "image_url"
-    t.integer "upvotes"
-    t.string  "link"
-    t.string  "path"
-    t.integer "craft_id",    :limit => 255
-    t.string  "full_path"
+    t.string   "name"
+    t.string   "author"
+    t.text     "description"
+    t.string   "image_url"
+    t.integer  "upvotes"
+    t.string   "link"
+    t.string   "path"
+    t.integer  "craft_id",            :limit => 255
+    t.string   "full_path"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "users", :force => true do |t|

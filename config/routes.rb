@@ -34,6 +34,9 @@ Mage::Application.routes.draw do
 
   # CREATE
 
+  get "/resources/new" => "Resources#new", :as => "new_resource"
+  post "/" => "Resources#create", :as => "resources"
+
 
   # READ
 

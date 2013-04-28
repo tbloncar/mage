@@ -13,7 +13,7 @@ User.destroy_all
 
 classifications = [
 	{
-		:name => "Programming",
+		:name => "Computer Programming",
 		:short_description => "Computer Programming is the practice of instructing computers how to behave.",
 		:long_description => "Computer Programming is the practice of instructing computers how to behave.",
 		:image_url => "http://www.whitefang.com/wp-content/uploads/2010/03/Computer-Programming1.jpg",

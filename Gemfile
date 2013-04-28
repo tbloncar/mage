@@ -47,3 +47,6 @@ gem 'gravatar_image_tag'
 
 # Sunspot search functionality
 gem 'sunspot_rails', '~> 1.3.0'
+
+# Paperclip for image uploading
+gem "paperclip", "~> 3.0"
