@@ -34,8 +34,14 @@ $('#delete').keyup(function() {
 		$(".delete-button").attr('disabled','disabled');
 	}
 });
-function confirm_delete(m) {
+function confirm_delete() {
 	$('#delete').val('');
-	$('.delete-button').attr('disabled','disabled');
-	return confirm('Are you sure you want to delete your account permanently?');
+	r = confirm('Are you sure you want to delete your account permanently?');
+	if(r == true) {
+		return r;
+	}
+	else {
+		$('.delete-button').attr('disabled','disabled');
+		return r;
+	}
 };
