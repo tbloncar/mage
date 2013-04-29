@@ -284,41 +284,10 @@ header {
 // Home Content ------------- <<
 
 
-.top-search {
-	margin: 15px 0 30px 0;
-	padding: 20px 0;
-	border-bottom: 1px dotted #bbb;
-	.search-icon {
-		display: block;
-		background: #fafafa url('/assets/big-search.png') no-repeat 50% 50%;
-		width: 40px;
-		height: 40px;
-		margin: 0px 12px 0 0;
-		float: left;
-		@include shadow(0,0,2px,rgba(0,0,0,0.7));
-		@include rounded(21px);
-	}
-	.top-search-bar {
-		width: 65%;
-		padding: 10px;
-		margin: 0 15px 0 0;
-		border: 2px solid #ddd;
-		@include shadow(0,0,1px,rgba(0,0,0,0.8));
-		&:focus {
-			outline: none;
-			border-color: $darkPurple;
-			box-shadow: none;
-		}
-	}
-	.top-search-button {
-		padding: 9px 0;
-		width: 15%;
-		border: 1px solid $darkGold;
-		color: #fff;
-		border-width: 1px 1px 3px 1px;
-		text-shadow: 0 -1px 1px rgba(0,0,0,0.5);
-		@include rounded(2px);
-		@include glare(0,0,0,rgba(0,0,0,0),0,1px,0,rgba(255,255,255,0.4));
+.home-top {
+	margin: 20px 0;
+	h1 {
+		font-size: 26px;
 	}
 }
 

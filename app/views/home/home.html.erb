@@ -1,4 +1,15 @@
 <div class="container">
+	<section class="home-top">
+		<div class="row-fluid">
+			<div class="span6">
+				<h1>Learning is Magical</h1>
+				<p>Learning can be difficult without the right resources in place to guide you along the way. Mage helps you find these valuable resources for your desired area of learning. Sign up and start sharing with others the resources that have helped you master a particular skill.</p>
+			</div>
+			<div class="span6">
+
+			</div>
+		</div>
+	</section>
 	<section class="home-content">
 		<div class="row-fluid">
 			<div class="span12 subhead">
@@ -25,14 +36,14 @@
 		</div>
 		<div class="row-fluid">
 			<% @crafts.each do |craft| %>
-			<a href="/computer-programming/<%= craft.path %>" class="span3 home-resource">
-				<div class="home-resource-inner">
-					<h3><%= craft.name %></h3>
-					<div style="background: url('<%= craft.image_url %>') no-repeat;" class="home-resource-image">
+				<a href="/computer-programming/<%= craft.path %>" class="span3 home-resource">
+					<div class="home-resource-inner">
+						<h3><%= craft.name %></h3>
+						<div style="background: url('<%= craft.image_url %>') no-repeat;" class="home-resource-image">
+						</div>
+						<p class="home-resource-description"><%= craft.short_description %></p>
 					</div>
-					<p class="home-resource-description"><%= craft.short_description %></p>
-				</div>
-			</a>
+				</a>
 			<% end %>
 		</div>
 		<div class="row-fluid">
