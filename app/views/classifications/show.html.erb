@@ -2,14 +2,38 @@
 	<div class="row-fluid">
 		<div class="span12 page-header">
 			<h1><%= @classification.name %></h1>
+			<p><%= @classification.long_description %></p>
 		</div>
 	</div>
 	<div class="row-fluid">
-		<div class="span6">
+		
+		<div class="span6 white-container">
+			<h3>Related Crafts</h3>
+			<% @crafts.each do |craft| %>
+				<div class="craft-resource">
+					<div class="craft-resource-image">
+						<%= image_tag craft.image_url %>
+					</div>
+					<div class="craft-resource-content">
+						<h4><%= craft.name %></h4>
+						<p><%= craft.long_description %></h4>
+					</div>	
+				</div>
+			<% end %>
 		</div>
-	</div>
-	<div class="row-fluid">
-		<div class="span6">
+		<div class="span6 white-container">
+			<h3>Top Resources</h3>
+			<% @resources.each_with_index do |resource, i| %>
+				<div class="craft-resource">
+					<div class="craft-resource-image">
+						<%= image_tag resource.avatar.url %>
+					</div>
+					<div class="craft-resource-content">
+						<h4><%= (i + 1).to_s %>) <%= resource.name %></h4>
+						<p><%= resource.description %></h4>	
+					</div>
+				</div>
+			<% end %>
 		</div>
 	</div>
 	
