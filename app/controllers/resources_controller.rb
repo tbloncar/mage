@@ -7,9 +7,21 @@ class ResourcesController < ApplicationController
 	end
 
 	def show
-		@resource = Resource.find_by_path(params[:resource_path])
-		@craft = Craft.find_by_id(@resource.craft_id)
-		@classification = Classification.find_by_id(@craft.classification_id)
+		# @resource = Resource.find_by_path(params[:resource_path])
+		# @craft = Craft.find_by_id(@resource.craft_id)
+		# @classification = Classification.find_by_id(@craft.classification_id)
+
+		clpath = params[:classification_path]
+		crpath = params[:craft_path]
+		rpath  = params[:resource_path]
+
+
+		# check classification first
+		@classification = Classification.where(path: clpath).first
+		# given the classification, search the crafts under the classification
+		@craft = @classification.crafts.where(path: crpath).first
+		# given the craft, search the reources under the specific craft
+		@resource = @craft.resources.where(path: rpath).first		
 	end
 
 	def new
