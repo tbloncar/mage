@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130428051009) do
+ActiveRecord::Schema.define(:version => 20130430223753) do
 
   create_table "classifications", :force => true do |t|
     t.string "name"
@@ -49,14 +49,13 @@ ActiveRecord::Schema.define(:version => 20130428051009) do
 
   create_table "users", :force => true do |t|
     t.string  "username"
-    t.string  "encrypted_password"
     t.string  "email"
     t.string  "first_name"
     t.string  "last_name"
     t.text    "bio"
-    t.string  "salt"
     t.integer "upvotes"
     t.string  "avatar_url"
+    t.string  "password_digest"
   end
 
 end

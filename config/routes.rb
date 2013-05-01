@@ -13,7 +13,7 @@ Mage::Application.routes.draw do
   # CREATE
 
   get "/register" => "Users#new", :as => "new_user"
-  post "/users" => "Users#create", :as => "users"
+  post "/register" => "Users#create", :as => "users"
 
   # READ
 

@@ -159,7 +159,7 @@ body {
 	border-color: #777;
 }
 
-.message-confirm {
+.message-success {
 	background-color: #93DB70;
 	border-color: #777;
 }
@@ -279,6 +279,13 @@ header {
 }
 
 
+// Error Messages ----------- <<
+
+.error-messages {
+	
+}
+
+
 
 // Home Content ------------- <<
 
@@ -286,8 +293,8 @@ header {
 .home-top {
 	margin: 20px 0;
 	h1 {
-		font-size: 40px;
-		font-family: 'Parisienne', sans-serif;
+		font-size: 24px;
+		// font-family: 'Parisienne', sans-serif;
 		margin-bottom: 20px;
 	}
 }
@@ -410,7 +417,7 @@ form .form-text-input {
 }
 
 form input:focus:required {
-	border-color: $darkGold !important;
+	border-color: $darkGold;
 	box-shadow: none !important;
 }
 

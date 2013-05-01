@@ -34,6 +34,7 @@ $('#delete').keyup(function() {
 		$(".delete-button").attr('disabled','disabled');
 	}
 });
+// Confirm deletion of account
 function confirm_delete() {
 	$('#delete').val('');
 	r = confirm('Are you sure you want to delete your account permanently?');
@@ -45,3 +46,15 @@ function confirm_delete() {
 		return r;
 	}
 };
+// Validate password confirmation
+$('#password_confirmation').blur(function() {
+	c = $(this).val();
+	console.log(c);
+	p = $('#password').val();
+	console.log(p);
+	if(c != p) {
+		$(this).attr('style','border-color: #ff3030 !important;');
+	}
+	else if(c == p)
+		$(this).attr('style','border-color: #bbb');
+});

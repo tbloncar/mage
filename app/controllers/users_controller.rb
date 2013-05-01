@@ -1,29 +1,28 @@
 class UsersController < ApplicationController
 
 	def new
-
+		@user = User.new
 	end
 
 	def create
-		user = User.new
+		@user = User.new(params[:user])
 
-		user.username = params[:username]
-		user.password = params[:password]
-		user.email = params[:email]
-		user.bio = params[:bio]
-		user.first_name = params[:first]
-		user.last_name = params[:last]
-
-		user.save
-
-		redirect_to(user_url(params[:username]) + "?success=yes")
+		# user.username = params[:username]
+		# user.password = params[:password]
+		# user.password_confirmation = params[:password_confirmation]
+		# user.email = params[:email]
+		# user.bio = params[:bio]
+		
+		if @user.save
+			flash[:success] = "Woohoo! Thanks for creating an account. Feel free to edit your profile or look around elsewhere!"
+			redirect_to(user_url(@user.username))
+		else
+			render 'new'
+		end
 	end
 
 
 	def show
-		if params[:success] == "yes"
-			@message = "Woohoo! Thanks for creating an account. Feel free to edit your profile or look around elsewhere!"
-		end
 		@user = User.find_by_username(params[:user_name])
 	end
 

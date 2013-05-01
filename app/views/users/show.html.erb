@@ -1,9 +1,9 @@
 <div class="container profile">
 	<div class="row-fluid">
-		<% if @message %>
-			<div class="span12 message message-confirm">
+		<% flash.each do |key, value| %>
+			<div class="span12 message message-<%= key %>">
 				<div class="message-inner">
-					<%= @message %><span>&#x2716;</span>
+					<%= value %><span>&#x2716;</span>
 				</div>
 			</div>
 		<% end %>

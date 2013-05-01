@@ -4,7 +4,7 @@
 			<img src="<%= @resource.avatar.url %>">
 			<h1 class="resource-title"><span><%= @resource.name %></span> by <%= @resource.author %></h1>
 			<div class="breadcrumbs">
-				<a href="/<%= @classification.path %>"><%= @classification.name %></a> > <a href="<%= @craft.full_path %>"><%= @craft.name %></a> > <a href="<%= @resource.full_path %>"><%= @resource.name %></a>
+				<a href="/<%= @classification.path %>"><%= @classification.name %></a> > <a href="<%= @craft.full_path %>"><%= @craft.name %></a> > <%= @resource.name %>
 			</div>
 		</div>
 	</div>

@@ -6,46 +6,39 @@
 	</div>
 	<div class="row-fluid">
 		<div class="span5 form-container">
-			<%= form_tag users_url, :method => "post" do %>
+			<%= form_for @user, :url => users_url, :method => "post" do |f| %>
 				<div class="form-input control-group">
-					<%= label_tag "email", nil, :class  => "control-label" %>
+					<%= f.label :email, nil, :class  => "control-label" %>
 					<div class="controls">
-						<%= email_field_tag "email", nil, { :id => "email", :placeholder => "Email Address", :class => "form-text-input", :required => "true" } %>
+						<%= f.email_field :email, { :placeholder => "Email Address", :class => "form-text-input", :required => "true" } %>
 						<span class="no">Make sure it's valid!</span>
 					</div>
 				</div>
 				<div class="form-input control-group">
-					<%= label_tag "username", nil, :class => "control-label" %>
+					<%= f.label :username, nil, :class => "control-label" %>
 					<div class="controls">
-						<%= text_field_tag "username", nil, { :id => "username", :placeholder => "Username", :class => "form-text-input", :required => "true" } %>
-						<span class="no">Thy name musn't change.</span>
+						<%= f.text_field :username, { :id => "username", :placeholder => "Username", :class => "form-text-input", :required => "true" } %>
+						<span class="no">No spaces, mate!</span>
 					</div>
 				</div>
 				<div class="form-input control-group">
-					<%= label_tag "password", nil, :class => "control-label" %>
+					<%= f.label :password, nil, :class => "control-label" %>
 					<div class="controls">
-						<%= password_field_tag "password", nil, { :id => "password", :placeholder => "Password", :class => "form-text-input", :required => "true", :maxlength => 20 } %>
-						<span class="no">Choose wisely, young learner.</span>
+						<%= f.password_field :password, { :id => "password", :placeholder => "Password", :class => "form-text-input", :required => "true", :maxlength => 20 } %>
+						<span class="no">At least six characters, please.</span>
 					</div>
 				</div>
 				<div class="form-input control-group">
-					<%= label_tag "first", "First Name", :class => "control-label" %>
+					<%= f.label :password_confirmation, "Confirm Password", :class => "control-label" %>
 					<div class="controls">
-						<%= text_field_tag "first", nil, { :id => "first", :placeholder => "First Name", :class => "form-text-input", :required => "true" } %>
-						<span class="no">Keep it real.</span>
+						<%= f.password_field :password_confirmation, { :id => "password_confirmation", :placeholder => "Confirm Password", :class => "form-text-input", :required => "true", :maxlength => 20 } %>
+						<span class="no">We need confirmation!</span>
 					</div>
 				</div>
 				<div class="form-input control-group">
-					<%= label_tag "last", "Last Name", :class => "control-label" %>
+					<%= f.label :bio, "Short Bio", :class => "control-label" %>
 					<div class="controls">
-						<%= text_field_tag "last", nil, { :id => "last", :placeholder => "Last Name", :class => "form-text-input", :required => "true" } %>
-						<span class="no">We won't make this public.</span>
-					</div>
-				</div>
-				<div class="form-input control-group">
-					<%= label_tag "bio", nil, :class => "control-label" %>
-					<div class="controls">
-						<%= text_area_tag "bio", nil, { :class => "form-text-input", :rows => 10 } %>
+						<%= f.text_area :bio, { :class => "form-text-input", :rows => 10 } %>
 						<span class="no">Scribe your interests!</span>
 					</div>
 				</div>
@@ -53,6 +46,9 @@
 					<%= button_tag "Create Account", :class => "form-button link-gold" %>
 				</div>
 			<% end %>
+		</div>
+		<div class="span7">
+			<%= render 'shared/error_messages' %>
 		</div>
 	</div>
 </div>
