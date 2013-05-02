@@ -98,6 +98,7 @@ body {
 	padding: 15px;
 	background: #fff;
 	border: 1px solid #ccc;
+	overflow: auto;
 	h3 {
 		font-size: 18px;
 		margin-top: 0;
@@ -242,19 +243,21 @@ header {
 
 .profile-link {
 	display: inline-block;
-	margin-top: -26px;
+	margin-top: -25px;
 	margin-right: 5px;
-	padding: 2px;
-	border: 1px solid #222;
-	background: #444;
+	padding: 0px;
+	border: 2px solid #444;
+	opacity: 0.9;
+	@include shadow(0,0,2px,rgba(255,255,255,0.5));
 	@include rounded(2px);
 	&:hover {
 		background: #777;
+		opacity: 1;
 	}
 	img {
 		height: 30px;
 		width: 30px;
-		border: 1px solid #333;
+		border: 1px solid #777;
 	}
 }
 
@@ -374,8 +377,10 @@ header {
 
 .home-resource-inner h3 {
 	font-size: 14px;
+
 	margin-top: 10px;
 	line-height: 16px;
+	font-weight: 600;
 }
 
 .home-resource-inner h4 {
@@ -383,6 +388,8 @@ header {
 	margin-top: 0;
 	line-height: 16px;
 	font-weight: 300;
+	font-style: italic;
+
 }
 
 .home-resource-image {
@@ -394,7 +401,7 @@ header {
 }
 
 .home-resource-description {
-	font-size: 12px;
+	font-size: 10px;
 	color: #888;
 	margin-bottom: 0;
 }
@@ -432,6 +439,8 @@ header {
 .resource-box {
 	width: 18%;
 	border: 1px solid #888;
+	float: left;
+	margin-right: 15px;
 	&:hover {
 		cursor: pointer;
 		border: 1px solid #555;

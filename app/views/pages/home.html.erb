@@ -21,7 +21,7 @@
 				<a href="<%= resource.full_path %>" class="span2 home-resource">
 					<div class="home-resource-inner">
 						<h3><%= resource.name %></h3>
-						<h4><%= resource.author %> / <%= resource.craft.name %></h4>
+						<h4><%= resource.author %></h4>
 						<img src="<%= resource.avatar.url %>" class="home-resource-image"/>
 						<p class="home-resource-description"><%= resource.description %></p>
 					</div>
@@ -55,7 +55,6 @@
 				<a href="<%= user_url(user.username) %>" class="span2 home-resource">
 					<div class="home-resource-inner">
 						<h3><%= user.username %></h3>
-						<h4><%= user.bio %></h4>
 						<%= gravatar_image_tag(user.email, :alt => "#{user.first_name} #{user.last_name}", :class => 'home-resource-image', :gravatar => { :size => 250 }) %>
 						<p class="home-resource-description"><%= user.bio %></p>
 					</div>
