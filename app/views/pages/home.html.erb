@@ -1,4 +1,4 @@
-<div class="container">
+
 	<section class="home-top">
 		<div class="row-fluid">
 			<div class="span6">
@@ -38,8 +38,7 @@
 				<a href="/computer-programming/<%= craft.path %>" class="span2 home-resource">
 					<div class="home-resource-inner">
 						<h3><%= craft.name %></h3>
-						<div style="background: url('<%= craft.image_url %>') no-repeat;" class="home-resource-image">
-						</div>
+						<img src="<%= craft.image_url %>" class="home-resource-image">
 						<p class="home-resource-description"><%= craft.short_description %></p>
 					</div>
 				</a>
@@ -62,5 +61,5 @@
 			<% end %>
 		</div>
 	</section>
-</div>
+
 
