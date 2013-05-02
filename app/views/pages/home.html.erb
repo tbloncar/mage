@@ -21,7 +21,7 @@
 				<a href="<%= resource.full_path %>" class="span2 home-resource">
 					<div class="home-resource-inner">
 						<h3><%= resource.name %></h3>
-						<h4><%= resource.author %> / <%= Craft.find_by_id(resource.craft_id).name %></h4>
+						<h4><%= resource.author %> / <%= resource.craft.name %></h4>
 						<img src="<%= resource.avatar.url %>" class="home-resource-image"/>
 						<p class="home-resource-description"><%= resource.description %></p>
 					</div>

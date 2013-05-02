@@ -27,7 +27,13 @@
 		<div class="span4 subhead">
 			<h2>Submissions</h2>
 			<div class="white-container">
-				Upvotes
+				<% @user.resources.each do |resource| %>
+					<div class="resource-box">
+						<a href="<%= resource.full_path %>">
+							<img src="<%= resource.avatar.url %>">
+						</a>
+					</div>
+				<% end %>
 			</div>
 		</div>
 		<div class="span4 subhead">

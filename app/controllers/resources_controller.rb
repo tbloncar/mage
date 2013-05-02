@@ -28,6 +28,7 @@ class ResourcesController < ApplicationController
 		@resource.path = @resource.name.downcase.gsub(" ", "-")
 		craft_path = Craft.find_by_id(@resource.craft_id).full_path
 		@resource.full_path = "#{craft_path}/#{@resource.path}"
+		@resource.user_id = current_user.id
 		@resource.save
 
 		redirect_to @resource.full_path

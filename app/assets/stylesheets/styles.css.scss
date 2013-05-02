@@ -429,6 +429,15 @@ header {
 	padding-left: 10px;
 }
 
+.resource-box {
+	width: 18%;
+	border: 1px solid #888;
+	&:hover {
+		cursor: pointer;
+		border: 1px solid #555;
+	}
+}
+
 
 // Forms --------------------- <<
 
