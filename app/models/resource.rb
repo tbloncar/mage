@@ -4,6 +4,7 @@ class Resource < ActiveRecord::Base
 	validates :name, :uniqueness => true
 	has_attached_file :avatar, :styles => { :medium => "255x255>", :thumb => "100x100>" }, :default_url => "/assets/eloquent.jpg"
 	belongs_to :craft
+	belongs_to :user
 
 	searchable do
 		text :name, :default_boost => 2
@@ -13,7 +14,7 @@ class Resource < ActiveRecord::Base
 
 	def self.home_list
 		uncached do
-			order("upvotes DESC").limit(4)
+			order("upvotes DESC").limit(6)
 		end
 	end
 

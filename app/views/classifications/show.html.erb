@@ -10,7 +10,7 @@
 		<div class="span6 white-container">
 			<h3>Related Crafts</h3>
 			<% @crafts.each do |craft| %>
-				<div class="craft-resource">
+				<a class="craft-resource" href="<%= craft.full_path %>">
 					<div class="craft-resource-image">
 						<%= image_tag craft.image_url %>
 					</div>
@@ -18,13 +18,13 @@
 						<h4><%= craft.name %></h4>
 						<p><%= craft.long_description %></h4>
 					</div>	
-				</div>
+				</a>
 			<% end %>
 		</div>
 		<div class="span6 white-container">
 			<h3>Top Resources</h3>
 			<% @resources.each_with_index do |resource, i| %>
-				<div class="craft-resource">
+				<a class="craft-resource" href="<%= resource.full_path %>">
 					<div class="craft-resource-image">
 						<%= image_tag resource.avatar.url %>
 					</div>
@@ -32,7 +32,7 @@
 						<h4><%= (i + 1).to_s %>) <%= resource.name %></h4>
 						<p><%= resource.description %></h4>	
 					</div>
-				</div>
+				</a>
 			<% end %>
 		</div>
 	</div>

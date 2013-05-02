@@ -1,11 +1,13 @@
 Mage::Application.routes.draw do
-  get "/" => "Home#home", :as => "home"
+  get "/" => "Pages#home", :as => "home"
+  get "/search" => "Pages#search", :as => "search"
 
   # Session
   # ---------------------------------------------
   
-  match "/sign-in" => 'Sessions#new'
-  match "/sign-out" => 'Sessions#destroy'
+  get "/sign-in" => 'Sessions#new', :as => "sign_in"
+  delete "/sign-out" => 'Sessions#destroy', :as => "sign_out"
+  post "/sign-in" => "Sessions#create", :as => "sessions"
 
   # User
   # ---------------------------------------------
@@ -47,8 +49,6 @@ Mage::Application.routes.draw do
   # DELETE
 
   # SEARCH
-
-  get "/search" => "Resources#search"
 
   # Craft
   # ---------------------------------------------

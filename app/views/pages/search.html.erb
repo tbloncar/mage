@@ -1,0 +1,80 @@
+<div class="container">
+	<div class="row-fluid">
+		<div class="span12 page-header">
+			<h1>Search Results<%= " for '#{@q}'" if @q != "" %></h1>
+		</div>
+	</div>
+	<% if @check_r != [] %>
+		<div class="row-fluid">
+			<div class="span12 search-group-title">
+				<h2>Resources</h2>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span12">
+				<% @search_r.each_hit_with_result do |hit, resource| %>
+					<a class="search-result" href="<%= resource.full_path %>">
+						<div class="search-result-inner">
+							<div class="search-thumbnail">
+								<img src="<%= resource.avatar.url %>" alt="<%= resource.name %> - <%= resource.author %>">
+							</div>
+							<div class="search-content">
+								<h2><%= resource.name %> - <span><%= resource.author %></span></h2>
+								<p><%= resource.description %></p>
+							</div>
+						</div>
+					</a>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+	<% if @check_c != [] %>
+		<div class="row-fluid">
+			<div class="span12 search-group-title">
+				<h2>Crafts</h2>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span12">
+				<% @search_c.each_hit_with_result do |hit, craft| %>
+					<a class="search-result" href="<%= craft.full_path %>">
+						<div class="search-result-inner">
+							<div class="search-thumbnail">
+								<img src="<%= craft.image_url %>" alt="<%= craft.name %>">
+							</div>
+							<div class="search-content">
+								<h2><%= craft.name %></h2>
+								<p><%= craft.short_description %></p>
+							</div>
+						</div>
+					</a>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+	<% if @check_u != [] %>
+		<div class="row-fluid">
+			<div class="span12 search-group-title">
+				<h2>Mages</h2>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span12">
+				<% @search_u.each_hit_with_result do |hit, user| %>
+					<a class="search-result" href="<%= user_url(user.id) %>">
+						<div class="search-result-inner">
+							<div class="search-thumbnail">
+								<%= gravatar_image_tag(user.email, :alt => "#{user.first_name} #{user.last_name}", :gravatar => { :size => 150 }) %>
+							</div>
+							<div class="search-content">
+								<h2><%= user.username %></h2>
+								<p><%= user.bio %></p>
+							</div>
+						</div>
+					</a>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+</div>
+  

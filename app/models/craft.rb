@@ -2,19 +2,15 @@ class Craft < ActiveRecord::Base
 	has_many :resources
 	belongs_to :classification
 
+	searchable do
+		text :name, :default_boost => 2
+		text :short_description
+	end
+
 
 	def self.home_list
 		uncached do
-			limit(4)
+			limit(6)
 		end
 	end
 end
-
-# def self.check_classification(clpath, crpath)
-	# 	uncached do
-	# 		result = where("classification_id = ? AND path = ?", Classification.find_by_path(clpath).id, crpath)
-	# 		if result[0] == Craft.find_by_path(crpath)
-	# 			return Craft.find_by_path(crpath)
-	# 		end
-	# 	end
-	# end

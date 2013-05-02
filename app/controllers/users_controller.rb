@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 		# user.bio = params[:bio]
 		
 		if @user.save
+			sign_in @user
 			flash[:success] = "Woohoo! Thanks for creating an account. Feel free to edit your profile or look around elsewhere!"
 			redirect_to(user_url(@user.username))
 		else

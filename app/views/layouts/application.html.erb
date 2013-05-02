@@ -17,8 +17,15 @@
 					<form action="/search" class="search-header pull-right" method="get">
 						<input type="text" placeholder="Search" name="q" value="<%= @q %>">
 					</form>
-					<a class="pull-right nav-link link-purple" href="/sign-in">Sign In</a>
-					<a class="pull-right nav-link link-gold" href="<%= new_user_url %>">Create Account</a>
+					<% if signed_in? %>
+						<%= link_to "Sign Out", sign_out_path, :method => "delete", :class => "pull-right nav-link link-red" %>
+						<a class="pull-right profile-link" href="<%= user_path(current_user.username) %>">
+							<%= gravatar_image_tag(current_user.email, :alt => "#{current_user.username}", :gravatar => { :size => 150 }) %>
+						</a>
+					<% else %>
+						<a class="pull-right nav-link link-purple" href="/sign-in">Sign In</a>
+						<a class="pull-right nav-link link-gold" href="<%= new_user_url %>">Create Account</a>
+					<% end %>
 				</nav>
 			</div>
 		</div>

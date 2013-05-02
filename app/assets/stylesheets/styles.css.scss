@@ -90,6 +90,10 @@ body {
 	background: $lightPurple;
 }
 
+.container {
+
+}
+
 .white-container {
 	padding: 15px;
 	background: #fff;
@@ -154,7 +158,7 @@ body {
 	border: 1px dotted #FFF;
 }
 
-.message-alert {
+.message-error {
 	background-color: #FF6A6A;
 	border-color: #777;
 }
@@ -236,6 +240,24 @@ header {
 	}
 }
 
+.profile-link {
+	display: inline-block;
+	margin-top: -26px;
+	margin-right: 5px;
+	padding: 2px;
+	border: 1px solid #222;
+	background: #444;
+	@include rounded(2px);
+	&:hover {
+		background: #777;
+	}
+	img {
+		height: 30px;
+		width: 30px;
+		border: 1px solid #333;
+	}
+}
+
 
 .link-purple {
 	background: #8594ff; /* Old browsers */
@@ -264,6 +286,20 @@ header {
 	border-color: $darkGold;
 }
 
+.link-black {
+	background: #34383a; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzM0MzgzYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxNjE2MTYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #34383a 0%, #161616 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#34383a), color-stop(100%,#161616)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #34383a 0%,#161616 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #34383a 0%,#161616 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #34383a 0%,#161616 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #34383a 0%,#161616 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#34383a', endColorstr='#161616',GradientType=0 ); /* IE6-8 */
+	border-color: #333;
+}
+
 .link-red {
 	background: #ff3030; /* Old browsers */
 	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -282,7 +318,7 @@ header {
 // Error Messages ----------- <<
 
 .error-messages {
-	
+
 }
 
 
@@ -337,22 +373,22 @@ header {
 }
 
 .home-resource-inner h3 {
-	font-size: 16px;
+	font-size: 14px;
 	margin-top: 10px;
 	line-height: 16px;
 }
 
 .home-resource-inner h4 {
-	font-size: 14px;
+	font-size: 12px;
 	margin-top: 0;
 	line-height: 16px;
 	font-weight: 300;
 }
 
 .home-resource-image {
-	height: 250px;
+	height: 150px;
 	width: 100%;
-	border: 1px solid #CCC;
+	border: 1px solid #444;
 	margin-bottom: 10px;
 	position: relative;
 }
@@ -360,6 +396,7 @@ header {
 .home-resource-description {
 	font-size: 12px;
 	color: #888;
+	margin-bottom: 0;
 }
 
 // Profile Page ------------- <<
@@ -558,7 +595,7 @@ form .form-help {
 		height: 100px;
 		float: left;
 		margin-right: 10px;
-		opacity: 0.85;
+		opacity: 0.9;
 		border: 1px solid #bbb;
 		img {
 			height: 100%;
@@ -580,13 +617,17 @@ form .form-help {
 	}
 }
 
+.search-group-title h2 {
+	font-size: 18px;
+}
+
 
 
 // Footer --------------------- <<
 
 
 footer {
-	margin-top: 35px;
+	margin: 35px 0 70px 0;
 	padding: 15px 0;
 	border-top: 1px dotted #ccc;
 	font-size: 12px;
