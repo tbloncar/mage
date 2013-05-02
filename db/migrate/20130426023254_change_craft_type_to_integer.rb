@@ -1,7 +1,10 @@
 class ChangeCraftTypeToInteger < ActiveRecord::Migration
   def up
-  	change_column :resources, :craft, :fixnum, :default => 0, :null => false
-    change_column :resources, :craft, :integer, :default => 0, :null => false
+    connection.execute(%q{
+    alter table resources
+    alter column craft
+    type integer using cast(craft as integer)
+  })
   end
 
   def down
