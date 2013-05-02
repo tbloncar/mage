@@ -1,7 +1,11 @@
 class ChangeClassificationTypeInCrafts < ActiveRecord::Migration
   def up
   	rename_column :crafts, :classification, :classification_id
-  	change_column :crafts, :classification_id, :integer
+    connection.execute(%q{
+      alter table crafts
+      alter column classification_id
+      type integer using cast(classification_id as integer)
+    })
   end
 
   def down
