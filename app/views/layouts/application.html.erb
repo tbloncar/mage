@@ -32,7 +32,7 @@
 	</div>
 </header>
 <div class="container">
-	<% if signed_in? %>
+	<% if signed_in? && !flash[:success] %>
 		<div class="fixed-container">
 			<div class="user-panel">
 				<%= link_to "Add Resource", new_resource_url, :class => "nav-link link-gold" %>
