@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
 
 	def self.home_list
 		uncached do
-			order("upvotes DESC").limit(6)
+			limit(6)
 		end
 	end
 
