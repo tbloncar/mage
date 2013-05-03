@@ -6,11 +6,11 @@ class Resource < ActiveRecord::Base
 	belongs_to :craft
 	belongs_to :user
 
-	searchable do
-		text :name, :default_boost => 2
-		text :description
-		text :author
-	end
+	# searchable do
+	# 	text :name, :default_boost => 2
+	# 	text :description
+	# 	text :author
+	# end
 
 	def self.home_list
 		uncached do

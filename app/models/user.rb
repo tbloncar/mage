@@ -5,10 +5,10 @@ class User < ActiveRecord::Base
 
 	has_many :resources
 
-	searchable do
-		text :username, :default_boost => 2
-		text :bio
-	end
+	# searchable do
+	# 	text :username, :default_boost => 2
+	# 	text :bio
+	# end
 
 	validates :username, uniqueness: { case_sensitive: false }, length: { :in => 3..20 }
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
