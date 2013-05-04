@@ -28,9 +28,9 @@
 			<h2>Submissions</h2>
 			<div class="white-container">
 				<% @user.resources.each do |resource| %>
-					<div class="resource-box">
+					<div>
 						<a href="<%= resource.full_path %>">
-							<img src="<%= resource.avatar.url %>">
+							<img src="<%= resource.avatar.url %>" class="user-avatar-image">
 						</a>
 					</div>
 				<% end %>

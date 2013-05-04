@@ -171,6 +171,11 @@ resources.each_with_index do |resource, i|
 	r.user_id = User.first.id + i
 	r.upvotes_count = 1
 	r.save
+
+	u = Upvote.new
+	u.user_id = r.user_id
+	u.resource_id = r.id
+	u.save
 end
 
 

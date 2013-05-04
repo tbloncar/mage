@@ -422,23 +422,6 @@ font-family: 'Open Sans', sans-serif;
 	padding-left: 10px;
 }
 
-.resource-box {
-	border: 1px solid #888;
-	float: left;
-	margin-right: 23px;
-	img {
-		width: 80px;
-		height: 80px;
-	}
-	&:last-of-type {
-		margin-right: 0;
-	}
-	&:hover {
-		cursor: pointer;
-		border: 1px solid #555;
-	}
-}
-
 
 // Forms --------------------- <<
 
@@ -594,7 +577,9 @@ form .form-help {
 	padding: 7px 20px;
 	color: #fff;
 	font-size: 12px;
-	border: 1px solid $darkishPurple;
+	&:first-of-type {
+		margin-right: 10px;
+	}
 	&:hover {
 
 	}
@@ -603,6 +588,7 @@ form .form-help {
 .recommended {
 	color: #888;
 	text-shadow: 0 1px 0 #fff;
+	margin-right: 10px;
 }
 
 .resource-left {
@@ -623,12 +609,17 @@ form .form-help {
 
 .upvoted-by {
 	margin-top: 20px;
+	a:hover {
+		text-decoration: none;
+	}
 }
 
 .user-avatar-image {
-	height: 80px;
-	width: 80px;
+	height: 70px;
+	width: 70px;
 	border: 1px solid #555;
+	float: left;
+	margin-right: 10px;
 	&:hover {
 		cursor: pointer;
 		border: 1px solid #333;

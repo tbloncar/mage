@@ -1,6 +1,6 @@
 class Resource < ActiveRecord::Base
 
-	attr_accessible :name, :author, :craft_id, :avatar, :description
+	attr_accessible :name, :author, :craft_id, :avatar, :description, :link
 	validates :name, :uniqueness => true
 	has_attached_file :avatar, :styles => { :medium => "255x255>", :thumb => "100x100>" }, :default_url => "/assets/eloquent.jpg"
 	belongs_to :craft

@@ -16,8 +16,9 @@
 	</div>
 	<div class="row">
 		<div class="span12 resource-controls">
+			<a href="<%= @resource.link %>" target="_blank" class="nav-link resource-upvote link-purple">Go to Resource</a>
 			<% if @recommended.empty? %>
-				<%= link_to "Recommend", resource_url, :method => "put", :class => "resource-upvote nav-link link-purple" %>
+				<%= link_to "Recommend", resource_url, :method => "put", :class => "resource-upvote nav-link link-gold" %>
 			<% else %>
 				<span class="recommended">You recommend this resource.</span>
 			<% end %>
