@@ -21,6 +21,9 @@ class ResourcesController < ApplicationController
 		upvotes.each do |upvote|
 			@users << User.find_by_id(upvote.user_id)
 		end
+		if @resource.user
+			@contributor = @resource.user
+		end
 	end
 
 	def new

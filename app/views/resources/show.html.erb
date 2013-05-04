@@ -6,6 +6,12 @@
 			<div class="breadcrumbs">
 				<a href="/<%= @classification.path %>"><%= @classification.name %></a> > <a href="<%= @craft.full_path %>"><%= @craft.name %></a> > <%= @resource.name %>
 			</div>
+			<% if @contributor %>
+				<div class="contributed-by">
+					<span>Contributed by <%= link_to @contributor.username, user_path(@contributor.username) %></span>
+					<%= gravatar_image_tag(@contributor.email, :alt => "#{@contributor.username}", :class => '', :gravatar => { :size => 250 }) %>
+				</div>
+			<% end %>
 		</div>
 	</div>
 	<div class="row-fluid">
