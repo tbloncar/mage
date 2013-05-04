@@ -1,9 +1,6 @@
 class ResourcesController < ApplicationController
 
 	def show
-		# @resource = Resource.find_by_path(params[:resource_path])
-		# @craft = Craft.find_by_id(@resource.craft_id)
-		# @classification = Classification.find_by_id(@craft.classification_id)
 
 		clpath = params[:classification_path]
 		crpath = params[:craft_path]
@@ -24,6 +21,8 @@ class ResourcesController < ApplicationController
 		if @resource.user
 			@contributor = @resource.user
 		end
+
+		@recommended = Upvote.where("user_id = ? AND resource_id = ?", current_user.id, @resource.id)
 	end
 
 	def new
@@ -49,18 +48,17 @@ class ResourcesController < ApplicationController
 		redirect_to @resource.full_path
 	end
 
-	# def create
-	# 	user = User.new
+	def update
+		resource = Resource.find_by_path(params[:resource_path])
+		resource.upvotes_count += 1
+		resource.save
 
-	# 	user.username = params[:username]
-	# 	user.password = params[:password]
-	# 	user.email = params[:email]
-	# 	user.bio = params[:bio]
-	# 	user.first_name = params[:first]
-	# 	user.last_name = params[:last]
+		upvote = Upvote.new
+		upvote.user_id = current_user.id
+		upvote.resource_id = resource.id
+		upvote.save
 
-	# 	user.save
+		redirect_to resource.full_path
+	end
 
-	# 	redirect_to(user_url(params[:username]) + "?success=yes")
-	# end
 end

@@ -61,7 +61,7 @@
 		<div class="row-fluid">
 			<div class="span12">
 				<% @search_u.each_hit_with_result do |hit, user| %>
-					<a class="search-result" href="<%= user_url(user.id) %>">
+					<a class="search-result" href="<%= user_url(user.username) %>">
 						<div class="search-result-inner">
 							<div class="search-thumbnail">
 								<%= gravatar_image_tag(user.email, :alt => "#{user.first_name} #{user.last_name}", :gravatar => { :size => 150 }) %>

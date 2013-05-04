@@ -6,9 +6,6 @@ class User < ActiveRecord::Base
 	has_many :resources
 	has_many :upvotes
 
-	scope :top6
-		joins()
-
 	searchable do
 		text :username, :default_boost => 2
 		text :bio

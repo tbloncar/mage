@@ -46,6 +46,8 @@ Mage::Application.routes.draw do
 
   # UPDATE
 
+  put "/:classification_path/:craft_path/:resource_path" => "Resources#update", :as => "resource"
+
   # DELETE
 
   # SEARCH
