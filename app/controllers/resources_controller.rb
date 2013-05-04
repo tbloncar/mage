@@ -15,7 +15,12 @@ class ResourcesController < ApplicationController
 		# given the classification, search the crafts under the classification
 		@craft = @classification.crafts.where(path: crpath).first
 		# given the craft, search the reources under the specific craft
-		@resource = @craft.resources.where(path: rpath).first		
+		@resource = @craft.resources.where(path: rpath).first
+		upvotes = @resource.upvotes
+		@users = []
+		upvotes.each do |upvote|
+			@users << User.find_by_id(upvote.user_id)
+		end
 	end
 
 	def new
@@ -29,7 +34,14 @@ class ResourcesController < ApplicationController
 		craft_path = Craft.find_by_id(@resource.craft_id).full_path
 		@resource.full_path = "#{craft_path}/#{@resource.path}"
 		@resource.user_id = current_user.id
+		@resource.upvotes_count = 1
 		@resource.save
+
+		# Upvote.create({user_id: current_user, resource_id: @resource.id})
+		upvote = Upvote.new
+		upvote.user_id = current_user.id
+		upvote.resource_id = @resource.id
+		upvote.save
 
 		redirect_to @resource.full_path
 	end

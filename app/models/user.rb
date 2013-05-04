@@ -4,11 +4,15 @@ class User < ActiveRecord::Base
 	has_secure_password
 
 	has_many :resources
+	has_many :upvotes
 
-	# searchable do
-	# 	text :username, :default_boost => 2
-	# 	text :bio
-	# end
+	scope :top6
+		joins()
+
+	searchable do
+		text :username, :default_boost => 2
+		text :bio
+	end
 
 	validates :username, uniqueness: { case_sensitive: false }, length: { :in => 3..20 }
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -38,7 +42,7 @@ class User < ActiveRecord::Base
 
 	def self.home_list
 		uncached do
-			limit(6)
+			joins(:resources).order("upvotes_count DESC").limit(6).uniq
 		end
 	end
 

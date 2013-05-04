@@ -193,6 +193,8 @@ header {
 	background: #222;
 	height: 80px;
 	border-top: 2px solid $darkGold;
+	position: fixed;
+	z-index: 2001 !important;
 	.logo {
 		font-family: 'Arbutus Slab', serif;
 		font-size: 24px;
@@ -420,10 +422,13 @@ header {
 }
 
 .resource-box {
-	width: 18%;
+	width: 19%;
 	border: 1px solid #888;
 	float: left;
-	margin-right: 15px;
+	margin-right: 23px;
+	&:last-of-type {
+		margin-right: 0;
+	}
 	&:hover {
 		cursor: pointer;
 		border: 1px solid #555;
@@ -564,6 +569,19 @@ form .form-help {
 	}
 }
 
+.upvoted-by {
+	margin-top: 20px;
+}
+
+.user-avatar-image {
+	height: 80px;
+	width: 80px;
+	border: 1px solid #555;
+	&:hover {
+		cursor: pointer;
+		border: 1px solid #333;
+	}
+}
 
 // Search Results ------------------ <<
 

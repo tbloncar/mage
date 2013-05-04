@@ -15,5 +15,13 @@
 		</div>
 		<div class="span7 white-container resource-right">
 			<h3>Upvoting Mages</h3>
+			<p>Other users who have found this resource useful.</p>
+			<div class="upvoted-by">
+				<% @users.each do |user| %>
+					<a href="/users/<%= user.username %>">
+						<%= gravatar_image_tag(user.email, :alt => "#{user.username}", :class => 'user-avatar-image', :gravatar => { :size => 250 }) %>
+					</a>
+				<% end %>
+			</div>
 		</div>
 	</div>

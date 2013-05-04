@@ -35,7 +35,9 @@ crafts = [
 	{:name => "Ruby on Rails", :short_description => "Ruby on Rails is a framework for building web applications", :long_description => "Ruby on Rails is a framework for building web applications.", :image_url => "http://bari.the-hub.net/files/2013/02/railslogo.png", :path => "ruby-on-rails", :full_path => "/computer-programming/ruby-on-rails"},
 	{:name => "HTML5", :short_description => "HTML5 is the new standard for structuring websites.", :long_description => "HTML5 is the new standard for structuring websites.", :image_url => "http://www.blog-nouvelles-technologies.fr/wp-content/uploads/2011/03/les-10-meilleures-ressources-pour-apprendre-html5.jpg", :path => "html5", :full_path => "/computer-programming/html5"},
 	{:name => "JavaScript", :short_description => "JavaScript is used to enhance the behavioral components of web applications.", :long_description => "JavaScript is used to enhance the behavioral components of web applications.", :image_url => "http://austinjavascript.com/wp-content/uploads/2012/11/thanksgiving.js-400x400.png", :path => "javascript", :full_path => "/computer-programming/javascript"},
-	{:name => "jQuery UI", :short_description => "jQuery UI offers a number of cool jQuery-based UI elements.", :long_description => "jQuery UI offers a number of cool jQuery-based UI elements.", :image_url => "https://www.cs.washington.edu/education/courses/190m/12su/lectures/slides/images/jquery_ui_logo_small.gif", :path => 'jquery-ui', :full_path => "/computer-programming/jquery-ui"}
+	{:name => "jQuery UI", :short_description => "jQuery UI offers a number of cool jQuery-based UI elements.", :long_description => "jQuery UI offers a number of cool jQuery-based UI elements.", :image_url => "https://www.cs.washington.edu/education/courses/190m/12su/lectures/slides/images/jquery_ui_logo_small.gif", :path => 'jquery-ui', :full_path => "/computer-programming/jquery-ui"},
+	{:name => "jQuery", :short_description => "jQuery is a convenience library written on top of JavaScript.", :long_description => "jQuery is a convenience library written on top of JavaScript.", :path => "jquery", :full_path => "/computer-programming/jquery", :image_url => "http://wpmu.org/wp-content/uploads/2010/04/jquery-logo1.png"},
+	{:name => "PHP", :short_description => "PHP is a backend programming language with a purple logo.", :long_description => "PHP is a backend programming language with a purple logo.", :path => "php", :full_path => "/computer-programming/php", :image_url => "https://si0.twimg.com/profile_images/68979870/php.png"}
 	]
 
 crafts.each do |craft|
@@ -50,13 +52,61 @@ crafts.each do |craft|
 	c.save
 end
 
+
+users = [
+	{
+		:username => "tbloncar",
+		:password => "password",
+		:email => "loncar.travis@gmail.com",
+		:bio => "I enjoy learning and stuff like that."
+	},
+	{
+		:username => "jeffcohen",
+		:password => "password",
+		:email => "jeff@starterleague.com",
+		:bio => "I enjoy learning and stuff like that."
+	},
+	{
+		:username => "raghubetina",
+		:password => "password",
+		:email => "raghu@starterleague.com",
+		:bio => "I enjoy learning and stuff like that."
+	},
+	{
+		:username => "shayhowe",
+		:password => "password",
+		:email => "shay@starterleague.com",
+		:bio => "I enjoy learning and stuff like that."
+	},
+	{
+		:username => "fangari",
+		:password => "password",
+		:email => "fangari@gmail.com",
+		:bio => "I like Ruby and flooded bedrooms."
+	},
+	{
+		:username => "kofiaidoo",
+		:password => "password",
+		:email => "asante.kofi@gmail.com",
+		:bio => "I am interested in UX."
+	}
+]
+
+users.each do |user|
+	u = User.new
+	u.username = user[:username]
+	u.password = user[:password]
+	u.password_confirmation = user[:password]
+	u.email = user[:email]
+	u.bio = user[:bio]
+	u.save
+end
+
 resources = [
 	{
 		:name => "Learn to Program",
 		:author => "Chris Pine",
 		:description => "A great resource for beginners.",
-		:image_url => "http://s3.amazonaws.com/37assets/svn/thumb-ltp2-3aed571a6623399c0f896e34cc871166.jpg",
-		:upvotes => "0",
 		:link => "http://www.amazon.com/Program-Second-Edition-Facets-Series/dp/1934356360/ref=sr_1_1?ie=UTF8&qid=1366681854&sr=8-1&keywords=learn+to+program",
 		:path => "learn-to-program",
 		:full_path => "/computer-programming/ruby-on-rails/learn-to-program",
@@ -66,95 +116,61 @@ resources = [
 		:name => "Eloquent JavaScript",
 		:author => "Marijn Haverbeke",
 		:description => "A tremendous intro to JavaScript",
-		:image_url => "http://img152.imageshack.us/img152/70/capturesu0.jpg",
-		:upvotes => "0",
 		:link => "http://www.amazon.com/Eloquent-JavaScript-Modern-Introduction-Programming/dp/1593272820/ref=sr_1_1?s=books&ie=UTF8&qid=1366681896&sr=1-1&keywords=eloquent+javascript",
 		:path => "eloquent-javascript",
 		:full_path => "/computer-programming/javascript/eloquent-javascript",
 		:craft => Craft.find_by_name("JavaScript").id
 	},
 	{
-		:name => "The Starter League",
+		:name => "Web Development",
 		:author => "The Starter League",
 		:description => "An awesome program for starters looking to gain skills in web design, development, and user experience.",
-		:image_url => "http://sphotos-a.xx.fbcdn.net/hphotos-snc6/c131.0.403.403/p403x403/284031_420540041346672_273979806_n.jpg",
-		:upvotes => 0,
 		:link => "http://starterleague.com",
 		:path => "starter-league",
 		:full_path => "/computer-programming/ruby-on-rails/starter-league",
 		:craft => Craft.first.id
 	},
 	{
-		:name => "Team Treehouse",
+		:name => "Web Design Track",
 		:author => "Team Treehouse",
 		:description => "Beginner video tutorials in web design and development, user experience, business, and mobile app development.",
-		:image_url => "http://www.beginningiosdev.com/wp-content/uploads/2012/05/screen-shot-2011-10-17-at-2-56-25-am.png",
-		:upvotes => 2,
 		:link => "http://www.teamtreehouse.com",
 		:path => "team-treehouse",
 		:full_path => "/computer-programming/html5/team-treehouse",
 		:craft => Craft.find_by_name("HTML5").id
+	},
+	{
+		:name => "PHP Manual",
+		:author => "PHP.net",
+		:description => "The PHP Manual provides great information about the backend programming language, PHP.",
+		:link => "http://www.php.net",
+		:path => "php-manual",
+		:full_path => "/computer-programming/php/php-manual",
+		:craft => Craft.find_by_name("PHP").id
+	},
+	{
+		:name => "Intro to jQuery",
+		:author => "Codecademy",
+		:description => "Codecademy's introduction to jQuery is fun and beginner-friendly.",
+		:link => "http://www.codecademy.com",
+		:path => "intro-to-jquery",
+		:full_path => "/computer-programming/jquery/intro-to-jquery",
+		:craft => Craft.find_by_name("jQuery").id
 	}
 ]
 
-resources.each do |resource|
+resources.each_with_index do |resource, i|
 	r = Resource.new
 	r.name = resource[:name]
 	r.author = resource[:author]
 	r.description = resource[:description]
-	r.image_url = resource[:image_url]
-	r.upvotes = resource[:upvotes]
 	r.link = resource[:link]
 	r.path = resource[:path]
 	r.full_path = resource[:full_path]
 	r.craft_id = resource[:craft]
+	r.user_id = User.first.id + i
+	r.upvotes_count = 1
 	r.save
-end
-
-users = [
-	{
-		:username => "tbloncar",
-		:password => "password",
-		:email => "loncar.travis@gmail.com",
-		:bio => "I enjoy learning and stuff like that.",
-		:first_name => "Travis",
-		:last_name => "Loncar"
-	},
-	{
-		:username => "jeffcohen",
-		:password => "password",
-		:email => "jeff@starterleague.com",
-		:bio => "I enjoy learning and stuff like that.",
-		:first_name => "Jeff",
-		:last_name => "Cohen"
-	},
-	{
-		:username => "raghubetina",
-		:password => "password",
-		:email => "raghu@starterleague.com",
-		:bio => "I enjoy learning and stuff like that.",
-		:first_name => "Raghu",
-		:last_name => "Betina"
-	},
-	{
-		:username => "shayhowe",
-		:password => "password",
-		:email => "shay@starterleague.com",
-		:bio => "I enjoy learning and stuff like that.",
-		:first_name => "Shay",
-		:last_name => "Howe"
-	}
-]
-
-users.each do |user|
-	u = User.new
-	u.username = user[:username]
-	u.password = user[:password]
-	u.email = user[:email]
-	u.bio = user[:bio]
-	u.first_name = user[:first_name]
-	u.last_name = user[:last_name]
-	u.save
 end
 
 
