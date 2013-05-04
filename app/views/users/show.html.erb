@@ -21,25 +21,40 @@
 		<div class="span4 subhead">
 			<h2>Upvotes</h2>
 			<div class="white-container">
-				Upvotes
+				<p>Resources <strong><%= @user.username %></strong> recommends.</p>
+				<div class="user-stuff-container">
+					<% @resources_upvoted.each do |resource| %>
+						<a href="<%= resource.full_path %>" class="user-stuff-image">
+							<img src="<%= resource.avatar.url %>">
+						</a>
+					<% end %>
+				</div>
 			</div>
 		</div>
 		<div class="span4 subhead">
 			<h2>Submissions</h2>
 			<div class="white-container">
-				<% @user.resources.each do |resource| %>
-					<div>
-						<a href="<%= resource.full_path %>">
-							<img src="<%= resource.avatar.url %>" class="user-avatar-image">
-						</a>
-					</div>
-				<% end %>
+				<p>Resources <strong><%= @user.username %></strong> has contributed.</p>
+				<div class="user-stuff-container">
+					<% @user.resources.each do |resource| %>
+							<a href="<%= resource.full_path %>" class="user-stuff-image">
+								<img src="<%= resource.avatar.url %>">
+							</a>
+					<% end %>
+				</div>
 			</div>
 		</div>
 		<div class="span4 subhead">
 			<h2>Interests</h2>
 			<div class="white-container">
-				Upvotes
+				<p>Crafts <strong><%= @user.username %></strong> is interested in.</p>
+				<div class="user-stuff-container">
+					<% @crafts_interested.each do |craft| %>
+						<a href="<%= craft.full_path %>" class="user-stuff-image">
+							<img src="<%= craft.image_url %>">
+						</a>
+					<% end %>
+				</div>
 			</div>
 		</div>
 	</div>

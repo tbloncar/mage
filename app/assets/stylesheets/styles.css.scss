@@ -105,7 +105,10 @@ body {
 		line-height: 18px;
 	}
 	p {
-		margin-bottom: 0;
+		margin-bottom: 10px;
+		&:last-of-type {
+			margin-bottom: 0;
+		}
 	}
 }
 
@@ -422,6 +425,30 @@ font-family: 'Open Sans', sans-serif;
 	padding-left: 10px;
 }
 
+.user-stuff-container {
+	margin-top: 15px;
+	padding-top: 15px;
+	border-top: 1px dotted #ddd;
+}
+
+.user-stuff-image {
+	border: 1px solid #555;
+	float: left;
+	margin-right: 15px;
+	margin-bottom: 15px;
+	&:hover {
+		cursor: pointer;
+		border: 1px solid #333;
+	}
+	&:nth-child(4n) {
+		margin-right: 0;
+	}
+	img {
+		height: 70px;
+		width: 70px;
+	}
+}
+
 
 // Forms --------------------- <<
 
@@ -619,7 +646,7 @@ form .form-help {
 	width: 70px;
 	border: 1px solid #555;
 	float: left;
-	margin-right: 10px;
+	margin-right: 13px;
 	&:hover {
 		cursor: pointer;
 		border: 1px solid #333;

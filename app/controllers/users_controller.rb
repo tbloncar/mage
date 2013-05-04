@@ -25,6 +25,20 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find_by_username(params[:user_name])
+
+		upvotes = Upvote.where(user_id: @user.id)
+		@resources_upvoted = []
+		upvotes.each do |upvote|
+			resource = Resource.find_by_id(upvote.resource_id)
+			@resources_upvoted << resource
+		end
+		@crafts_interested = []
+		@resources_upvoted.each do |resource|
+			craft = resource.craft
+			if !@crafts_interested.include?(craft)
+				@crafts_interested << craft
+			end
+		end
 	end
 
 	def edit
