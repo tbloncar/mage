@@ -58,7 +58,7 @@
 				<a href="<%= user_url(user.username) %>" class="span2 home-resource">
 					<div class="home-resource-inner">
 						<h3><%= user.username %></h3>
-						<%= gravatar_image_tag(user.email, :alt => "#{user.first_name} #{user.last_name}", :class => 'home-resource-image', :gravatar => { :size => 250 }) %>
+						<%= gravatar_image_tag(user.email, :alt => "#{user.username}", :class => 'home-resource-image', :gravatar => { :size => 250 }) %>
 						<p class="home-resource-description"><%= user.bio %></p>
 					</div>
 				</a>

@@ -751,7 +751,8 @@ form .form-help {
 .fixed-container {
 	position: fixed;
   width: 500px;
-  height: 100px;
+  height: 150px;
+  z-index: 2;
   left: 50%;
   top: 0%;
   margin-left: 85px; /*half the width*/

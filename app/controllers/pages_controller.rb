@@ -2,7 +2,7 @@ class PagesController < ApplicationController
 	def home
 		@resources = Resource.home_list
 		@crafts = Craft.home_list
-		@users = User.home_list
+		@users = User.top6
 	end
 
   def search

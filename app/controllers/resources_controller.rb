@@ -22,7 +22,11 @@ class ResourcesController < ApplicationController
 			@contributor = @resource.user
 		end
 
-		@recommended = Upvote.where("user_id = ? AND resource_id = ?", current_user.id, @resource.id)
+		if signed_in?
+			@recommended = Upvote.where("user_id = ? AND resource_id = ?", current_user.id, @resource.id)
+		else
+			@recommended = []
+		end
 	end
 
 	def new

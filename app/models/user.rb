@@ -3,6 +3,12 @@ class User < ActiveRecord::Base
 	attr_accessible :username, :email, :password, :password_confirmation, :bio
 	has_secure_password
 
+	scope :top6,
+		joins(:resources).
+		group("users.id").
+		select("users.id, users.username, users.email, users.bio, sum(resources.upvotes_count) AS order_by").
+		order("order_by DESC")
+
 	has_many :resources
 	has_many :upvotes
 
@@ -38,12 +44,6 @@ class User < ActiveRecord::Base
 	#       user
 	#     end
 	# end
-
-	def self.home_list
-		uncached do
-			joins(:resources).order("upvotes_count DESC").limit(6).uniq
-		end
-	end
 
 	private
 

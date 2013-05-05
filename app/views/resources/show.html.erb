@@ -17,10 +17,12 @@
 	<div class="row">
 		<div class="span12 resource-controls">
 			<a href="<%= @resource.link %>" target="_blank" class="nav-link resource-upvote link-purple">Go to Resource</a>
-			<% if @recommended.empty? %>
+			<% if @recommended.empty? && signed_in? %>
 				<%= link_to "Recommend", resource_url, :method => "put", :class => "resource-upvote nav-link link-gold" %>
-			<% else %>
+			<% elsif signed_in? %>
 				<span class="recommended">You recommend this resource.</span>
+			<% else %>
+				<span class="recommended">Sign in to recommend this resource.</span>
 			<% end %>
 		</div>
 	</div>

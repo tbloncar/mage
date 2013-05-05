@@ -15,7 +15,7 @@ class Resource < ActiveRecord::Base
 
 	def self.home_list
 		uncached do
-			order("upvotes DESC").limit(6)
+			order("upvotes_count DESC").limit(6)
 		end
 	end
 
