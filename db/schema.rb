@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130504222647) do
+ActiveRecord::Schema.define(:version => 20130505061043) do
 
   create_table "classifications", :force => true do |t|
     t.string "name"
@@ -31,6 +31,11 @@ ActiveRecord::Schema.define(:version => 20130504222647) do
     t.string  "full_path"
   end
 
+  create_table "levels", :force => true do |t|
+    t.string "name"
+    t.string "icon_url"
+  end
+
   create_table "resources", :force => true do |t|
     t.string   "name"
     t.string   "author"
@@ -47,6 +52,13 @@ ActiveRecord::Schema.define(:version => 20130504222647) do
     t.datetime "avatar_updated_at"
     t.integer  "user_id"
     t.integer  "upvotes_count"
+    t.integer  "level_id"
+    t.integer  "type_id"
+  end
+
+  create_table "types", :force => true do |t|
+    t.string "name"
+    t.string "icon_url"
   end
 
   create_table "upvotes", :force => true do |t|

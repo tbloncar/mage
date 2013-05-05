@@ -29,11 +29,16 @@
 	<div class="row-fluid">
 		<div class="span5 white-container resource-left">
 			<h3>Description</h3>
-			<p><%= @resource.description %></p>
+			<div class="type-level">
+				<span><%= @resource.type.name %></span><span><%= @resource.level.name %></span>
+			</div>
+			<div class="user-stuff-container">
+				<p><%= @resource.description %></p>
+			</div>
 		</div>
 		<div class="span7 white-container resource-right">
-			<h3>Upvoting Mages</h3>
-			<p>Other users who have found this resource useful.</p>
+			<h3>Recommenders</h3>
+			<p>Mages who have found this resource useful.</p>
 			<div class="upvoted-by">
 				<% @users.each do |user| %>
 					<a href="/users/<%= user.username %>">

@@ -5,6 +5,8 @@ class Resource < ActiveRecord::Base
 	has_attached_file :avatar, :styles => { :medium => "255x255>", :thumb => "100x100>" }, :default_url => "/assets/eloquent.jpg"
 	belongs_to :craft
 	belongs_to :user
+	belongs_to :level
+	belongs_to :type
 	has_many :upvotes
 
 	searchable do

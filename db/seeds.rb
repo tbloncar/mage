@@ -10,6 +10,9 @@ Classification.destroy_all
 Craft.destroy_all
 Resource.destroy_all
 User.destroy_all
+Upvote.destroy_all
+Type.destroy_all
+Level.destroy_all
 
 classifications = [
 	{
@@ -102,6 +105,34 @@ users.each do |user|
 	u.save
 end
 
+types = [
+	{ :name => "Book" },
+	{ :name => "Online Education" },
+	{ :name => "Online Resource" },
+	{ :name => "Education" },
+	{ :name => "Video" },
+	{ :name => "Program" }
+]
+
+types.each do |type|
+	t = Type.new
+	t.name = type[:name]
+	t.save
+end
+
+levels = [
+	{ :name => "Beginner" },
+	{ :name => "Intermediate" },
+	{ :name => "Advanced" }
+]
+
+levels.each do |level|
+	l = Level.new
+	l.name = level[:name]
+	l.save
+end
+
+
 resources = [
 	{
 		:name => "Learn to Program",
@@ -110,7 +141,9 @@ resources = [
 		:link => "http://www.amazon.com/Program-Second-Edition-Facets-Series/dp/1934356360/ref=sr_1_1?ie=UTF8&qid=1366681854&sr=8-1&keywords=learn+to+program",
 		:path => "learn-to-program",
 		:full_path => "/computer-programming/ruby-on-rails/learn-to-program",
-		:craft => Craft.first.id
+		:craft => Craft.first.id,
+		:type => Type.find_by_name("Book").id,
+		:level => Level.find_by_name("Beginner").id
 	},
 	{
 		:name => "Eloquent JavaScript",
@@ -119,7 +152,9 @@ resources = [
 		:link => "http://www.amazon.com/Eloquent-JavaScript-Modern-Introduction-Programming/dp/1593272820/ref=sr_1_1?s=books&ie=UTF8&qid=1366681896&sr=1-1&keywords=eloquent+javascript",
 		:path => "eloquent-javascript",
 		:full_path => "/computer-programming/javascript/eloquent-javascript",
-		:craft => Craft.find_by_name("JavaScript").id
+		:craft => Craft.find_by_name("JavaScript").id,
+		:type => Type.find_by_name("Book").id,
+		:level => Level.find_by_name("Beginner").id
 	},
 	{
 		:name => "Web Development",
@@ -128,7 +163,9 @@ resources = [
 		:link => "http://starterleague.com",
 		:path => "starter-league",
 		:full_path => "/computer-programming/ruby-on-rails/starter-league",
-		:craft => Craft.first.id
+		:craft => Craft.first.id,
+		:type => Type.find_by_name("Program").id,
+		:level => Level.find_by_name("Beginner").id
 	},
 	{
 		:name => "Web Design Track",
@@ -137,7 +174,9 @@ resources = [
 		:link => "http://www.teamtreehouse.com",
 		:path => "team-treehouse",
 		:full_path => "/computer-programming/html5/team-treehouse",
-		:craft => Craft.find_by_name("HTML5").id
+		:craft => Craft.find_by_name("HTML5").id,
+		:type => Type.find_by_name("Online Education").id,
+		:level => Level.find_by_name("Beginner").id
 	},
 	{
 		:name => "PHP Manual",
@@ -146,7 +185,9 @@ resources = [
 		:link => "http://www.php.net",
 		:path => "php-manual",
 		:full_path => "/computer-programming/php/php-manual",
-		:craft => Craft.find_by_name("PHP").id
+		:craft => Craft.find_by_name("PHP").id,
+		:type => Type.find_by_name("Online Resource").id,
+		:level => Level.find_by_name("Intermediate").id
 	},
 	{
 		:name => "Intro to jQuery",
@@ -155,7 +196,9 @@ resources = [
 		:link => "http://www.codecademy.com",
 		:path => "intro-to-jquery",
 		:full_path => "/computer-programming/jquery/intro-to-jquery",
-		:craft => Craft.find_by_name("jQuery").id
+		:craft => Craft.find_by_name("jQuery").id,
+		:type => Type.find_by_name("Online Education").id,
+		:level => Level.find_by_name("Beginner").id
 	}
 ]
 
@@ -170,6 +213,8 @@ resources.each_with_index do |resource, i|
 	r.craft_id = resource[:craft]
 	r.user_id = User.first.id + i
 	r.upvotes_count = 1
+	r.type_id = resource[:type]
+	r.level_id = resource[:level]
 	r.save
 
 	u = Upvote.new

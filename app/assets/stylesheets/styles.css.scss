@@ -636,6 +636,24 @@ form .form-help {
 	
 }
 
+.type-level {
+	float: right;
+	margin-top: -33px;
+	span {
+		display: inline-block;
+		padding: 3px 15px;
+		background: $lightGold;
+		border: 1px solid $darkGold;
+		margin-right: 10px;
+		font-size: 12px;
+		color: #fff;
+		@include rounded(18px);
+		&:last-of-type {
+			margin-right: 0;
+		}
+	}
+}
+
 .resource-avatar-input {
 	line-height: 16px !important;
 	margin: 10px 0 5px 0;
