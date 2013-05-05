@@ -15,6 +15,9 @@
 			<div class="breadcrumbs">
 				<span><%= @user.bio %></span>
 			</div>
+			<% if signed_in? %>
+				<a href="/users/<%= current_user.username %>/edit" class="edit-profile">Edit Profile</a>
+			<% end %>
 		</div>
 	</div>
 	<div class="row-fluid">

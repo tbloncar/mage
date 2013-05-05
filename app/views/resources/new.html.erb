@@ -31,7 +31,7 @@
 				<div class="form-input control-group">
 					<%= label_tag "craft", "Choose Craft", :class  => "control-label", :required => "true" %>
 					<div class="controls">
-						<%= form.select :craft_id, options_for_select(@crafts.collect{ |c| [c.name, c.id]}) %>
+						<%= form.collection_select :craft_id, Craft.all, :id, :name, :prompt => 'Select Craft' %>
 					</div>
 				</div>
 				<div class="form-input control-group">

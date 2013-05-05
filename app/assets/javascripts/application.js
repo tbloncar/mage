@@ -15,10 +15,14 @@
 //= require_tree .
 // Show form help tips on corresponding input click
 $('.form-text-input').focus(function() {
-	$(this).next().removeClass('no').addClass('form-help');
+	if($(this).attr('id') != "panel") {
+		$(this).next().removeClass('no').addClass('form-help');
+	}
 });
 $('.form-text-input').blur(function() {
-	$(this).next().removeClass('form-help').addClass('no');
+	if($(this).attr('id') != "panel") {
+		$(this).next().removeClass('form-help').addClass('no');
+	}
 });
 // Remove messages on span 'x' click
 $('.message span').click(function() {
@@ -57,4 +61,13 @@ $('#password_confirmation').blur(function() {
 	}
 	else if(c == p)
 		$(this).attr('style','border-color: #bbb');
+});
+// Change value of edit checkbox on change
+$('#panel').change(function() {
+	if($(this).is(':checked')) {
+		$(this).attr('checked', true);
+	}
+	else {
+		$(this).attr('checked', false);
+	}
 });

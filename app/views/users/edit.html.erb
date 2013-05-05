@@ -15,17 +15,9 @@
 					</div>
 				</div>
 				<div class="form-input control-group">
-					<label for="first" class="control-label">First Name</label>
+					<label for="panel" class="control-label">Add Resource Panel</label>
 					<div class="controls">
-						<input type="text" name="first" id="first" placeholder="First Name" class="form-text-input" value="<%= @user.first_name %>" required>
-						<span class="no">Keep it real.</span>
-					</div>
-				</div>
-				<div class="form-input control-group">
-					<label for="last" class="control-label">Last Name</label>
-					<div class="controls">
-						<input type="text" name="last" id="last" placeholder="Last Name" class="form-text-input" value="<%= @user.last_name %>" required>
-						<span class="no">We won't make this public.</span>
+						<input type="checkbox" name="panel" id="panel" <%= @panel %>>
 					</div>
 				</div>
 				<div class="form-input control-group">

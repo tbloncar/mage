@@ -13,16 +13,18 @@ class User < ActiveRecord::Base
 
 	validates :username, uniqueness: { case_sensitive: false }, length: { :in => 3..20 }
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  	validates :email, presence:   true,
+  validates :email, presence:   true,
                     format:     { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-	validates :password, presence: true, length: { minimum: 6 }
-	validates :password_confirmation, presence: true
+	validates :password, presence: true, length: { minimum: 6 }, :on => :create
+	validates :password_confirmation, presence: true, :on => :create
 	validates_format_of :username, :with => /^[A-Za-z\d_]+$/
 
 	# before_save :encrypt_password
-	before_save { |user| user.username = username.downcase }
-	before_save :create_remember_token
+
+	before_create { |user| user.username = username.downcase }
+	before_create :create_remember_token
+	
 
 	def has_password?(submitted_password)
 		encrypted_password = encrypt(submitted_password)

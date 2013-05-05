@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130503024000) do
+ActiveRecord::Schema.define(:version => 20130504222647) do
 
   create_table "classifications", :force => true do |t|
     t.string "name"
@@ -55,14 +55,15 @@ ActiveRecord::Schema.define(:version => 20130503024000) do
   end
 
   create_table "users", :force => true do |t|
-    t.string "username"
-    t.string "email"
-    t.string "first_name"
-    t.string "last_name"
-    t.text   "bio"
-    t.string "avatar_url"
-    t.string "password_digest"
-    t.string "remember_token"
+    t.string  "username"
+    t.string  "email"
+    t.string  "first_name"
+    t.string  "last_name"
+    t.text    "bio"
+    t.string  "avatar_url"
+    t.string  "password_digest"
+    t.string  "remember_token"
+    t.boolean "panel",           :default => true
   end
 
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"

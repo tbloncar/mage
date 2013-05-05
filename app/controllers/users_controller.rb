@@ -46,15 +46,19 @@ class UsersController < ApplicationController
 		if @user != current_user
 			redirect_to user_url(@user.username)
 		end
+		if @user.panel
+			@panel = "checked"
+		else
+			@panel = ""
+		end
 	end
 
 	def update
 		user = User.find_by_username(params[:user_name])
 
 		user.email = params[:email]
-		user.first_name = params[:first]
-		user.last_name = params[:last]
 		user.bio = params[:bio]
+		user.panel = params[:panel]
 
 		user.save
 
