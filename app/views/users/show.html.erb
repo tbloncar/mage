@@ -15,7 +15,7 @@
 			<div class="breadcrumbs">
 				<span><%= @user.bio %></span>
 			</div>
-			<% if signed_in? %>
+			<% if signed_in? && current_user.id == @user.id %>
 				<a href="/users/<%= current_user.username %>/edit" class="edit-profile">Edit Profile</a>
 			<% end %>
 		</div>
@@ -23,7 +23,7 @@
 	<div class="row-fluid">
 		<div class="span4 subhead">
 			<h2>Recommendations</h2>
-			<div class="white-container">
+			<div class="white-container" style="padding-bottom: 0;">
 				<p>Resources <strong><%= @user.username %></strong> recommends.</p>
 				<div class="user-stuff-container">
 					<% @resources_upvoted.each do |resource| %>
@@ -36,7 +36,7 @@
 		</div>
 		<div class="span4 subhead">
 			<h2>Submissions</h2>
-			<div class="white-container">
+			<div class="white-container" style="padding-bottom: 0;">
 				<p>Resources <strong><%= @user.username %></strong> has contributed.</p>
 				<div class="user-stuff-container">
 					<% @user.resources.each do |resource| %>
@@ -49,7 +49,7 @@
 		</div>
 		<div class="span4 subhead">
 			<h2>Interests</h2>
-			<div class="white-container">
+			<div class="white-container" style="padding-bottom: 0;">
 				<p>Crafts <strong><%= @user.username %></strong> is interested in.</p>
 				<div class="user-stuff-container">
 					<% @crafts_interested.each do |craft| %>

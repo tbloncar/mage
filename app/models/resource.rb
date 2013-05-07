@@ -13,6 +13,8 @@ class Resource < ActiveRecord::Base
 		text :name, :default_boost => 2
 		text :description
 		text :author
+		text :level
+		text :type
 	end
 
 	def self.home_list
