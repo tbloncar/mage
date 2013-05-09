@@ -3,6 +3,18 @@ class PagesController < ApplicationController
 		@resources = Resource.home_list
 		@crafts = Craft.top6
 		@users = User.top6
+
+        if current_user
+            followed = []
+            current_user.relationships.each do |r|
+                followed << User.find(r.followed_id)
+            end
+            @recent_resources = []
+            followed.each do |user|
+                @recent_resources << user.resources.last
+            end
+        end
+
 	end
 
   def search

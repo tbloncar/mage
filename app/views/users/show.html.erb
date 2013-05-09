@@ -15,6 +15,10 @@
 			<div class="breadcrumbs">
 				<span><%= @user.bio %></span>
 			</div>
+			<!-- Do stuff with follow button and such -->
+			<%= form_tag relationship_url(@user.id), method: "post" do %>
+				<button class="follow-user">Follow</button>
+			<% end %>
 			<% if signed_in? && current_user.id == @user.id %>
 				<a href="/users/<%= current_user.username %>/edit" class="edit-profile">Edit Profile</a>
 			<% end %>
