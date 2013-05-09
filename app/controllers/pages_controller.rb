@@ -10,9 +10,17 @@ class PagesController < ApplicationController
                 followed << User.find(r.followed_id)
             end
             @recent_resources = []
+            @recommended_resources = []
             followed.each do |user|
-                @recent_resources << user.resources.last
+                if !@recent_resources.include?(user.resources.last)
+                    @recent_resources << user.resources.last
+                end
+                if !@recommended_resources.include?(Resource.find_by_id(user.upvotes.last.resource_id))
+                    @recommended_resources << Resource.find_by_id(user.upvotes.last.resource_id)
+                end
             end
+            
+
         end
 
 	end
