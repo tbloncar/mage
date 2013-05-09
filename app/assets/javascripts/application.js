@@ -71,3 +71,9 @@ $('#panel').change(function() {
 		$(this).attr('checked', false);
 	}
 });
+$('.unfollow-button').hover(function() {
+	$(this).text('Unfollow');
+},
+	function() {
+		$(this).text('Following');
+	});

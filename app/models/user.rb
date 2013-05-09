@@ -40,9 +40,9 @@ class User < ActiveRecord::Base
 		encrypted_password = encrypt(submitted_password)
 	end
 
-	# def following?(other_user)
-	# 	relationships.find_by_followed_id(other_user.id)
-	# end
+	def following?(other_user)
+		relationships.find_by_followed_id(other_user.id)
+	end
 
 	# def follow!(other_user)
 	# 	relationships.create!(followed_id: other_user.id)

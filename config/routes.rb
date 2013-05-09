@@ -70,6 +70,8 @@ Mage::Application.routes.draw do
 
   post "/relationships/:user_id" => "Relationships#create", :as => "relationship"
 
+  delete "/relationships/:user_id" => "Relationships#destroy", :as => "relationship"
+
 
 
 end

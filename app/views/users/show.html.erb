@@ -10,18 +10,54 @@
 	</div>
 	<div class="row-fluid">
 		<div class="span12 page-header">
-			<%= gravatar_image_tag(@user.email, :alt => "#{@user.first_name} #{@user.last_name}", :class => 'profile-avatar', :gravatar => { :size => 150 }) %>
+			<%= gravatar_image_tag(@user.email, :alt => "#{@user.username}", :class => 'profile-avatar', :gravatar => { :size => 150 }) %>
 			<h1 class="resource-title"><span><%= @user.username %></span></h1>
 			<div class="breadcrumbs">
 				<span><%= @user.bio %></span>
 			</div>
-			<!-- Do stuff with follow button and such -->
-			<%= form_tag relationship_url(@user.id), method: "post" do %>
-				<button class="follow-user">Follow</button>
-			<% end %>
+			<div class="follow-stuff">
+				<% if current_user && current_user != @user %>
+					<% if !current_user.following?(@user) %>
+						<%= form_tag relationship_url(@user.id), method: "post" do %>
+							<button class="follow-button relationship-button">Follow</button>
+						<% end %>
+					<% else %>
+						<%= form_tag relationship_url(@user.id), method: "delete" do %>
+							<button class="unfollow-button relationship-button">Following</button>
+						<% end %>
+					<% end %>
+				<% elsif current_user != @user %>
+					<span class="recommended">Sign in to follow <%= @user.username %></span>
+				<% else %>
+					<span class="recommended">Checkin' yourself out, eh?</span>
+				<% end %>
+			</div>
 			<% if signed_in? && current_user.id == @user.id %>
 				<a href="/users/<%= current_user.username %>/edit" class="edit-profile">Edit Profile</a>
 			<% end %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span7">
+			<span class="recommended">Followed by <%= @user.followers.count %> mages</span>
+			<div class="connection-container">
+				<% @user.followers.each do |follower| %>
+					<a href="<%= user_url(follower.username) %>">
+						<%= gravatar_image_tag(follower.email, :alt => "#{follower.username}", :class => 'profile-avatar', :gravatar => { :size => 50 }) %>
+					</a>
+				<% end %>
+			</div>
+		</div>
+		<div class="span5">
+			<span class="recommended">Following <%= @user.relationships.count %> mages</span>
+			<div class="connection-container">
+				<% @user.relationships.each do |relationship| %>
+					<% followed = User.find(relationship.followed_id) %>
+					<a href="<%= user_url(followed.username) %>">
+						<%= gravatar_image_tag(followed.email, :alt => "#{followed.username}", :class => 'profile-avatar', :gravatar => { :size => 50 }) %>
+					</a>
+				<% end %>
+			</div>
 		</div>
 	</div>
 	<div class="row-fluid">
