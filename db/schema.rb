@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130507001949) do
+ActiveRecord::Schema.define(:version => 20130510045546) do
 
   create_table "classifications", :force => true do |t|
     t.string "name"
@@ -22,13 +22,16 @@ ActiveRecord::Schema.define(:version => 20130507001949) do
   end
 
   create_table "crafts", :force => true do |t|
-    t.string  "name"
-    t.text    "short_description"
-    t.text    "long_description"
-    t.string  "image_url"
-    t.string  "path"
-    t.integer "classification_id", :limit => 255
-    t.string  "full_path"
+    t.string   "name"
+    t.text     "short_description"
+    t.text     "long_description"
+    t.string   "path"
+    t.integer  "classification_id",  :limit => 255
+    t.string   "full_path"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "levels", :force => true do |t|

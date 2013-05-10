@@ -12,7 +12,7 @@
 			<% @crafts.each do |craft| %>
 				<a class="craft-resource" href="<%= craft.full_path %>">
 					<div class="craft-resource-image">
-						<%= image_tag craft.image_url %>
+						<%= image_tag craft.image.url %>
 					</div>
 					<div class="craft-resource-content">
 						<h4><%= craft.name %></h4>

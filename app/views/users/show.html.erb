@@ -66,24 +66,38 @@
 			<div class="white-container" style="padding-bottom: 0;">
 				<p>Resources <strong><%= @user.username %></strong> recommends.</p>
 				<div class="user-stuff-container">
-					<% @resources_upvoted.each do |resource| %>
-						<a href="<%= resource.full_path %>" class="user-stuff-image">
-							<img src="<%= resource.avatar.url %>">
+					<% if !@resources_upvoted.empty? %>
+						<% @resources_upvoted.each do |resource| %>
+							<a href="<%= resource.full_path %>" class="user-stuff-image">
+								<img src="<%= resource.avatar.url %>">
+							</a>
+						<% end %>
+					<% else %>
+						<a href="/" class="user-stuff-image resource-empty">
+							<img src="https://s3.amazonaws.com/mage_images/placeholders/eloquent.jpg">
 						</a>
+						<p class="empty">Once you recommend learning resources, they'll show up here!</p>
 					<% end %>
 				</div>
 			</div>
 		</div>
 		<div class="span4 subhead">
-			<h2>Submissions</h2>
+			<h2>Contributions</h2>
 			<div class="white-container" style="padding-bottom: 0;">
 				<p>Resources <strong><%= @user.username %></strong> has contributed.</p>
 				<div class="user-stuff-container">
+				<% if !@user.resources.empty? %>
 					<% @user.resources.each do |resource| %>
-							<a href="<%= resource.full_path %>" class="user-stuff-image">
-								<img src="<%= resource.avatar.url %>">
-							</a>
+						<a href="<%= resource.full_path %>" class="user-stuff-image">
+							<img src="<%= resource.avatar.url %>">
+						</a>
 					<% end %>
+				<% else %>
+						<a href="/" class="user-stuff-image resource-empty">
+							<img src="https://s3.amazonaws.com/mage_images/placeholders/eloquent.jpg">
+						</a>
+						<p class="empty"><a href="/resources/new">Contribute a resource</a> that has helped you learn!</p>
+				<% end %>
 				</div>
 			</div>
 		</div>
@@ -92,10 +106,17 @@
 			<div class="white-container" style="padding-bottom: 0;">
 				<p>Crafts <strong><%= @user.username %></strong> is interested in.</p>
 				<div class="user-stuff-container">
-					<% @crafts_interested.each do |craft| %>
-						<a href="<%= craft.full_path %>" class="user-stuff-image">
-							<img src="<%= craft.image_url %>">
+					<% if !@crafts_interested.empty? %>
+						<% @crafts_interested.each do |craft| %>
+							<a href="<%= craft.full_path %>" class="user-stuff-image">
+								<img src="<%= craft.image.url %>">
+							</a>
+						<% end %>
+					<% else %>
+						<a href="/" class="user-stuff-image resource-empty">
+							<img src="https://s3.amazonaws.com/mage_images/placeholders/eloquent.jpg">
 						</a>
+						<p class="empty">Contribute or recommend a resource to express an interest!</p>
 					<% end %>
 				</div>
 			</div>

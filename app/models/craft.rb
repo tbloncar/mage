@@ -1,11 +1,15 @@
 class Craft < ActiveRecord::Base
+	attr_accessible :image
+
 	has_many :resources
 	belongs_to :classification
+
+	has_attached_file :image, :styles => { :medium => "255x255>", :thumb => "100x100>" }, :default_url => "/assets/eloquent.jpg"
 
 	scope :top6,
 		joins(:resources).
 		group("crafts.id").
-		select("crafts.id, crafts.name, crafts.image_url, crafts.short_description, crafts.full_path, sum(resources.upvotes_count) AS order_by").
+		select("crafts.id, crafts.name, crafts.short_description, crafts.image_file_name, crafts.image_updated_at, crafts.full_path, sum(resources.upvotes_count) AS order_by").
 		order("order_by DESC")
 
 	# searchable do

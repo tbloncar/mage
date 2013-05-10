@@ -12,10 +12,10 @@ class PagesController < ApplicationController
             @recent_resources = []
             @recommended_resources = []
             followed.each do |user|
-                if !@recent_resources.include?(user.resources.last)
+                if !@recent_resources.include?(user.resources.last) && @recent_resources.size < 8
                     @recent_resources << user.resources.last
                 end
-                if !@recommended_resources.include?(Resource.find_by_id(user.upvotes.last.resource_id))
+                if !@recommended_resources.include?(Resource.find_by_id(user.upvotes.last.resource_id)) && @recommended_resources.size < 8
                     @recommended_resources << Resource.find_by_id(user.upvotes.last.resource_id)
                 end
             end

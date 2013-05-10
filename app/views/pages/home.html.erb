@@ -10,16 +10,26 @@
 			<div class="span4 home-feed">
 					<h2 class="add">Recently submitted by mages you follow:</h2>
 					<div class="feed-container">
-					<% @recent_resources.each do |resource| %>
-						<a href="<%= resource.full_path %>"><img src="<%= resource.avatar.url %>"></a>
+					<% if !@recent_resources.empty? %>
+						<% @recent_resources.each do |resource| %>
+							<a href="<%= resource.full_path %>"><img src="<%= resource.avatar.url %>"></a>
+						<% end %>
+					<% else %>
+						<a href="#" class="resource-empty"><img src="https://s3.amazonaws.com/mage_images/placeholders/eloquent.jpg"></a>
+						<p class="empty-help">Follow other mages to see new resources they've added!</p>
 					<% end %>
 				</div>
 			</div>
 			<div class="span4 home-feed">
 				<h2 class="recommend">Recently recommended by mages you follow:</h2>
 				<div class="feed-container">
-					<% @recommended_resources.each do |resource| %>
-						<a href="<%= resource.full_path %>"><img src="<%= resource.avatar.url %>"></a>
+					<% if !@recommended_resources.empty? %>
+						<% @recommended_resources.each do |resource| %>
+							<a href="<%= resource.full_path %>"><img src="<%= resource.avatar.url %>"></a>
+						<% end %>
+					<% else %>
+						<a href="#" class="resource-empty"><img src="https://s3.amazonaws.com/mage_images/placeholders/eloquent.jpg"></a>
+						<p class="empty-help">Follow other mages to see new resources they've recommended!</p>
 					<% end %>
 				</div>
 			</div>
@@ -67,7 +77,7 @@
 				<a href="<%= craft.full_path %>" class="span2 home-resource">
 					<div class="home-resource-inner">
 						<h3><%= craft.name %></h3>
-						<img src="<%= craft.image_url %>" class="home-resource-image">
+						<img src="<%= craft.image.url %>" class="home-resource-image">
 						<p class="home-resource-description"><%= craft.short_description %></p>
 					</div>
 				</a>
