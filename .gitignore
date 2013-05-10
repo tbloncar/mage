@@ -18,7 +18,7 @@
 .DS_Store
 
 # Ignore all image files
-/app/assets/images/
+# /app/assets/images/
 
 # Ignore Solr data
 solr/data
