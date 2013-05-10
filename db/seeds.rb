@@ -37,11 +37,11 @@ end
 crafts = [
 	{:name => "Ruby on Rails", :short_description => "Ruby on Rails is a framework for building web applications", :long_description => "Ruby on Rails is a framework for building web applications.", :image_url => "app/assets/images/seed/rails.png", :path => "ruby-on-rails", :full_path => "/computer-programming/ruby-on-rails"},
 	{:name => "HTML5", :short_description => "HTML5 is the new standard for structuring websites.", :long_description => "HTML5 is the new standard for structuring websites.", :image_url => "app/assets/images/seed/html5.jpg", :path => "html5", :full_path => "/computer-programming/html5"},
-	{:name => "JavaScript", :short_description => "JavaScript is used to enhance the behavioral components of web applications.", :long_description => "JavaScript is used to enhance the behavioral components of web applications.", :image_url => "/Users/tbloncar/Google Drive/Web Design/code/mage/app/assets/images/seed/javascript.png", :path => "javascript", :full_path => "/computer-programming/javascript"},
-	{:name => "jQuery UI", :short_description => "jQuery UI offers a number of cool jQuery-based UI elements.", :long_description => "jQuery UI offers a number of cool jQuery-based UI elements.", :image_url => "/Users/tbloncar/Google Drive/Web Design/code/mage/app/assets/images/seed/jqueryui.png", :path => 'jquery-ui', :full_path => "/computer-programming/jquery-ui"},
-	{:name => "jQuery", :short_description => "jQuery is a convenience library written on top of JavaScript.", :long_description => "jQuery is a convenience library written on top of JavaScript.", :path => "jquery", :full_path => "/computer-programming/jquery", :image_url => "/Users/tbloncar/Google Drive/Web Design/code/mage/app/assets/images/seed/jquery.png"},
-	{:name => "PHP", :short_description => "PHP is a backend programming language with a purple logo.", :long_description => "PHP is a backend programming language with a purple logo.", :path => "php", :full_path => "/computer-programming/php", :image_url => "/Users/tbloncar/Google Drive/Web Design/code/mage/app/assets/images/seed/php.png"},
-	{:name => "Ruby", :short_description => "Ruby is a programming language known for its simplicity and open source community.", :long_description => "Ruby is a programming language known for its simplicity and open source community.", :path => "ruby", :full_path => "/computer-programming/ruby", :image_url => "/Users/tbloncar/Google Drive/Web Design/code/mage/app/assets/images/seed/ruby.png"}
+	{:name => "JavaScript", :short_description => "JavaScript is used to enhance the behavioral components of web applications.", :long_description => "JavaScript is used to enhance the behavioral components of web applications.", :image_url => "app/assets/images/seed/javascript.png", :path => "javascript", :full_path => "/computer-programming/javascript"},
+	{:name => "jQuery UI", :short_description => "jQuery UI offers a number of cool jQuery-based UI elements.", :long_description => "jQuery UI offers a number of cool jQuery-based UI elements.", :image_url => "app/assets/images/seed/jqueryui.png", :path => 'jquery-ui', :full_path => "/computer-programming/jquery-ui"},
+	{:name => "jQuery", :short_description => "jQuery is a convenience library written on top of JavaScript.", :long_description => "jQuery is a convenience library written on top of JavaScript.", :path => "jquery", :full_path => "/computer-programming/jquery", :image_url => "app/assets/images/seed/jquery.png"},
+	{:name => "PHP", :short_description => "PHP is a backend programming language with a purple logo.", :long_description => "PHP is a backend programming language with a purple logo.", :path => "php", :full_path => "/computer-programming/php", :image_url => "app/assets/images/seed/php.png"},
+	{:name => "Ruby", :short_description => "Ruby is a programming language known for its simplicity and open source community.", :long_description => "Ruby is a programming language known for its simplicity and open source community.", :path => "ruby", :full_path => "/computer-programming/ruby", :image_url => "app/assets/images/seed/ruby.png"}
 	]
 
 crafts.each do |craft|
@@ -145,7 +145,7 @@ resources = [
 		:craft => Craft.find_by_name("Ruby").id,
 		:type => Type.find_by_name("Book").id,
 		:level => Level.find_by_name("Beginner").id,
-		:image_url => "/Users/tbloncar/Google Drive/Web Design/code/mage/app/assets/images/seed/learn-to-program.jpg"
+		:image_url => "app/assets/images/seed/learn-to-program.jpg"
 	},
 	{
 		:name => "Eloquent JavaScript",
@@ -157,7 +157,7 @@ resources = [
 		:craft => Craft.find_by_name("JavaScript").id,
 		:type => Type.find_by_name("Book").id,
 		:level => Level.find_by_name("Beginner").id,
-		:image_url => "/Users/tbloncar/Google Drive/Web Design/code/mage/app/assets/images/seed/eloquent.jpg"
+		:image_url => "app/assets/images/seed/eloquent.jpg"
 	},
 	{
 		:name => "Web Development",
@@ -169,7 +169,7 @@ resources = [
 		:craft => Craft.find_by_name("Ruby on Rails").id,
 		:type => Type.find_by_name("Program").id,
 		:level => Level.find_by_name("Beginner").id,
-		:image_url => "/Users/tbloncar/Google Drive/Web Design/code/mage/app/assets/images/seed/webdev.png"
+		:image_url => "app/assets/images/seed/webdev.png"
 	},
 	{
 		:name => "Web Design Track",
@@ -181,7 +181,7 @@ resources = [
 		:craft => Craft.find_by_name("HTML5").id,
 		:type => Type.find_by_name("Online Education").id,
 		:level => Level.find_by_name("Beginner").id,
-		:image_url => "/Users/tbloncar/Google Drive/Web Design/code/mage/app/assets/images/seed/webdesign.png"
+		:image_url => "app/assets/images/seed/webdesign.png"
 	},
 	{
 		:name => "PHP Manual",
@@ -193,7 +193,7 @@ resources = [
 		:craft => Craft.find_by_name("PHP").id,
 		:type => Type.find_by_name("Online Resource").id,
 		:level => Level.find_by_name("Intermediate").id,
-		:image_url => "/Users/tbloncar/Google Drive/Web Design/code/mage/app/assets/images/seed/php-manual.png"
+		:image_url => "app/assets/images/seed/php-manual.png"
 	},
 	{
 		:name => "Intro to jQuery",
@@ -205,7 +205,7 @@ resources = [
 		:craft => Craft.find_by_name("jQuery").id,
 		:type => Type.find_by_name("Online Education").id,
 		:level => Level.find_by_name("Beginner").id,
-		:image_url => "/Users/tbloncar/Google Drive/Web Design/code/mage/app/assets/images/seed/codecademy-jquery.png"
+		:image_url => "app/assets/images/seed/codecademy-jquery.png"
 	}
 ]
 
