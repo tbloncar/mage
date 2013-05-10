@@ -9,13 +9,13 @@ class Resource < ActiveRecord::Base
 	belongs_to :type
 	has_many :upvotes
 
-	searchable do
-		text :name, :default_boost => 2
-		text :description
-		text :author
-		text :level
-		text :type
-	end
+	# searchable do
+	# 	text :name, :default_boost => 2
+	# 	text :description
+	# 	text :author
+	# 	text :level
+	# 	text :type
+	# end
 
 	def self.home_list
 		uncached do
