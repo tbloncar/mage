@@ -55,7 +55,11 @@ Mage::Application.routes.draw do
   # Craft
   # ---------------------------------------------
 
+  get "/crafts/new" => "Crafts#new", :as => "new_craft"
+  post "/crafts" => "Crafts#create", :as => "crafts"
+
   get "/:classification_path/:craft_path" => "Crafts#show", :as => "craft"
+
 
 
   # Classification

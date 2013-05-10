@@ -1,5 +1,5 @@
 class Craft < ActiveRecord::Base
-	attr_accessible :image
+	attr_accessible :image, :name, :classification_id, :short_description, :long_description
 
 	has_many :resources
 	belongs_to :classification

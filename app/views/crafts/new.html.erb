@@ -1,0 +1,50 @@
+
+  <div class="row-fluid">
+    <div class="span12 page-header">
+      <h1>Add a Craft</h1>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span5 form-container">
+      <%= form_for @craft, :url => crafts_url, :method => "post" do |form| %>
+        <div class="form-input control-group">
+          <%= label_tag "name", "Craft Name", :class  => "control-label" %>
+          <div class="controls">
+            <%= form.text_field :name, { :placeholder => "Name of Craft", :class => "form-text-input", :required => "true" } %>
+            <span class="no">Name that craft!</span>
+          </div>
+        </div>
+        <div class="form-input control-group">
+          <%= label_tag "classification", "Choose Classification", :class  => "control-label", :required => "true" %>
+          <div class="controls">
+            <%= form.collection_select :classification_id, Classification.all, :id, :name, :prompt => 'Select Classification' %>
+          </div>
+        </div>
+        <div class="form-input control-group">
+          <div class="controls">
+            <%= label_tag "craft_image", "Upload Image", :class => "control-label" %>
+            <%= form.file_field :image, :class => "resource-avatar-input", :required => "true" %>
+          </div>
+        </div>
+        <div class="form-input control-group">
+          <%= label_tag "short_description", nil, :class => "control-label" %>
+          <div class="controls">
+            <%= form.text_area :short_description, { :class => "form-text-input resource-text-area", :rows => 7, :required => "true" } %>
+            <span class="no">Describe it succinctly!</span>
+          </div>
+        </div>
+          <div class="form-input control-group">
+          <%= label_tag "long_description", nil, :class => "control-label" %>
+          <div class="controls">
+            <%= form.text_area :long_description, { :class => "form-text-input resource-text-area", :rows => 13, :required => "true" } %>
+            <span class="no">Make it a bit longer!</span>
+          </div>
+        </div>
+        <div class="form-input control-group">
+          <%= button_tag "Add Craft", :class => "form-button link-gold" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="span7">
+    </div>
+  
