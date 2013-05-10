@@ -36,7 +36,7 @@ end
 
 crafts = [
 	{:name => "Ruby on Rails", :short_description => "Ruby on Rails is a framework for building web applications", :long_description => "Ruby on Rails is a framework for building web applications.", :image_url => "app/assets/images/seed/rails.png", :path => "ruby-on-rails", :full_path => "/computer-programming/ruby-on-rails"},
-	{:name => "HTML5", :short_description => "HTML5 is the new standard for structuring websites.", :long_description => "HTML5 is the new standard for structuring websites.", :image_url => "/Users/tbloncar/Google Drive/Web Design/code/mage/app/assets/images/seed/html5.jpg", :path => "html5", :full_path => "/computer-programming/html5"},
+	{:name => "HTML5", :short_description => "HTML5 is the new standard for structuring websites.", :long_description => "HTML5 is the new standard for structuring websites.", :image_url => "app/assets/images/seed/html5.jpg", :path => "html5", :full_path => "/computer-programming/html5"},
 	{:name => "JavaScript", :short_description => "JavaScript is used to enhance the behavioral components of web applications.", :long_description => "JavaScript is used to enhance the behavioral components of web applications.", :image_url => "/Users/tbloncar/Google Drive/Web Design/code/mage/app/assets/images/seed/javascript.png", :path => "javascript", :full_path => "/computer-programming/javascript"},
 	{:name => "jQuery UI", :short_description => "jQuery UI offers a number of cool jQuery-based UI elements.", :long_description => "jQuery UI offers a number of cool jQuery-based UI elements.", :image_url => "/Users/tbloncar/Google Drive/Web Design/code/mage/app/assets/images/seed/jqueryui.png", :path => 'jquery-ui', :full_path => "/computer-programming/jquery-ui"},
 	{:name => "jQuery", :short_description => "jQuery is a convenience library written on top of JavaScript.", :long_description => "jQuery is a convenience library written on top of JavaScript.", :path => "jquery", :full_path => "/computer-programming/jquery", :image_url => "/Users/tbloncar/Google Drive/Web Design/code/mage/app/assets/images/seed/jquery.png"},
@@ -49,7 +49,7 @@ crafts.each do |craft|
 	c.name = craft[:name]
 	c.short_description = craft[:short_description]
 	c.long_description = craft[:long_description]
-	c.image = File.open(craft[:image_url])
+	c.image = File.open(File.join(Rails.root, craft[:image_url]))
 	c.path = craft[:path]
 	c.full_path = craft[:full_path]
 	c.classification_id = Classification.first.id
