@@ -4,7 +4,10 @@ gem 'rails', '3.2.13'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'progress_bar'
 gem 'sunspot_solr' 
-gem 'aws-sdk' 
+gem 'aws-sdk'
+gem 'imgkit'
+# gem 'screencap'
+# gem "phantomjs.rb", "~> 0.0.5"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

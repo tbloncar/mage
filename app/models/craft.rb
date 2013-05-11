@@ -10,7 +10,8 @@ class Craft < ActiveRecord::Base
 		joins(:resources).
 		group("crafts.id").
 		select("crafts.id, crafts.name, crafts.short_description, crafts.image_file_name, crafts.image_updated_at, crafts.full_path, sum(resources.upvotes_count) AS order_by").
-		order("order_by DESC")
+		order("order_by DESC").
+		limit(6)
 
 	# searchable do
 	# 	text :name, :default_boost => 2

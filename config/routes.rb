@@ -40,13 +40,14 @@ Mage::Application.routes.draw do
   post "/" => "Resources#create", :as => "resources"
 
 
+  # UPDATE
+
+  get "/resources/:id/edit" => "Resources#edit", :as => "edit_resource"
+  put "/:classification_path/:craft_path/:resource_path" => "Resources#update", :as => "resource"
+
   # READ
 
   get "/:classification_path/:craft_path/:resource_path" => "Resources#show", :as => "resource"
-
-  # UPDATE
-
-  put "/:classification_path/:craft_path/:resource_path" => "Resources#update", :as => "resource"
 
   # DELETE
 
@@ -68,6 +69,13 @@ Mage::Application.routes.draw do
   # READ
 
   get "/:classification_path" => "Classifications#show", :as => "classification"
+
+  
+  # Upvotes
+  # ---------------------------------------------
+
+
+
 
   # Relationships
   # ----------------------------------------------
