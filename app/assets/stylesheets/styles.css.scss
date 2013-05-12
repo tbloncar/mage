@@ -719,7 +719,18 @@ form .form-help {
 	.craft-resource-content {
 		h4 {
 			margin-top: 0;
+			margin-bottom: 5px;
 			font-size: 16px;
+		}
+		p {
+			font-size: 12px;
+			margin-top: 5px;
+		}
+		span {
+			background: #eee;
+			font-size: 12px;
+			padding: 0 3px;
+			font-family: 'Open Sans', sans-serif;
 		}
 	}
 }

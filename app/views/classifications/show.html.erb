@@ -30,7 +30,8 @@
 					</div>
 					<div class="craft-resource-content">
 						<h4><%= (i + 1).to_s %>) <%= resource.name %></h4>
-						<p><%= resource.description %></h4>	
+						<span><%= resource.type.name %> for <%= resource.level.name %> Mages</span>
+						<p><%= resource.description %></p>	
 					</div>
 				</a>
 			<% end %>
