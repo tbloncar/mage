@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130513232900) do
+ActiveRecord::Schema.define(:version => 20130513233243) do
 
   create_table "bundles", :force => true do |t|
     t.string  "name"
@@ -47,6 +47,12 @@ ActiveRecord::Schema.define(:version => 20130513232900) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "inclusions", :force => true do |t|
+    t.integer "bundle_id"
+    t.integer "resource_id"
+    t.text    "description"
   end
 
   create_table "levels", :force => true do |t|
