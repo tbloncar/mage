@@ -38,10 +38,14 @@
 				</div>
 			</div>
 			<div class="resource-comment-form">
-				<%= form_tag comments_url(@resource.id), method: "post" do %>
-					<textarea name="content" placeholder="Use this resource? Provide some feedback."></textarea>
-					<button class="nav-link link-gold">Comment</button>
-					<span class="recommended">You are commenting as <%= current_user.username %>.</span>
+				<% if current_user %>
+					<%= form_tag comments_url(@resource.id), method: "post" do %>
+						<textarea name="content" placeholder="Use this resource? Provide some feedback."></textarea>
+						<button class="nav-link link-gold">Comment</button>
+						<span class="recommended">You are commenting as <%= current_user.username %>.</span>
+					<% end %>
+				<% else %>
+					<span class="recommended">Sign in to leave feedback on this resource.</span>
 				<% end %>
 			</div>
 		</div>
