@@ -15,7 +15,7 @@ class PagesController < ApplicationController
                 if !@recent_resources.include?(user.resources.last) && @recent_resources.size < 8
                     @recent_resources << user.resources.last
                 end
-                if !@recommended_resources.include?(Resource.find_by_id(user.upvotes.last.resource_id)) && @recommended_resources.size < 8
+                if !@recommended_resources.include?(Resource.find_by_id(user.upvotes.last.resource_id)) && @recommended_resources.size < 8 && user.upvotes.last
                     @recommended_resources << Resource.find_by_id(user.upvotes.last.resource_id)
                 end
             end

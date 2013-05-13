@@ -13,9 +13,11 @@ class Craft < ActiveRecord::Base
 		order("order_by DESC").
 		limit(6)
 
-	# searchable do
-	# 	text :name, :default_boost => 2
-	# 	text :short_description
-	# end
+	if ENV["RAILS_ENV"] = "development"
+		searchable do
+			text :name, :default_boost => 2
+			text :short_description
+		end
+	end
 
 end

@@ -9,13 +9,15 @@ class Resource < ActiveRecord::Base
 	belongs_to :type
 	has_many :upvotes
 
-	# searchable do
-	# 	text :name, :default_boost => 2
-	# 	text :description
-	# 	text :author
-	# 	text :level
-	# 	text :type
-	# end
+	if ENV["RAILS_ENV"] = "development"
+		searchable do
+			text :name, :default_boost => 2
+			text :description
+			text :author
+			text :level
+			text :type
+		end
+	end
 
 	def self.home_list
 		uncached do

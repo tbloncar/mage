@@ -16,10 +16,12 @@ class User < ActiveRecord::Base
 	has_many :reverse_relationships, foreign_key: "followed_id", class_name: "Relationship"
 	has_many :followers, through: :reverse_relationships, source: :follower
 
-	# searchable do
-	# 	text :username, :default_boost => 2
-	# 	text :bio
-	# end
+	if ENV["RAILS_ENV"] = "development"
+		searchable do
+			text :username, :default_boost => 2
+			text :bio
+		end
+	end
 
 	validates :username, uniqueness: { case_sensitive: false }, length: { :in => 3..20 }
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -29,8 +31,6 @@ class User < ActiveRecord::Base
 	validates :password, presence: true, length: { minimum: 6 }, :on => :create
 	validates :password_confirmation, presence: true, :on => :create
 	validates_format_of :username, :with => /^[A-Za-z\d_]+$/
-
-	# before_save :encrypt_password
 
 	before_create { |user| user.username = username.downcase }
 	before_create :create_remember_token
@@ -43,14 +43,6 @@ class User < ActiveRecord::Base
 	def following?(other_user)
 		relationships.find_by_followed_id(other_user.id)
 	end
-
-	# def follow!(other_user)
-	# 	relationships.create!(followed_id: other_user.id)
-	# end
-
-	# def unfollow!(other_user)
-	# 	relationships.find_by_followed_id(other_user.id).destroy
-	# end
 
 	private
 
