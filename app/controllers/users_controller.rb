@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+	before_filter :get_user, except: [:new, :create]
+
+	def get_user
+		@user = User.find_by_username(params[:user_name])
+	end
 
 	def new
 		@user = User.new
@@ -6,12 +11,6 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(params[:user])
-
-		# user.username = params[:username]
-		# user.password = params[:password]
-		# user.password_confirmation = params[:password_confirmation]
-		# user.email = params[:email]
-		# user.bio = params[:bio]
 		
 		if @user.save
 			sign_in @user
@@ -24,8 +23,6 @@ class UsersController < ApplicationController
 
 
 	def show
-		@user = User.find_by_username(params[:user_name])
-
 		upvotes = Upvote.where(user_id: @user.id)
 		@resources_upvoted = []
 		upvotes.each do |upvote|
@@ -42,7 +39,6 @@ class UsersController < ApplicationController
 	end
 
 	def edit
-		@user = User.find_by_username(params[:user_name])
 		if @user != current_user
 			redirect_to user_url(@user.username)
 		end
@@ -54,21 +50,17 @@ class UsersController < ApplicationController
 	end
 
 	def update
-		user = User.find_by_username(params[:user_name])
+		@user.email = params[:email]
+		@user.bio = params[:bio]
+		@user.panel = params[:panel]
 
-		user.email = params[:email]
-		user.bio = params[:bio]
-		user.panel = params[:panel]
-
-		user.save
+		@user.save
 
 		redirect_to edit_user_url(params[:user_name])
 	end
 
 	def destroy
-		user = User.find_by_username(params[:user_name])
-
-		user.destroy
+		@user.destroy
 
 		redirect_to home_url
 	end

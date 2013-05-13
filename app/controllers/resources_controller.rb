@@ -1,17 +1,12 @@
 class ResourcesController < ApplicationController
 
 	def show
-
 		clpath = params[:classification_path]
 		crpath = params[:craft_path]
 		rpath  = params[:resource_path]
 
-
-		# check classification first
 		@classification = Classification.where(path: clpath).first
-		# given the classification, search the crafts under the classification
 		@craft = @classification.crafts.where(path: crpath).first
-		# given the craft, search the reources under the specific craft
 		@resource = @craft.resources.where(path: rpath).first
 		upvotes = @resource.upvotes
 		@users = []
