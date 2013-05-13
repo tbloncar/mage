@@ -11,12 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130513231203) do
+ActiveRecord::Schema.define(:version => 20130513232900) do
 
   create_table "bundles", :force => true do |t|
     t.string  "name"
     t.text    "description"
     t.integer "user_id"
+    t.string  "path"
   end
 
   create_table "classifications", :force => true do |t|

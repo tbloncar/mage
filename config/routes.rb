@@ -19,6 +19,14 @@ Mage::Application.routes.draw do
   put "/:classification_path/:craft_path/:resource_path" => "Resources#update", :as => "resource"
   get "/:classification_path/:craft_path/:resource_path" => "Resources#show", :as => "resource"
 
+  get "/bundles/new" => "Bundles#new", :as => "new_bundle"
+  post "/bundles" => "Bundles#create", :as => "bundles"
+  get "/bundles" => "Bundles#index", :as => "bundles"
+  get "/bundles/:bundle_path" => "Bundles#show", :as => "bundle"
+  get "/bundles/:bundle_path/edit" => "Bundles#edit", :as => "edit_bundle"
+  put "/bundles/:bundle_path" => "Bundles#update", :as => "bundle"
+  delete "/bundles/:bundle_path" => "Bundles#destroy", :as => "bundle"
+
   get "/crafts/new" => "Crafts#new", :as => "new_craft"
   post "/crafts" => "Crafts#create", :as => "crafts"
 
