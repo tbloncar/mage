@@ -9,6 +9,8 @@ class Resource < ActiveRecord::Base
 	belongs_to :type
 	has_many :upvotes
 	has_many :comments
+	has_many :bundles, :through => :inclusions
+	has_many :inclusions
 
 	if ENV["RAILS_ENV"] = "development"
 		searchable do
