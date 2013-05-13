@@ -35,6 +35,16 @@
 			</div>
 			<div class="span4 home-feed">
 				<h2 class="comment">Recently commented by mages you follow:</h2>
+				<div class="feed-container">
+					<% if !@commented_resources.empty? %>
+						<% @commented_resources.each do |resource| %>
+							<a href="<%= resource.full_path %>"><img src="<%= resource.avatar.url %>"></a>
+						<% end %>
+					<% else %>
+						<a href="#" class="resource-empty"><img src="https://s3.amazonaws.com/mage_images/placeholders/eloquent.jpg"></a>
+						<p class="empty-help">Follow other mages to see resources they've recommended on!</p>
+					<% end %>
+				</div>
 			</div>
 		</div>
 		<% else %>

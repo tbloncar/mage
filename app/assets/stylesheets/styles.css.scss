@@ -798,6 +798,82 @@ form .form-help {
 	
 }
 
+.resource-comment-form {
+	background: #eee;
+	border: 1px solid #ccc;
+	border-top: none;
+	padding: 15px;
+	form {
+		margin-bottom: 0;
+	}
+	textarea {
+		height: 85px;
+		width: 96%;
+		border: 1px solid #ccc;
+		border-radius: 0;
+		font-size: 12px;
+		&:focus {
+			outline: none;
+			border: 1px solid #aaa;
+			box-shadow: none;
+		}
+	}
+	button {
+		margin-top: 5px;
+		margin-left: 0 !important;
+		margin-right: 10px;
+	}
+}
+
+.resource-comment-container {
+	background: #fff;
+	border: 1px solid #ccc;
+	border-top: none;
+	h3 {
+		margin: 0;
+		font-size: 18px;
+		padding-left: 15px;
+	}
+	p {
+		margin-top: 0;
+		padding-left: 15px;
+	}
+}
+
+.resource-comment {
+	padding: 15px;
+	border-top: 1px solid #ccc;
+	font-size: 12px;
+	background: #fcfcfc;
+	overflow: auto;
+	p {
+		padding: 0;
+	}
+	span {
+		background: #eee;
+		display: inline-block;
+		padding: 5px;
+		margin-left: -3px;
+	}
+	.resource-empty {
+		border: 1px solid #888;
+		margin-right: 10px;	
+	}
+	.resource-empty img {
+		height: 80px;
+		width: 80px;
+	}
+	.empty-help {
+		padding: 5px;
+	}
+}
+
+.comment-avatar {
+	height: 30px;
+	width: 30px;
+	margin-top: -1px;
+}
+
 .type-level {
 	float: right;
 	margin-top: -33px;

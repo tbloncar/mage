@@ -8,6 +8,7 @@ class Resource < ActiveRecord::Base
 	belongs_to :level
 	belongs_to :type
 	has_many :upvotes
+	has_many :comments
 
 	if ENV["RAILS_ENV"] = "development"
 		searchable do
