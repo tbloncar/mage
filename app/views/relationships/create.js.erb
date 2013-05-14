@@ -1,0 +1,11 @@
+$('.follow-stuff').html("<%= j render(:partial => 'users/unfollow') %>");
+$('.unfollow-button').css({background: '#66CD00', border: '1px solid #458B00', opacity: '0.7'});
+$('.unfollow-button').hover(function() {
+  $(this).text('Unfollow');
+  $(this).css({ background: '#ff3300', border: '1px solid #ff4040'});
+},
+function() {
+  $(this).text('Following');
+  $(this).css({ background: '#66CD00', border: '1px solid #458B00', opacity: '0.85'});
+});
+$('.followers').html("<%= j render(:partial => 'users/followers') %>");

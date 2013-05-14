@@ -1,0 +1,8 @@
+<span class="recommended">Followed by <%= @user.followers.count %> mages</span>
+<div class="connection-container">
+  <% @user.followers.each do |follower| %>
+    <a href="<%= user_url(follower.username) %>">
+      <%= gravatar_image_tag(follower.email, :alt => "#{follower.username}", :class => 'profile-avatar', :gravatar => { :size => 50 }) %>
+    </a>
+  <% end %>
+</div>

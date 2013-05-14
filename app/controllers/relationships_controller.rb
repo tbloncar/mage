@@ -9,15 +9,21 @@ class RelationshipsController < ApplicationController
     followed = User.find(params[:user_id]).id
     Relationship.create(followed_id: followed, follower_id: @follower,
                         created_at: Time.now, updated_at: Time.now)
-
-    redirect_to user_url(User.find(followed).username)
+    @user = User.find(followed)
+    respond_to do |format|
+      format.html { redirect_to user_url(User.find(followed).username) }
+      format.js
+    end
   end
 
   def destroy
     followed = params[:user_id]
     Relationship.where(followed_id: followed, follower_id: @follower)[0].delete
-
-    redirect_to user_url(User.find(followed).username)
+    @user = User.find(followed)
+    respond_to do |format|
+      format.html { redirect_to user_url(User.find(followed).username) }
+      format.js
+    end
   end
 end
 

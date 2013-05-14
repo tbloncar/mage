@@ -18,13 +18,9 @@
 			<div class="follow-stuff">
 				<% if current_user && current_user != @user %>
 					<% if !current_user.following?(@user) %>
-						<%= form_tag relationship_url(@user.id), method: "post" do %>
-							<button class="follow-button relationship-button">Follow</button>
-						<% end %>
+						<%= render 'users/follow' %>
 					<% else %>
-						<%= form_tag relationship_url(@user.id), method: "delete" do %>
-							<button class="unfollow-button relationship-button">Following</button>
-						<% end %>
+						<%= render 'users/unfollow' %>
 					<% end %>
 				<% elsif current_user != @user %>
 					<span class="recommended">Sign in to follow <%= @user.username %></span>
@@ -38,15 +34,8 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="span7">
-			<span class="recommended">Followed by <%= @user.followers.count %> mages</span>
-			<div class="connection-container">
-				<% @user.followers.each do |follower| %>
-					<a href="<%= user_url(follower.username) %>">
-						<%= gravatar_image_tag(follower.email, :alt => "#{follower.username}", :class => 'profile-avatar', :gravatar => { :size => 50 }) %>
-					</a>
-				<% end %>
-			</div>
+		<div class="span7 followers">
+			<%= render 'users/followers' %>
 		</div>
 		<div class="span5">
 			<span class="recommended">Following <%= @user.relationships.count %> mages</span>

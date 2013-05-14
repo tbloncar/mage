@@ -17,18 +17,12 @@
 	<div class="row">
 		<div class="span12 resource-controls">
 			<a href="<%= @resource.link %>" target="_blank" class="nav-link resource-upvote link-purple">Go to Resource</a>
-			<% if @recommended.empty? && signed_in? %>
-				<%= link_to "Recommend", resource_url, :method => "put", :class => "resource-upvote nav-link link-gold" %>
-			<% elsif signed_in? %>
-				<span class="recommended">You recommend this resource.</span>
-			<% else %>
-				<span class="recommended">Sign in to recommend this resource.</span>
-			<% end %>
+			<%= render 'resources/recommend' %>
 		</div>
 	</div>
 	<div class="row-fluid">
 		<div class="span5">
-			<div class="white-container">
+			<div class="white-container resource-description">
 				<h3>Description</h3>
 				<div class="type-level">
 					<span><%= @resource.type.name %></span><span><%= @resource.level.name %></span>
@@ -54,11 +48,7 @@
 				<h3>Recommenders</h3>
 				<p>Mages who have found this resource useful.</p>
 				<div class="upvoted-by">
-					<% @users.each do |user| %>
-						<a href="/users/<%= user.username %>">
-							<%= gravatar_image_tag(user.email, :alt => "#{user.username}", :class => 'user-avatar-image', :gravatar => { :size => 250 }) %>
-						</a>
-					<% end %>
+					<%= render 'resources/recommenders' %>
 				</div>
 			</div>
 			<div class="resource-comment-container">
