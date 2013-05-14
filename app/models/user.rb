@@ -18,12 +18,12 @@ class User < ActiveRecord::Base
 	has_many :reverse_relationships, foreign_key: "followed_id", class_name: "Relationship"
 	has_many :followers, through: :reverse_relationships, source: :follower
 
-	if ENV["RAILS_ENV"] = "development"
-		searchable do
-			text :username, :default_boost => 2
-			text :bio
-		end
-	end
+	# if ENV["RAILS_ENV"] = "development"
+	# 	searchable do
+	# 		text :username, :default_boost => 2
+	# 		text :bio
+	# 	end
+	# end
 
 	validates :username, uniqueness: { case_sensitive: false }, length: { :in => 3..20 }
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

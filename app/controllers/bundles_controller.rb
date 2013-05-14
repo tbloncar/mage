@@ -1,6 +1,6 @@
 class BundlesController < ApplicationController
   def new
-
+    @bundle = Bundle.new
   end
 
   def create
