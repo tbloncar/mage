@@ -13,7 +13,7 @@ class Craft < ActiveRecord::Base
 		order("order_by DESC").
 		limit(6)
 
-	if ENV["RAILS_ENV"] = "development"
+	if ENV["RAILS_ENV"] == "development"
 		searchable do
 			text :name, :default_boost => 2
 			text :short_description

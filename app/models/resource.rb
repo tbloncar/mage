@@ -12,7 +12,7 @@ class Resource < ActiveRecord::Base
 	has_many :bundles, :through => :inclusions
 	has_many :inclusions
 
-	if ENV["RAILS_ENV"] = "development"
+	if ENV["RAILS_ENV"] == "development"
 		searchable do
 			text :name, :default_boost => 2
 			text :description
