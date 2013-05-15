@@ -78,4 +78,46 @@ $('.unfollow-button').hover(function() {
 		$(this).text('Following');
 });
 // Drag and drop for bundles
-$('.bundle-choose-image').draggable();
+$('.bundle-choose-image').draggable( {
+	cursor: 'move',
+	containment: '.bundle-choose',
+	start: handleDragStart,
+	revert: function(event, ui) {
+            $(this).data("uiDraggable").originalPosition = {
+                top : 0,
+                left : 0
+            };
+       			return !event;
+       		}
+});
+$('.bundle-choose-drop-spot').droppable( {
+	accept: '.bundle-choose-image',
+	drop: handleDropEvent,
+	out: handleOutEvent,
+	hoverClass: 'can-drop'
+});
+function handleDropEvent( event, ui ) {
+	var draggable = ui.draggable;
+	$(this).droppable('option', 'accept', ui.draggable);
+	ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
+	ui.draggable.addClass('dropped');
+	$('#add-resources').val($('#add-resources').val() + '|' + ui.draggable.data('resource'));
+}
+function handleOutEvent( event, ui ) {
+  $(this).droppable('option', 'accept', '.bundle-choose-image'); 
+}
+function handleDragStart( event, ui ) {
+	if($(this).hasClass('dropped')) {
+		value = $('#add-resources').val();
+		id = $(this).data('resource');
+		value_array = value.split('|');
+		value_array[value_array.indexOf(id.toString())] = '';
+		new_value = value_array.join('|');
+		while (new_value[0] == '|') {
+			new_value = new_value.substr(1);
+		}
+		console.log(new_value);
+		$('#add-resources').val(new_value);
+	}
+	$(this).removeClass('dropped');
+}

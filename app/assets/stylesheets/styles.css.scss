@@ -191,6 +191,7 @@ body {
 .message-helper {
 	background: $mediumPurple;
 	border-color: #777;
+	margin-top: 0 !important;
 }
 
 .subhead {
@@ -947,13 +948,55 @@ form .form-help {
 
 .bundle-choose {
 	margin-top: 20px;
+	.bundle-choose-image-container {
+		float: left;
+		padding: 5px;
+		overflow: auto;
+	}
 	img {
 		width: 60px;
 		height: 60px;
 		border: 1px solid #333;
 		margin-right: 10px;
 		margin-bottom: 10px;
+		&:hover {
+			cursor: move;
+		}
 	}
+}
+
+.bundle-choose-drop {
+	background: #fcfcfc;
+	border: 1px solid #ccc;
+	margin-bottom: 20px;
+	@include rounded(5px);
+	padding: 10px;
+	overflow: auto;
+}
+
+.bundle-choose-drop-spot {
+	height: 62px;
+	width: 62px;
+	margin-right: 10px;
+	float: left;
+	border: 2px dashed #ccc;
+	@include box-sizing;
+}
+
+.bundle-choose-drop-describe {
+	color: #aaa;
+	font-size: 12px;
+	padding-top: 20px;
+	padding-left: 10px;
+	float: left;
+}
+
+.dropped {
+	border: 1px solid #000 !important;
+}
+
+.can-drop {
+	background: #eee;
 }
 
 // Search Results ------------------ <<
