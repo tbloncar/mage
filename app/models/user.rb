@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
 		joins(:resources).
 		group("users.id").
 		select("users.id, users.username, users.email, users.bio, sum(resources.upvotes_count) AS order_by").
-		order("order_by DESC")
+		order("order_by DESC").
+		limit(6)
 
 	has_many :resources
 	has_many :upvotes

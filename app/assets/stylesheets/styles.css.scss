@@ -194,7 +194,7 @@ body {
 	border-top: 1px dotted #ccc;
 	h2 {
 		margin: 10px 0;
-		font-size: 18px;
+		font-size: 16px;
 		&:first-of-type {
 			margin-top: 0;
 		}
@@ -935,6 +935,19 @@ form .form-help {
 	&:hover {
 		cursor: pointer;
 		border: 1px solid #333;
+	}
+}
+
+// Bundles Content ------------- <<
+
+.bundle-choose {
+	margin-top: 20px;
+	img {
+		width: 60px;
+		height: 60px;
+		border: 1px solid #333;
+		margin-right: 10px;
+		margin-bottom: 10px;
 	}
 }
 

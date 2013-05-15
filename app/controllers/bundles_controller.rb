@@ -1,6 +1,7 @@
 class BundlesController < ApplicationController
   def new
     @bundle = Bundle.new
+    @resources = current_user.resources
   end
 
   def create

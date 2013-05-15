@@ -76,4 +76,6 @@ $('.unfollow-button').hover(function() {
 },
 	function() {
 		$(this).text('Following');
-	});
+});
+// Drag and drop for bundles
+$('.bundle-choose-image').draggable();

@@ -31,5 +31,10 @@
         Use bundles to group resources that have helped you learn a particular skill or achieve a goal.
       </div>
     </div>
+    <div class="bundle-choose">
+      <% @resources.each do |resource| %>
+        <img src="<%= resource.avatar.url %>" class="bundle-choose-image">
+      <% end %>
+    </div>
   </div>
 </div>
