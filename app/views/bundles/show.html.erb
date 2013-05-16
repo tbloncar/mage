@@ -1,19 +1,30 @@
 <div class="row-fluid">
   <div class="span12 page-header">
     <h1><%= @bundle.name %></h1>
-    <p><%= @bundle.description %></p>
+    <span class="bundle-created-by">
+      <%= gravatar_image_tag(@bundle.user.email, :alt => "#{@bundle.user.username}", :class => '', :gravatar => { :size => 250 }) %>
+      <span>Created by <%= link_to @bundle.user.username, user_url(@bundle.user.username) %></span>
+    </span>
   </div>
 </div>
 <div class="row-fluid">
   <div class="span6">
-    <% @bundle.resources.each do |resource| %>
-      <div class="bundle-show-resource">
-        <h3><%= resource.name %></h3>
-        <p><%= resource.description %></p>
-      </div>
-    <% end %>
+    <div class="white-container">
+      <h3>Description</h3>
+      <p><%= @bundle.description %></p>
+    </div>
+    <div class="bundle-show-resource-container">
+      <% @bundle.resources.each do |resource| %>
+        <a class="bundle-show-resource" href="<%= resource.full_path %>">
+          <img src="<%= resource.avatar.url %>" alt="<%= resource.name %>">
+          <h3><%= resource.name %> <span>by <%= resource.author %></span></h3>
+          <img src="<%= resource.craft.image.url %>" class="bundle-show-resource-craft">
+          <span class="bundle-type-level"><%= resource.type.name %> for <%= resource.level.name %> Mages</span>  
+          <p><%= resource.description %></p>
+        </a>
+      <% end %>
+    </div>
   </div>
   <div class="span6">
-
   </div>
 </div>

@@ -3,12 +3,13 @@ class User < ActiveRecord::Base
 	attr_accessible :username, :email, :password, :password_confirmation, :bio
 	has_secure_password
 
-	scope :top6,
+	scope :top6, -> {
 		joins(:resources).
 		group("users.id").
 		select("users.id, users.username, users.email, users.bio, sum(resources.upvotes_count) AS order_by").
 		order("order_by DESC").
 		limit(6)
+	}
 
 	has_many :resources
 	has_many :upvotes
@@ -19,7 +20,7 @@ class User < ActiveRecord::Base
 	has_many :reverse_relationships, foreign_key: "followed_id", class_name: "Relationship"
 	has_many :followers, through: :reverse_relationships, source: :follower
 
-	if ENV["RAILS_ENV"] == "development"
+	if Rails.env.development?
 		searchable do
 			text :username, :default_boost => 2
 			text :bio

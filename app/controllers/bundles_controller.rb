@@ -2,7 +2,10 @@ class BundlesController < ApplicationController
   def new
     @bundle = Bundle.new
     if current_user
-      @resources = current_user.resources
+      @resources = []
+      current_user.upvotes.each do |upvote|
+        @resources << upvote.resource
+      end
     end
   end
 
@@ -12,11 +15,12 @@ class BundlesController < ApplicationController
     @bundle.path = @bundle.name.downcase.gsub(" ", "-")
     @bundle.save
 
-    resources = params[:resources]
-    temp_array = resources.split('|')
+    temp_array = params[:resources].split('|')
     resources_array = []
     temp_array.each do |number|
-      number != '' && !resources_array.include?(number) && resources_array.size < 6 ? (resources_array << number) : ()
+      if number != '' && !resources_array.include?(number) && resources_array.size < 6
+        resources_array << number
+      end
     end
     resources_array.each do |id_resource|
       inclusion = Inclusion.new

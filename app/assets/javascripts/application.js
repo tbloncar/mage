@@ -116,7 +116,6 @@ function handleDragStart( event, ui ) {
 		while (new_value[0] == '|') {
 			new_value = new_value.substr(1);
 		}
-		console.log(new_value);
 		$('#add-resources').val(new_value);
 	}
 	$(this).removeClass('dropped');

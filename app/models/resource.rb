@@ -12,7 +12,7 @@ class Resource < ActiveRecord::Base
 	has_many :bundles, :through => :inclusions
 	has_many :inclusions
 
-	if ENV["RAILS_ENV"] == "development"
+	if Rails.env.development?
 		searchable do
 			text :name, :default_boost => 2
 			text :description
@@ -22,16 +22,18 @@ class Resource < ActiveRecord::Base
 		end
 	end
 
-	def self.home_list
-		uncached do
-			order("upvotes_count DESC").limit(6)
-		end
-	end
+	# def self.home_list
+	# 	uncached do
+	# 		order("upvotes_count DESC").limit(6)
+	# 	end
+	# end
 
-	def self.craft_list(craft_id)
-		uncached do
-			where('craft_id' => craft_id).order("upvotes DESC").limit(10)
-		end
-	end
+	scope :home_list, -> { order("upvotes_count DESC").limit(6) }
+  scope :craft_list, ->(craft_id) { where('craft_id' => craft_id).order("upvotes DESC").limit(10) }
+	# def self.craft_list(craft_id)
+	# 	uncached do
+			
+	# 	end
+	# end
 
 end
