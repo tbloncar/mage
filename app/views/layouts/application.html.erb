@@ -33,20 +33,6 @@
 	</div>
 </header>
 <div class="container">
-	<% if signed_in? && !flash[:success] && current_user.panel %>
-		<div class="fixed-container">
-			<div class="user-panel">
-				<%= link_to "Add Resource", new_resource_url, :class => "nav-link link-gold" %>
-				<div class="user-panel-resources">
-					<% Resource.where(user_id: current_user).limit(5).each do |resource| %>
-						<a href="<%= resource.full_path %>">
-							<img src="<%= resource.avatar.url %>">
-						</a>
-					<% end %>
-				</div>
-			</div>
-		</div>
-	<% end %>
 	<%= yield %>
 </div>
 <div class="container">
