@@ -4,5 +4,5 @@ class Inclusion < ActiveRecord::Base
   belongs_to :bundle
   belongs_to :resource
 
-  validates :resource_id, uniqueness: { :bundle_id }
+  validates :resource_id, uniqueness: { scope: :bundle_id }
 end

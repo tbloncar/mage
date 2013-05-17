@@ -2,8 +2,15 @@
 	<section class="home-top">
 		<% if signed_in? %>
 		<div class="row-fluid">
-			<div class="span12">
+			<div class="span6">
 				<h1>Hey there, <%= current_user.username %>!</h1>
+			</div>
+			<div class="span6">
+				<div class="creation-panel-container">
+					<div class="creation-panel">
+						<a class="nav-link link-gold creation-panel-link" href="/resources/new">Add a Resource</a><a href="/bundles/new" class="nav-link link-purple creation-panel-link">Make a Bundle</a>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="row-fluid">

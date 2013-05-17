@@ -259,7 +259,7 @@ header {
 		border-style: solid;
 		text-shadow: 0 -1px 1px rgba(0,0,0,0.2);
 		@include rounded(2px);
-		@include glare(0,0,0,rgba(0,0,0,0),0,1px,0,rgba(255,255,255,0.4));
+		@include glare(0,1px,1px,rgba(0,0,0,0.15),0,1px,0,rgba(255,255,255,0.4));
 		&:first-of-type {
 			margin-left: 10px;
 		}
@@ -347,6 +347,27 @@ header {
 	}
 }
 
+.creation-panel-container {
+	margin-top: 10px;
+	border-radius: 2px;
+	padding: 20px;	
+	border: 1px solid $mediumPurple;
+	overflow: auto;	
+	background: $lightishPurple;
+	width: 46%;
+	float: right;
+}
+
+.creation-panel {
+	float: right;
+}
+
+.creation-panel-link {
+	margin-left: 15px;
+	&:first-of-type {
+		margin-left: 0;
+	}
+}
 
 .home-resource {
 	padding: 10px;
