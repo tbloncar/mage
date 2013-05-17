@@ -5,6 +5,11 @@ class Craft < ActiveRecord::Base
 	has_many :resources
 	has_attached_file :image, :styles => { :medium => "255x255>", :thumb => "100x100>" }, :default_url => "/assets/eloquent.jpg"
 
+	validates :name, uniqueness: true
+	validates :name, presence: true
+	validates :short_description, presence: true
+	validates :short_description, presence: true
+
 	scope :top6, -> {
 		joins(:resources).
 		group("crafts.id").
