@@ -15,10 +15,10 @@ class BundlesController < ApplicationController
     @bundle.path = @bundle.name.downcase.gsub(" ", "-")
     @bundle.save
 
-    temp_array = params[:resources].split('|')
+    temp_array = params[:resources].split('|').compact.uniq
     resources_array = []
     temp_array.each do |number|
-      if number != '' && !resources_array.include?(number) && resources_array.size < 6
+      if resources_array.size < 6
         resources_array << number
       end
     end

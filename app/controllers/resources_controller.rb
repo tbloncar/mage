@@ -46,15 +46,16 @@ class ResourcesController < ApplicationController
 			@resource.avatar = open(file)
 		end
 
-		@resource.save
+		if @resource.save
+			upvote = Upvote.new
+			upvote.user_id = current_user.id
+			upvote.resource_id = @resource.id
+			upvote.save
 
-		# Upvote.create({user_id: current_user, resource_id: @resource.id})
-		upvote = Upvote.new
-		upvote.user_id = current_user.id
-		upvote.resource_id = @resource.id
-		upvote.save
-
-		redirect_to @resource.full_path
+			redirect_to @resource.full_path
+		else
+			render '/resources/new'
+		end
 
 	end
 

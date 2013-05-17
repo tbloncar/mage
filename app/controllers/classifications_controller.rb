@@ -1,5 +1,4 @@
 class ClassificationsController < ApplicationController
-
 	def show
 		@classification = Classification.find_by_path(params[:classification_path])
 		@crafts = @classification.crafts
@@ -10,7 +9,5 @@ class ClassificationsController < ApplicationController
 			end
 		end
 		@resources
-
 	end
-
 end

@@ -21,7 +21,6 @@ class UsersController < ApplicationController
 		end
 	end
 
-
 	def show
 		upvotes = Upvote.where(user_id: @user.id)
 		@resources_upvoted = []
@@ -53,7 +52,6 @@ class UsersController < ApplicationController
 		@user.email = params[:email]
 		@user.bio = params[:bio]
 		@user.panel = params[:panel]
-
 		@user.save
 
 		redirect_to edit_user_url(params[:user_name])
@@ -64,5 +62,4 @@ class UsersController < ApplicationController
 
 		redirect_to home_url
 	end
-
 end

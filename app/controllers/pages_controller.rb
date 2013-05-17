@@ -29,10 +29,7 @@ class PagesController < ApplicationController
                     end
                 end
             end
-            
-
         end
-
 	end
 
   def search

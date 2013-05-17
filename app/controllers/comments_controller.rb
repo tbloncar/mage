@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-
   def create
     comment = Comment.new
     comment.user_id = current_user.id
@@ -10,5 +9,4 @@ class CommentsController < ApplicationController
     resource_url = comment.resource.full_path
     redirect_to resource_url
   end
-
 end

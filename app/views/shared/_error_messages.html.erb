@@ -1,7 +1,19 @@
-<% if @user.errors.any? %>
+<% if @user.try(:errors).try(:any?) %>
 	<div class="error-messages">
 			<p>Whoops! Looks like you had <%= pluralize(@user.errors.count, "error") %>.</p>
 			<% @user.errors.full_messages.each do |msg| %>
+			<div class="message message-error">
+				<div class="message-inner">
+					<%= msg %>
+				</div>
+			</div>
+			<% end %>
+	</div>
+<% end %>
+<% if @resource.try(:errors).try(:any?) %>
+	<div class="error-messages">
+			<p>Whoops! Looks like you had <%= pluralize(@resource.errors.count, "error") %>.</p>
+			<% @resource.errors.full_messages.each do |msg| %>
 			<div class="message message-error">
 				<div class="message-inner">
 					<%= msg %>

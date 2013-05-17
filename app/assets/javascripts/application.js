@@ -53,9 +53,7 @@ function confirm_delete() {
 // Validate password confirmation
 $('#password_confirmation').blur(function() {
 	c = $(this).val();
-	console.log(c);
 	p = $('#password').val();
-	console.log(p);
 	if(c != p) {
 		$(this).attr('style','border-color: #ff3030 !important;');
 	}
@@ -97,26 +95,40 @@ $('.bundle-choose-drop-spot').droppable( {
 	hoverClass: 'can-drop'
 });
 function handleDropEvent( event, ui ) {
-	var draggable = ui.draggable;
-	$(this).droppable('option', 'accept', ui.draggable);
-	ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
+	_this = $(this);
+	_this.droppable('option', 'accept', ui.draggable);
+	snapToGrid(_this, ui);
+	addToBundledList(ui);
+}
+
+function snapToGrid(_this, ui) {
+	ui.draggable.position( { of: _this, my: 'left top', at: 'left top' } );
+}
+
+function addToBundledList(ui) {
 	ui.draggable.addClass('dropped');
 	$('#add-resources').val($('#add-resources').val() + '|' + ui.draggable.data('resource'));
 }
+
 function handleOutEvent( event, ui ) {
   $(this).droppable('option', 'accept', '.bundle-choose-image'); 
 }
 function handleDragStart( event, ui ) {
-	if($(this).hasClass('dropped')) {
-		value = $('#add-resources').val();
-		id = $(this).data('resource');
-		value_array = value.split('|');
-		value_array[value_array.indexOf(id.toString())] = '';
-		new_value = value_array.join('|');
-		while (new_value[0] == '|') {
-			new_value = new_value.substr(1);
-		}
-		$('#add-resources').val(new_value);
+	var _this = $(this)
+	if(_this.hasClass('dropped')) {
+		removeFromBundledList(_this);
 	}
-	$(this).removeClass('dropped');
+}
+
+function removeFromBundledList(_this){
+  var value = $('#add-resources').val();
+	var id = _this.data('resource');
+	var value_array = value.split('|');
+	value_array[value_array.indexOf(id.toString())] = '';
+	var new_value = value_array.join('|');
+	while (new_value[0] == '|') {
+		new_value = new_value.substr(1);
+	}
+	$('#add-resources').val(new_value);
+	_this.removeClass('dropped');
 }
