@@ -1,5 +1,5 @@
 <% @users.each do |user| %>
   <a href="/users/<%= user.username %>">
-    <%= gravatar_image_tag(user.email, :alt => "#{user.username}", :class => 'user-avatar-image', :gravatar => { :size => 250 }) %>
+    <%= gravatar_image_tag(user.email, :title => user.username, :alt => "#{user.username}", :class => 'user-avatar-image', :gravatar => { :size => 250 }) %>
   </a>
 <% end %>

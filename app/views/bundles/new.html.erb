@@ -58,7 +58,7 @@
         </div>
       </div>
       <% @resources.try(:each) do |resource| %>
-        <img src="<%= resource.avatar.url %>" data-resource="<%= resource.id %>" class="bundle-choose-image">
+        <img title="<%= resource.name %> - <%= resource.level.name %>" src="<%= resource.avatar.url %>" data-resource="<%= resource.id %>" class="bundle-choose-image">
       <% end %>
     </div>
   </div>

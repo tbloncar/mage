@@ -132,3 +132,7 @@ function removeFromBundledList(_this){
 	$('#add-resources').val(new_value);
 	_this.removeClass('dropped');
 }
+// Tooltip widget for explaining resources
+$(document).ready(function() {
+  $(document).tooltip({ tooltipClass: "custom-tooltip", position: { my: "left-65 bottom+40", at: "right bottom"}});
+});

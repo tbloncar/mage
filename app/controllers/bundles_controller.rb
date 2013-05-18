@@ -38,6 +38,7 @@ class BundlesController < ApplicationController
 
   def show
     @bundle = Bundle.find_by_path(params[:bundle_path])
+    @resources = @bundle.resources
   end
 
   def edit

@@ -43,7 +43,7 @@
 				<% @user.relationships.each do |relationship| %>
 					<% followed = User.find(relationship.followed_id) %>
 					<a href="<%= user_url(followed.username) %>">
-						<%= gravatar_image_tag(followed.email, :alt => "#{followed.username}", :class => 'profile-avatar', :gravatar => { :size => 50 }) %>
+						<%= gravatar_image_tag(followed.email, :alt => "#{followed.username}", :title => followed.username, :class => 'profile-avatar', :gravatar => { :size => 50 }) %>
 					</a>
 				<% end %>
 			</div>
@@ -58,7 +58,7 @@
 					<% if !@resources_upvoted.empty? %>
 						<% @resources_upvoted.each do |resource| %>
 							<a href="<%= resource.full_path %>" class="user-stuff-image">
-								<img src="<%= resource.avatar.url %>">
+								<img title="<%= resource.name %> - <%= resource.level.name %>" src="<%= resource.avatar.url %>">
 							</a>
 						<% end %>
 					<% else %>
@@ -78,7 +78,7 @@
 				<% if !@user.resources.empty? %>
 					<% @user.resources.each do |resource| %>
 						<a href="<%= resource.full_path %>" class="user-stuff-image">
-							<img src="<%= resource.avatar.url %>">
+							<img title="<%= resource.name %> - <%= resource.level.name %>" src="<%= resource.avatar.url %>">
 						</a>
 					<% end %>
 				<% else %>
@@ -98,7 +98,7 @@
 					<% if !@crafts_interested.empty? %>
 						<% @crafts_interested.each do |craft| %>
 							<a href="<%= craft.full_path %>" class="user-stuff-image">
-								<img src="<%= craft.image.url %>">
+								<img title="<%= craft.name %>" src="<%= craft.image.url %>">
 							</a>
 						<% end %>
 					<% else %>

@@ -1,9 +1,13 @@
 <div class="row-fluid">
   <div class="span12 page-header">
     <h1><%= @bundle.name %></h1>
-    <div class="contributed-by">
-      <%= gravatar_image_tag(@bundle.user.email, :alt => "#{@bundle.user.username}", :class => '', :gravatar => { :size => 250 }) %>
-      <span>Created by <%= link_to @bundle.user.username, user_url(@bundle.user.username) %></span>
+    <div class="bundle-cluster">
+      <% @resources.each do |resource| %>
+        <img src="<%= resource.avatar.url %>">
+      <% end %>
+    </div>
+    <div class="contributed-by bundle-contributed-by">
+      <span>Created by <%= link_to @bundle.user.username, user_url(@bundle.user.username) %></span><%= gravatar_image_tag(@bundle.user.email, :alt => "#{@bundle.user.username}", :class => '', :gravatar => { :size => 250 }) %>
     </div>
   </div>
 </div>
@@ -14,8 +18,14 @@
       <p><%= @bundle.description %></p>
     </div>
     <div class="bundle-show-resource-container">
-      <% @bundle.resources.each do |resource| %>
-        
+      <% @resources.each do |resource| %>
+        <a class="bundle-show-resource" href="<%= resource.full_path %>">
+          <img src="<%= resource.avatar.url %>" class="bundle-show-resource-image">
+          <div class="bundle-show-resource-text">
+            <h3><%= resource.name %> <span>by <%= resource.author %></span></h3>
+            
+          </div>
+        </a>
       <% end %>
     </div>
   </div>

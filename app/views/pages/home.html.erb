@@ -19,7 +19,7 @@
 					<div class="feed-container">
 					<% if !@recent_resources.empty? %>
 						<% @recent_resources.each do |resource| %>
-							<a href="<%= resource.full_path %>"><img src="<%= resource.avatar.url %>"></a>
+							<a href="<%= resource.full_path %>"><img title="<%= resource.name %> - <%= resource.level.name %>" src="<%= resource.avatar.url %>"></a>
 						<% end %>
 					<% else %>
 						<a href="#" class="resource-empty"><img src="https://s3.amazonaws.com/mage_images/placeholders/eloquent.jpg"></a>
@@ -32,7 +32,7 @@
 				<div class="feed-container">
 					<% if !@recommended_resources.empty? %>
 						<% @recommended_resources.each do |resource| %>
-							<a href="<%= resource.full_path %>"><img src="<%= resource.avatar.url %>"></a>
+							<a href="<%= resource.full_path %>"><img title="<%= resource.name %> - <%= resource.level.name %>" src="<%= resource.avatar.url %>"></a>
 						<% end %>
 					<% else %>
 						<a href="#" class="resource-empty"><img src="https://s3.amazonaws.com/mage_images/placeholders/eloquent.jpg"></a>
@@ -45,7 +45,7 @@
 				<div class="feed-container">
 					<% if !@commented_resources.empty? %>
 						<% @commented_resources.each do |resource| %>
-							<a href="<%= resource.full_path %>"><img src="<%= resource.avatar.url %>"></a>
+							<a href="<%= resource.full_path %>"><img title="<%= resource.name %> - <%= resource.level.name %>" src="<%= resource.avatar.url %>"></a>
 						<% end %>
 					<% else %>
 						<a href="#" class="resource-empty"><img src="https://s3.amazonaws.com/mage_images/placeholders/eloquent.jpg"></a>
@@ -117,5 +117,4 @@
 			<% end %>
 		</div>
 	</section>
-
 
