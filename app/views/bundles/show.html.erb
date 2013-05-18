@@ -23,7 +23,14 @@
           <img src="<%= resource.avatar.url %>" class="bundle-show-resource-image">
           <div class="bundle-show-resource-text">
             <h3><%= resource.name %> <span>by <%= resource.author %></span></h3>
-            
+            <p>
+              <% description = resource.description %>
+              <% if description.length < 151 %>
+                <%= description %>
+              <% else %>
+                <%= description[0..(description[0...150].rindex(' '))] %> . . .
+              <% end %>
+            </p>
           </div>
         </a>
       <% end %>

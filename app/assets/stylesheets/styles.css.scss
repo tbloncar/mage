@@ -11,6 +11,7 @@ $honeyDew: #E0EEE0;
 $lightGold: #fccd4d;
 $darkGold: #f8b500;
 $alertRed: #FF6A6A;
+$greatGreen: #66CD00;
 
 
 // Mixins               <<
@@ -361,20 +362,22 @@ header {
 .creation-panel-container {
 	margin-top: 10px;
 	border-radius: 2px;
-	padding: 20px;	
+	padding: 15px 20px;	
 	border: 1px solid $mediumPurple;
 	overflow: auto;	
 	background: $lightishPurple;
-	width: 47%;
 	float: right;
 }
 
 .creation-panel {
-	float: right;
+	margin-top: 5px;
 }
 
 .creation-panel-link {
-	margin-left: 15px;
+	margin-right: 15px;
+	&:last-of-type {
+		margin-right: 0;
+	}
 	&:first-of-type {
 		margin-left: 0;
 	}
@@ -1077,17 +1080,14 @@ form .form-help {
 	background: #fff;
 	width: 100%;
 	border-bottom: 1px solid #ccc;
-	border-right: 3px solid;
+	border-right: 3px solid $darkGold;
 	@include box-sizing;
-	float: left;
+	overflow: auto;
 	&:last-of-type {
 		border-bottom: none;
 	}
-	&:nth-of-type(even) {
-		border-right-color: $darkGold;
-	}
-	&:nth-of-type(odd) {
-		border-right-color: $darkishPurple;
+	&:hover {
+		border-right-color: $greatGreen;
 	}
 }
 
@@ -1102,15 +1102,23 @@ form .form-help {
 
 .bundle-show-resource-text {
 	float: left;
+	position: relative;
+	display: block;
 	h3 {
 		font-size: 14px;
 		color: #333;
-		margin-top: 0;
+		margin: 0;
 		span {
 			font-size: 13px;
-			font-weight: 300;
+			font-weight: 400;
 			font-style: italic;
 		}
+	}
+	p {
+		font-size: 12px;
+		color: #333;
+		position: relative;
+		width: 400px;
 	}
 }
 
