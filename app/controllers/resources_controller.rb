@@ -16,6 +16,7 @@ class ResourcesController < ApplicationController
 		if @resource.user
 			@contributor = @resource.user
 		end
+		@commentable = Comment.new
 
 		if signed_in?
 			@recommended = Upvote.where("user_id = ? AND resource_id = ?", current_user.id, @resource.id)

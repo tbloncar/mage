@@ -38,5 +38,6 @@ Mage::Application.routes.draw do
 
   post "/upvotes" => "Upvotes#create", :as => "upvotes"
 
-  post "/comments/:resource_id" => "Comments#create", :as => "comments"
+  post "/comments/resources/:resource_id" => "Comments#create", :as => "comments_resource"
+  post "/comments/bundles/:bundle_id" => "Comments#create", :as => "comments_bundle"
 end

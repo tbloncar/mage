@@ -39,6 +39,7 @@ class BundlesController < ApplicationController
   def show
     @bundle = Bundle.find_by_path(params[:bundle_path])
     @resources = @bundle.resources
+    @commentable = Comment.new
   end
 
   def edit

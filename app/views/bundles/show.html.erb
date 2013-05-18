@@ -37,5 +37,41 @@
     </div>
   </div>
   <div class="span6">
+    <div class="white-container-no-padding resource-recommenders">
+      <h3>Recommenders</h3>
+      <p>Mages who have found this resource useful.</p>
+      <div class="upvoted-by">
+        
+      </div>
+    </div>
+    <div class="resource-comment-form">
+      <% if current_user %>
+        <%= form_for @commentable, url: comments_bundle_url(@bundle.id) do |f| %>
+          <%= f.text_area :content, placeholder: "Join the conversation!." %>
+          <%= f.button "Comment", class: "nav-link link-gold" %>
+          <span class="recommended">You are commenting as <%= current_user.username %>.</span>
+        <% end %>
+      <% else %>
+        <span class="recommended">Sign in to leave feedback on this bundle.</span>
+      <% end %>
+    </div>
+    <div class="resource-comment-container">
+      <h3>Comments</h3>
+      <p>Feedback from mages like you.</p>
+      <% if !@bundle.comments.empty? %>
+        <% @bundle.comments.reverse.each do |comment| %>
+          <div class="resource-comment">
+            <p><%= comment.content %></p>
+            <%= gravatar_image_tag(comment.user.email, :alt => "#{comment.user.username}", :class => 'comment-avatar', :gravatar => { :size => 250 }) %>
+              <span class="resource-comment-author">Posted by <a href="/users/<%= comment.user.username %>"><%= comment.user.username %></a> on <%= comment.created_at.strftime("%B %d, %Y") %></span>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="resource-comment">
+          <a href="#" class="resource-empty"><img src="https://s3.amazonaws.com/mage_images/placeholders/eloquent.jpg"></a>
+          <p class="empty-help">Use the feedback box to the left to leave the first comment for this bundle!</p>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

@@ -6,7 +6,7 @@ class Resource < ActiveRecord::Base
 	belongs_to :level
 	belongs_to :type
 	has_many :upvotes
-	has_many :comments
+	has_many :comments, :as => :commentable
 	has_many :bundles, :through => :inclusions
 	has_many :inclusions
 	has_attached_file :avatar, :styles => { :medium => "255x255>", :thumb => "100x100>" }, :default_url => "/assets/eloquent.jpg"

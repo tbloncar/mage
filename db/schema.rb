@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130513233243) do
+ActiveRecord::Schema.define(:version => 20130518201232) do
 
   create_table "bundles", :force => true do |t|
     t.string  "name"
@@ -30,10 +30,11 @@ ActiveRecord::Schema.define(:version => 20130513233243) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "resource_id"
     t.text     "content"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
   end
 
   create_table "crafts", :force => true do |t|

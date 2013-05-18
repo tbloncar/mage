@@ -14,7 +14,7 @@
 			<% end %>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row-fluid">
 		<div class="span12 resource-controls">
 			<a href="<%= @resource.link %>" target="_blank" class="nav-link resource-upvote link-purple">Go to Resource</a>
 			<%= render 'resources/recommend' %>
@@ -33,9 +33,9 @@
 			</div>
 			<div class="resource-comment-form">
 				<% if current_user %>
-					<%= form_tag comments_url(@resource.id), method: "post" do %>
-						<textarea name="content" placeholder="Use this resource? Provide some feedback."></textarea>
-						<button class="nav-link link-gold">Comment</button>
+					<%= form_for @commentable, url: comments_resource_url(@resource.id) do |f| %>
+						<%= f.text_area :content, placeholder: "Use this resource? Provide some feedback." %>
+						<%= f.button "Comment", class: "nav-link link-gold" %>
 						<span class="recommended">You are commenting as <%= current_user.username %>.</span>
 					<% end %>
 				<% else %>

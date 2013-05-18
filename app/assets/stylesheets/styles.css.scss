@@ -139,6 +139,27 @@ body {
 	}
 }
 
+.white-container-no-padding {
+	background: #fff;
+	border: 1px solid #ccc;
+	overflow: auto;
+	h3 {
+		font-size: 16px;
+		margin-top: 0;
+		line-height: 18px;
+		padding-top: 15px;
+		padding-left: 15px;
+	}
+	p {
+		margin-bottom: 10px;
+		font-size: 12px;
+		padding-left: 15px;
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+}
+
 .page-header {
 	padding: 10px 0 15px 0;
 	border-bottom: 1px dotted #ccc;
