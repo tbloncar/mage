@@ -19,12 +19,12 @@ class PagesController < ApplicationController
                     end
                 end
                 if !user.upvotes.empty?
-                    if !@recommended_resources.include?(Resource.find_by_id(user.upvotes.last.resource_id)) && @recommended_resources.size < 8
-                        @recommended_resources << Resource.find_by_id(user.upvotes.last.resource_id)
+                    if user.upvotes.last.upvotable && !@recommended_resources.include?(user.upvotes.last.upvotable) && @recommended_resources.size < 8
+                        @recommended_resources << user.upvotes.last.upvotable
                     end
                 end 
                 if !user.comments.empty?
-                    if !@commented_resources.include?(user.comments.last.resource) && @commented_resources.size < 8
+                    if !@commented_resources.include?(user.comments.last.resource) && @commented_resources.size < 8 && user.comments.last.resource != nil
                         @commented_resources << user.comments.last.resource
                     end
                 end

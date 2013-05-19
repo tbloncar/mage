@@ -4,7 +4,7 @@ class BundlesController < ApplicationController
     if current_user
       @resources = []
       current_user.upvotes.each do |upvote|
-        @resources << upvote.resource
+        @resources << upvote.upvotable
       end
     end
   end
@@ -40,6 +40,7 @@ class BundlesController < ApplicationController
     @bundle = Bundle.find_by_path(params[:bundle_path])
     @resources = @bundle.resources
     @commentable = Comment.new
+    @upvotable = Upvote.new
   end
 
   def edit

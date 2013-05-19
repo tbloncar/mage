@@ -36,7 +36,8 @@ Mage::Application.routes.draw do
   post "/relationships/:user_id" => "Relationships#create", :as => "relationship"
   delete "/relationships/:user_id" => "Relationships#destroy", :as => "relationship"
 
-  post "/upvotes" => "Upvotes#create", :as => "upvotes"
+  post "/upvotes/resources/:resource_id" => "Upvotes#create", :as => "upvotes_resource"
+  post "/upvotes/bundles/:bundle_id" => "Upvotes#create", :as => "upvotes_bundle"
 
   post "/comments/resources/:resource_id" => "Comments#create", :as => "comments_resource"
   post "/comments/bundles/:bundle_id" => "Comments#create", :as => "comments_bundle"

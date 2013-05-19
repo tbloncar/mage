@@ -1,4 +1,5 @@
-<% @users.each do |user| %>
+<% @resource.upvotes.each do |upvote| %>
+  <% user = upvote.user %>
   <a href="/users/<%= user.username %>">
     <%= gravatar_image_tag(user.email, :title => user.username, :alt => "#{user.username}", :class => 'user-avatar-image', :gravatar => { :size => 250 }) %>
   </a>

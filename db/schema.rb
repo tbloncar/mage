@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130518201232) do
+ActiveRecord::Schema.define(:version => 20130518222801) do
 
   create_table "bundles", :force => true do |t|
     t.string  "name"
@@ -99,7 +99,8 @@ ActiveRecord::Schema.define(:version => 20130518201232) do
 
   create_table "upvotes", :force => true do |t|
     t.integer "user_id"
-    t.integer "resource_id"
+    t.integer "upvotable_id"
+    t.string  "upvotable_type"
   end
 
   create_table "users", :force => true do |t|

@@ -1,10 +1,11 @@
-<% if @recommended.empty? && signed_in? %>
-  <%= form_tag upvotes_url, :method => "post", :class => "recommend-button", remote: true do %>
-    <input type="hidden" value="<%= @resource.id %>" name="resource_id">
-    <%= submit_tag "Recommend", :class => "resource-upvote nav-link link-gold" %>
+<span class="recommend-button">
+  <% if @recommended.empty? && signed_in? %>
+    <%= form_for @upvotable, :url => upvotes_resource_url(@resource.id), remote: true do |f| %>
+      <%= f.submit "Recommend", :class => "resource-upvote nav-link link-gold" %>
+    <% end %>
+  <% elsif signed_in? %>
+    <span class="recommended">You recommend this resource.</span>
+  <% else %>
+    <span class="recommended">Sign in to recommend this resource.</span>
   <% end %>
-<% elsif signed_in? %>
-  <span class="recommended">You recommend this resource.</span>
-<% else %>
-  <span class="recommended">Sign in to recommend this resource.</span>
-<% end %>
+</span>

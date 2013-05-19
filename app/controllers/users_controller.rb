@@ -22,11 +22,9 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		upvotes = Upvote.where(user_id: @user.id)
 		@resources_upvoted = []
-		upvotes.each do |upvote|
-			resource = Resource.find_by_id(upvote.resource_id)
-			@resources_upvoted << resource
+		@user.upvotes.each do |upvote|
+			@resources_upvoted << upvote.upvotable
 		end
 		@crafts_interested = []
 		@resources_upvoted.each do |resource|

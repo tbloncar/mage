@@ -9,17 +9,16 @@ class ResourcesController < ApplicationController
 		@craft = @classification.crafts.where(path: crpath).first
 		@resource = @craft.resources.where(path: rpath).first
 		upvotes = @resource.upvotes
-		@users = []
-		upvotes.each do |upvote|
-			@users << User.find_by_id(upvote.user_id)
-		end
+		
 		if @resource.user
 			@contributor = @resource.user
 		end
+		
 		@commentable = Comment.new
+		@upvotable = Upvote.new
 
 		if signed_in?
-			@recommended = Upvote.where("user_id = ? AND resource_id = ?", current_user.id, @resource.id)
+			@recommended = Upvote.where(user_id: current_user.id, upvotable_id: @resource.id, upvotable_type: "Resource")
 		else
 			@recommended = []
 		end
@@ -50,7 +49,8 @@ class ResourcesController < ApplicationController
 		if @resource.save
 			upvote = Upvote.new
 			upvote.user_id = current_user.id
-			upvote.resource_id = @resource.id
+			upvote.upvotable_id = @resource.id
+			upvote.upvotable_type = "Resource"
 			upvote.save
 
 			redirect_to @resource.full_path
@@ -61,16 +61,7 @@ class ResourcesController < ApplicationController
 	end
 
 	def update
-		resource = Resource.find_by_path(params[:resource_path])
-		resource.upvotes_count += 1
-		resource.save
-
-		upvote = Upvote.new
-		upvote.user_id = current_user.id
-		upvote.resource_id = resource.id
-		upvote.save
-
-		redirect_to resource.full_path
+		
 	end
 
 	def edit

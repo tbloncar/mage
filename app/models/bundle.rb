@@ -5,6 +5,7 @@ class Bundle < ActiveRecord::Base
   has_many :resources, :through => :inclusions
   has_many :inclusions
   has_many :comments, :as => :commentable
+  has_many :upvotes, :as => :upvotable
 
   validates :name, presence: true
   validates :name, uniqueness: true
