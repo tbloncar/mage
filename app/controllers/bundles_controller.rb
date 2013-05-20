@@ -13,7 +13,7 @@ class BundlesController < ApplicationController
     @bundle = Bundle.new(params[:bundle])
     @bundle.user_id = current_user.id
     @bundle.path = @bundle.name.downcase.gsub(" ", "-")
-    @bundle.save
+    @bundle.upvotes_count = 1
 
     temp_array = params[:resources].split('|').compact.uniq
     resources_array = []
@@ -22,14 +22,27 @@ class BundlesController < ApplicationController
         resources_array << number
       end
     end
-    resources_array.each do |id_resource|
-      inclusion = Inclusion.new
-      inclusion.bundle_id = @bundle.id
-      inclusion.resource_id = id_resource
-      inclusion.save
-    end
 
-    redirect_to bundle_url(@bundle.path)
+    if @bundle.save
+      resources_array.each do |id_resource|
+        inclusion = Inclusion.new
+        inclusion.bundle_id = @bundle.id
+        inclusion.resource_id = id_resource
+        inclusion.save
+      end
+      
+      @recommend = "true"
+
+      upvote = Upvote.new
+      upvote.user_id = current_user.id
+      upvote.upvotable_id = @bundle.id
+      upvote.upvotable_type = "Bundle"
+      upvote.save
+
+      redirect_to "/bundles/#{@bundle.path}"
+    else
+      render '/bundles/new'
+    end
   end
 
   def index
@@ -41,6 +54,12 @@ class BundlesController < ApplicationController
     @resources = @bundle.resources
     @commentable = Comment.new
     @upvotable = Upvote.new
+
+    if signed_in?
+      @recommended = Upvote.where(user_id: current_user.id, upvotable_id: @bundle.id, upvotable_type: "Bundle")
+    else
+      @recommended = []
+    end
   end
 
   def edit

@@ -12,6 +12,9 @@ class PagesController < ApplicationController
             @recent_resources = []
             @recommended_resources = []
             @commented_resources = []
+            @recent_bundles = []
+            @recommended_bundles = []
+            @commented_bundles = []
             followed.each do |user|
                 if !user.resources.empty?
                     if !@recent_resources.include?(user.resources.last) && @recent_resources.size < 8
@@ -19,14 +22,17 @@ class PagesController < ApplicationController
                     end
                 end
                 if !user.upvotes.empty?
-                    if user.upvotes.last.upvotable && !@recommended_resources.include?(user.upvotes.last.upvotable) && @recommended_resources.size < 8
-                        @recommended_resources << user.upvotes.last.upvotable
+                    if user.upvotes.where(upvotable_type: "Resource").last.upvotable && !@recommended_resources.include?(user.upvotes.last.upvotable) && @recommended_resources.size < 8
+                        @recommended_resources << user.upvotes.where(upvotable_type: "Resource").last.upvotable
                     end
                 end 
                 if !user.comments.empty?
-                    if !@commented_resources.include?(user.comments.last.resource) && @commented_resources.size < 8 && user.comments.last.resource != nil
-                        @commented_resources << user.comments.last.resource
+                    if !@commented_resources.include?(user.comments.where(commentable_type: "Resource").last.commentable) && @commented_resources.size < 8 && user.comments.last.commentable != nil
+                        @commented_resources << user.comments.where(commentable_type: "Resource").last.commentable
                     end
+                end
+                if !user.bundles.empty?
+                    
                 end
             end
         end

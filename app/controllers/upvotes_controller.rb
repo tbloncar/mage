@@ -1,9 +1,14 @@
 class UpvotesController < ApplicationController
   def create
-    resource = Resource.find(params[:resource_id])
-    resource.upvotes_count += 1
-    resource.save
-    @resource = resource
+    if params[:resource_id]
+      @resource = Resource.find(params[:resource_id])
+      @resource.upvotes_count += 1
+      @resource.save
+    elsif params[:bundle_id]
+      @bundle = Bundle.find(params[:bundle_id])
+      @bundle.upvotes_count += 1
+      @bundle.save
+    end
 
     @upvotable = find_upvotable
     @upvote = @upvotable.upvotes.build(params[:upvote])
@@ -17,6 +22,7 @@ class UpvotesController < ApplicationController
           format.js
         end
       elsif @upvote.upvotable_type == 'Bundle'
+        @recommended = Upvote.where(user_id: current_user.id, upvotable_id: @bundle.id, upvotable_type: "Bundle")
         respond_to do |format|
           format.html { redirect_to "/bundles/#{@upvotable.path}" }
           format.js

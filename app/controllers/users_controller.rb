@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
 	def show
 		@resources_upvoted = []
-		@user.upvotes.each do |upvote|
+		@user.upvotes.where(upvotable_type: "Resource").each do |upvote|
 			@resources_upvoted << upvote.upvotable
 		end
 		@crafts_interested = []

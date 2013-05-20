@@ -1,5 +1,4 @@
 class ResourcesController < ApplicationController
-
 	def show
 		clpath = params[:classification_path]
 		crpath = params[:craft_path]

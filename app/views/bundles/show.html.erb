@@ -12,6 +12,12 @@
   </div>
 </div>
 <div class="row-fluid">
+  <div class="span12 resource-controls bundle-controls">
+    <a href="#" target="_blank" class="nav-link resource-upvote link-purple">Share w/ a Friend</a>
+    <%= render 'bundles/recommend' %>
+  </div>
+</div>
+<div class="row-fluid">
   <div class="span6">
     <div class="white-container">
       <h3>Description</h3>
@@ -41,7 +47,7 @@
       <h3>Recommenders</h3>
       <p>Mages who have found this resource useful.</p>
       <div class="upvoted-by">
-        
+        <%= render 'bundles/recommenders' %>
       </div>
     </div>
     <div class="resource-comment-form">

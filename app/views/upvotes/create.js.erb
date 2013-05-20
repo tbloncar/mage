@@ -1,2 +1,7 @@
-$('.upvoted-by').html("<%= j render(:partial => 'resources/recommenders') %>");
-$('.recommend-button').replaceWith("<%= j render(:partial => 'resources/recommend') %>");
+<% if @resource %>
+  $('.upvoted-by').html("<%= j render(:partial => 'resources/recommenders') %>");
+  $('.recommend-button').replaceWith("<%= j render(:partial => 'resources/recommend') %>");
+<% elsif @bundle %>
+  $('.upvoted-by').html("<%= j render(:partial => 'bundles/recommenders') %>");
+  $('.recommend-button').replaceWith("<%= j render(:partial => 'bundles/recommend') %>");
+<% end %>
