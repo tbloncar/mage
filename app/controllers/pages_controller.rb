@@ -31,9 +31,16 @@ class PagesController < ApplicationController
                         @commented_resources << user.comments.where(commentable_type: "Resource").last.commentable
                     end
                 end
-                if !user.bundles.empty?
-                    
-                end
+                # if !user.bundles.empty?
+                #     if !@recent_bundles.include?(user.bundles.last) && @recent_resources.size < 8
+                #         @recent_bundles << user.bundles.last
+                #     end
+                # end
+                # if !user.upvotes.empty?
+                #     if user.upvotes.where(upvotable_type: "Resource").last.upvotable && !@recommended_resources.include?(user.upvotes.last.upvotable) && @recommended_resources.size < 8
+                #         @recommended_resources << user.upvotes.where(upvotable_type: "Resource").last.upvotable
+                #     end
+                # end 
             end
         end
 	end
