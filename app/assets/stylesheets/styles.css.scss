@@ -118,6 +118,8 @@ body {
 	box-shadow: 0 0 20px rgba(0,0,0,0.15);
 	font-size: 12px;
 	font-weight: 600;
+	z-index: 2;
+
 }
 
 .white-container {
@@ -483,6 +485,9 @@ header {
 		padding-bottom: 0;
 		overflow: auto;
 		border: 1px solid #ccc;
+		&:last-of-type {
+			margin-top: 15px;
+		}
 		a {
 			display: block;
 			float: left;
@@ -1107,8 +1112,8 @@ form .form-help {
 	width: 100%;
 	border-bottom: 1px solid #ccc;
 	border-right: 3px solid $darkGold;
-	@include box-sizing;
 	overflow: auto;
+	@include box-sizing;
 	&:last-of-type {
 		border-bottom: none;
 	}
@@ -1173,6 +1178,105 @@ form .form-help {
 		}
 	}
 }
+
+.bundle-thumbnail {
+	position: relative;
+	height: 100%;
+}
+
+.bundle-image {
+	height: 30px !important;
+	width: 30px !important;
+	position: absolute;
+	background: #fff;
+	text-align: center;
+	padding-top: 5px;
+	color: #ddd;
+	font-weight: bold;
+	font-size: 12px;
+	@include box-sizing;
+}
+
+.bundle-image-1 {
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+.bundle-image-1-static {
+	border-bottom: 1px solid #555;
+	border-right: 1px solid #555;
+}
+
+.bundle-image-1-placeholder {
+	border-bottom: 1px dashed #bbb;
+	border-right: 1px dashed #bbb;
+}
+
+.bundle-image-2 {
+	top: 0;
+	right: 0;
+	z-index: 1;
+}
+
+.bundle-image-2-static {
+	border-bottom: 1px solid #555;
+	border-left: 1px solid #555;
+}
+
+.bundle-image-2-placeholder {
+	border-bottom: 1px dashed #bbb;
+	border-left: 1px dashed #bbb;
+}
+
+.bundle-image-3 {
+	top: 20px;
+	left: 23px;
+	z-index: 0;
+}
+
+.bundle-image-3-static {
+	border: 1px solid #555;
+}
+
+.bundle-image-3-placeholder {
+	border: 1px dashed #bbb;
+}
+
+.bundle-image-4 {
+	top: 48px;
+	left: 0;
+	z-index: 1;
+}
+
+.bundle-image-4-static {
+	border-top: 1px solid #555;
+	border-right: 1px solid #555;
+}
+
+.bundle-image-4-placeholder {
+	border-top: 1px dashed #bbb;
+	border-right: 1px dashed #bbb;
+}
+
+.bundle-image-5 {
+	top: 48px;
+	right: 0;
+	z-index: 1;
+}
+
+.bundle-image-5-static {
+	border-top: 1px solid #555;
+	border-left: 1px solid #555;
+}
+
+.bundle-image-5-placeholder {
+	border-top: 1px dashed #bbb;
+	border-left: 1px dashed #bbb;
+}
+
+
+
 
 // Search Results ------------------ <<
 

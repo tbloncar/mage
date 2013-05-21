@@ -17,30 +17,35 @@ class PagesController < ApplicationController
             @commented_bundles = []
             followed.each do |user|
                 if !user.resources.empty?
-                    if !@recent_resources.include?(user.resources.last) && @recent_resources.size < 8
+                    if !@recent_resources.include?(user.resources.last) && @recent_resources.size < 4
                         @recent_resources << user.resources.last
                     end
                 end
                 if !user.upvotes.votes_for_resources.empty?
-                    if user.upvotes.votes_for_resources.last.try(:upvotable) && !@recommended_resources.include?(user.upvotes.last.try(:upvotable)) && @recommended_resources.size < 8
+                    if user.upvotes.votes_for_resources.last.try(:upvotable) && !@recommended_resources.include?(user.upvotes.last.try(:upvotable)) && @recommended_resources.size < 4
                         @recommended_resources << user.upvotes.votes_for_resources.last.upvotable
                     end
                 end 
                 if !user.comments.comments_for_resources.empty?
-                    if !@commented_resources.include?(user.comments.comments_for_resources.last.try(:commentable)) && @commented_resources.size < 8 && user.comments.last.try(:commentable) != nil
-                        @commented_resources << user.comments.where(commentable_type: "Resource").last.commentable
+                    if !@commented_resources.include?(user.comments.comments_for_resources.last.try(:commentable)) && @commented_resources.size < 4 && user.comments.last.try(:commentable) != nil
+                        @commented_resources << user.comments.comments_for_resources.last.commentable
                     end
                 end
-                # if !user.bundles.empty?
-                #     if !@recent_bundles.include?(user.bundles.last) && @recent_resources.size < 8
-                #         @recent_bundles << user.bundles.last
-                #     end
-                # end
-                # if !user.upvotes.empty?
-                #     if user.upvotes.where(upvotable_type: "Resource").last.upvotable && !@recommended_resources.include?(user.upvotes.last.upvotable) && @recommended_resources.size < 8
-                #         @recommended_resources << user.upvotes.where(upvotable_type: "Resource").last.upvotable
-                #     end
-                # end 
+                if !user.bundles.empty?
+                    if !@recent_bundles.include?(user.bundles.last) && @recent_resources.size < 4
+                        @recent_bundles << user.bundles.last
+                    end
+                end
+                if !user.upvotes.votes_for_bundles.empty?
+                    if user.upvotes.votes_for_bundles.last.upvotable && !@recommended_bundles.include?(user.upvotes.votes_for_bundles.last.upvotable) && @recommended_bundles.size < 4
+                        @recommended_bundles << user.upvotes.votes_for_bundles.last.upvotable
+                    end
+                end 
+                if !user.comments.comments_for_bundles.empty?
+                    if !@commented_bundles.include?(user.comments.comments_for_bundles.last.try(:commentable)) && @commented_bundles.size < 4 && user.comments.last.try(:commentable) != nil
+                        @commented_bundles << user.comments.comments_for_bundles.last.commentable
+                    end
+                end
             end
         end
 	end
