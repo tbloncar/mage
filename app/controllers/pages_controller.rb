@@ -22,12 +22,12 @@ class PagesController < ApplicationController
                     end
                 end
                 if !user.upvotes.votes_for_resources.empty?
-                    if user.upvotes.try(:votes_for_resources).last.try(:upvotable) && !@recommended_resources.include?(user.upvotes.last.try(:upvotable)) && @recommended_resources.size < 8
+                    if user.upvotes.votes_for_resources.last.try(:upvotable) && !@recommended_resources.include?(user.upvotes.last.try(:upvotable)) && @recommended_resources.size < 8
                         @recommended_resources << user.upvotes.votes_for_resources.last.upvotable
                     end
                 end 
                 if !user.comments.comments_for_resources.empty?
-                    if !@commented_resources.include?(user.comments.try(:comments_for_resources).last.try(:commentable)) && @commented_resources.size < 8 && user.comments.last.try(:commentable) != nil
+                    if !@commented_resources.include?(user.comments.comments_for_resources.last.try(:commentable)) && @commented_resources.size < 8 && user.comments.last.try(:commentable) != nil
                         @commented_resources << user.comments.where(commentable_type: "Resource").last.commentable
                     end
                 end
