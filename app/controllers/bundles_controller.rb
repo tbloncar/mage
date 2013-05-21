@@ -3,11 +3,9 @@ class BundlesController < ApplicationController
     @bundle = Bundle.new
     if current_user
       @resources = []
-      current_user.upvotes.votes_for_resource.each do |upvote|
+      current_user.upvotes.votes_for_resources.each do |upvote|
         @resources << upvote.upvotable
       end
-
-      # @resource = current_user.upvotes.where(upvotable_type: "Resource").inject([]) {|result, element| result << element.upvotaable}
     end
   end
 

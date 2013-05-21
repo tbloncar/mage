@@ -5,5 +5,6 @@ class Upvote < ActiveRecord::Base
   belongs_to :user
   belongs_to :resource
 
-  scope :vote_for_resources, where(upvotable_type: "Resource")
+  scope :votes_for_resources, -> { where(upvotable_type: "Resource") }
+  scope :votes_for_bundles, -> { where(upvotable_type: "Bundle") }
 end

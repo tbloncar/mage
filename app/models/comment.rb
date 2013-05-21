@@ -7,4 +7,7 @@ class Comment < ActiveRecord::Base
 
   validates :content, presence: true
   validates :user_id, presence: true
+
+  scope :comments_for_resources, -> { where(commentable_type: "Resource") }
+  scope :comments_for_bundles, -> { where(commentable_type: "Bundle") }
 end
