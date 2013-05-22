@@ -1142,7 +1142,6 @@ form .form-help {
 		span {
 			font-size: 13px;
 			font-weight: 400;
-			font-style: italic;
 		}
 	}
 	p {
@@ -1190,7 +1189,6 @@ form .form-help {
 	position: absolute;
 	background: #fff;
 	text-align: center;
-	padding-top: 5px;
 	color: #ddd;
 	font-weight: bold;
 	font-size: 12px;
@@ -1211,6 +1209,7 @@ form .form-help {
 .bundle-image-1-placeholder {
 	border-bottom: 1px dashed #bbb;
 	border-right: 1px dashed #bbb;
+	padding-top: 5px;
 }
 
 .bundle-image-2 {
@@ -1227,11 +1226,12 @@ form .form-help {
 .bundle-image-2-placeholder {
 	border-bottom: 1px dashed #bbb;
 	border-left: 1px dashed #bbb;
+	padding-top: 5px;
 }
 
 .bundle-image-3 {
-	top: 20px;
-	left: 23px;
+	top: 24px;
+	left: 24px;
 	z-index: 0;
 }
 
@@ -1241,6 +1241,7 @@ form .form-help {
 
 .bundle-image-3-placeholder {
 	border: 1px dashed #bbb;
+	padding-top: 5px;
 }
 
 .bundle-image-4 {
@@ -1257,6 +1258,7 @@ form .form-help {
 .bundle-image-4-placeholder {
 	border-top: 1px dashed #bbb;
 	border-right: 1px dashed #bbb;
+	padding-top: 5px;
 }
 
 .bundle-image-5 {
@@ -1273,6 +1275,7 @@ form .form-help {
 .bundle-image-5-placeholder {
 	border-top: 1px dashed #bbb;
 	border-left: 1px dashed #bbb;
+	padding-top: 5px;
 }
 
 
