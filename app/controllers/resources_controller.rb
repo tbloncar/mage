@@ -35,7 +35,8 @@ class ResourcesController < ApplicationController
 		@resource.full_path = "#{craft_path}/#{@resource.path}"
 		@resource.user_id = current_user.id
 		@resource.upvotes_count = 1
-		if !@resource.avatar_file_name
+		
+		if Rails.env.development? && !@resource.avatar_file_name
 			kit = IMGKit.new(@resource.link)
 			img = kit.to_img(:png)
 			file  = Tempfile.new(["template_#{@resource.id}", 'png'], 'tmp',
