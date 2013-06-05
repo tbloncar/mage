@@ -13,12 +13,6 @@ Mage::Application.routes.draw do
   put "/users/:user_name" => "Users#update", :as => "user"
   delete "/users/:user_name" => "Users#destroy", :as => "user"
 
-  get "/resources/new" => "Resources#new", :as => "new_resource"
-  post "/" => "Resources#create", :as => "resources"
-  get "/resources/:id/edit" => "Resources#edit", :as => "edit_resource"
-  put "/:classification_path/:craft_path/:resource_path" => "Resources#update", :as => "resource"
-  get "/:classification_path/:craft_path/:resource_path" => "Resources#show", :as => "resource"
-
   get "/bundles/new" => "Bundles#new", :as => "new_bundle"
   post "/bundles" => "Bundles#create", :as => "bundles"
   get "/bundles" => "Bundles#index", :as => "bundles"
@@ -26,6 +20,12 @@ Mage::Application.routes.draw do
   get "/bundles/:bundle_path/edit" => "Bundles#edit", :as => "edit_bundle"
   put "/bundles/:bundle_path" => "Bundles#update", :as => "bundle"
   delete "/bundles/:bundle_path" => "Bundles#destroy", :as => "bundle"
+
+  get "/resources/new" => "Resources#new", :as => "new_resource"
+  post "/" => "Resources#create", :as => "resources"
+  get "/resources/:id/edit" => "Resources#edit", :as => "edit_resource"
+  put "/:classification_path/:craft_path/:resource_path" => "Resources#update", :as => "resource"
+  get "/:classification_path/:craft_path/:resource_path" => "Resources#show", :as => "resource"
 
   get "/crafts/new" => "Crafts#new", :as => "new_craft"
   post "/crafts" => "Crafts#create", :as => "crafts"

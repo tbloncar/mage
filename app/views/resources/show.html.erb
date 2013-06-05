@@ -16,13 +16,13 @@
 	</div>
 	<div class="row-fluid">
 		<div class="span12 resource-controls">
-			<a href="<%= @resource.link %>" target="_blank" class="nav-link resource-upvote link-purple">Go to Resource</a>
+			<a href="<%= @resource.link %>" target="_blank" class="nav-link resource-upvote link-purple fontawesome-external-link">Go to Resource</a>
 			<%= render 'resources/recommend' %>
 		</div>
 	</div>
 	<div class="row-fluid">
 		<div class="span5">
-			<div class="white-container resource-description">
+			<div class="white-container-no-padding resource-description">
 				<h3>Description</h3>
 				<div class="type-level">
 					<span><%= @resource.type.name %></span><span><%= @resource.level.name %></span>
@@ -44,7 +44,7 @@
 			</div>
 		</div>
 		<div class="span7 resource-right">
-			<div class="white-container-no-padding resource-recommenders">
+			<div class="white-container-no-padding resource-recommenders p-padding">
 				<h3>Recommenders</h3>
 				<p>Mages who have found this resource useful.</p>
 				<div class="upvoted-by">

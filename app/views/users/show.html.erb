@@ -52,7 +52,7 @@
 	<div class="row-fluid">
 		<div class="span4 subhead">
 			<h2>Recommendations</h2>
-			<div class="white-container" style="padding-bottom: 0;">
+			<div class="white-container-no-padding p-padding" style="padding-bottom: 0;">
 				<p>Resources <strong><%= @user.username %></strong> recommends.</p>
 				<div class="user-stuff-container">
 					<% if !@resources_upvoted.empty? %>
@@ -72,7 +72,7 @@
 		</div>
 		<div class="span4 subhead">
 			<h2>Contributions</h2>
-			<div class="white-container" style="padding-bottom: 0;">
+			<div class="white-container-no-padding p-padding" style="padding-bottom: 0;">
 				<p>Resources <strong><%= @user.username %></strong> has contributed.</p>
 				<div class="user-stuff-container">
 				<% if !@user.resources.empty? %>
@@ -92,7 +92,7 @@
 		</div>
 		<div class="span4 subhead">
 			<h2>Interests</h2>
-			<div class="white-container" style="padding-bottom: 0;">
+			<div class="white-container-no-padding p-padding" style="padding-bottom: 0;">
 				<p>Crafts <strong><%= @user.username %></strong> is interested in.</p>
 				<div class="user-stuff-container">
 					<% if !@crafts_interested.empty? %>

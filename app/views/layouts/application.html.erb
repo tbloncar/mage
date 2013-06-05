@@ -24,8 +24,8 @@
 							<%= gravatar_image_tag(current_user.email, :alt => "#{current_user.username}", :gravatar => { :size => 150 }) %>
 						</a>
 					<% else %>
-						<a class="pull-right nav-link link-purple" href="/sign-in">Sign In</a>
-						<a class="pull-right nav-link link-gold" href="<%= new_user_url %>">Create Account</a>
+						<a class="pull-right nav-link link-purple entypo-user" href="/sign-in">Sign In</a>
+						<a class="pull-right nav-link link-gold fontawesome-bolt" href="<%= new_user_url %>">Create Account</a>
 					<% end %>
 				</nav>
 			</div>

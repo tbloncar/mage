@@ -1,7 +1,7 @@
 <span class="recommend-button">
   <% if @recommended.empty? && signed_in? %>
     <%= form_for @upvotable, :url => upvotes_resource_url(@resource.id), remote: true do |f| %>
-      <%= f.submit "Recommend", :class => "resource-upvote nav-link link-gold" %>
+      <%= f.submit "Recommend", :class => "resource-upvote entypo-thumbs-up active nav-link link-gold" %>
     <% end %>
   <% elsif signed_in? %>
     <span class="recommended">You recommend this resource.</span>

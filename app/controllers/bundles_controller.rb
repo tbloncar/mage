@@ -63,7 +63,13 @@ class BundlesController < ApplicationController
   end
 
   def edit
-
+    @bundle = Bundle.find_by_path(params[:bundle_path])
+    if current_user
+      @resources = []
+      current_user.upvotes.votes_for_resources.each do |upvote|
+        @resources << upvote.upvotable
+      end
+    end
   end
 
   def update

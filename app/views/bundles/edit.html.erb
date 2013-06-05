@@ -1,0 +1,67 @@
+<div class="row-fluid">
+<div class="span12 page-header">
+  <h1>Edit Your Bundle!</h1>
+</div>
+</div>
+<div class="row-fluid">
+  <div class="span5 form-container">
+    <% if current_user %>
+      <%= form_for @bundle, :url => bundles_url, :method => "post" do |form| %>
+          <div class="form-input control-group">
+            <%= label_tag "name", "Bundle Name", :class  => "control-label" %>
+            <div class="controls">
+              <%= form.text_field :name, { :placeholder => "Learn to Design Websites", :class => "form-text-input", :required => "true" } %>
+              <span class="no">What did you learn or achieve?</span>
+            </div>
+          </div>
+          <div class="form-input control-group">
+            <%= label_tag "description", nil, :class => "control-label" %>
+            <div class="controls">
+              <%= form.text_area :description, { :class => "form-text-input resource-text-area", :rows => 10, :required => "true", :placeholder => "These resources were awesome . . ." } %>
+              <span class="no">Describe your bundle!</span>
+            </div>
+          </div>
+          <input id="add-resources" type="hidden" name="resources" value="">
+          <div class="form-input control-group">
+            <%= button_tag "Create Bundle", :class => "form-button link-gold" %>
+          </div>
+      <% end %>
+    <% else %>
+      <h3>Sign in to create a bundle.</h3>
+    <% end %>
+  </div>
+  <div class="span7">
+    <div class="message message-helper">
+      <div class="message-inner">
+        Use bundles to group resources that have helped you learn a particular skill or achieve a goal.
+      </div>
+    </div>
+    <div class="bundle-choose">
+      <div class="bundle-choose-drop">
+        <% @bundle.resources.each do |resource| %>
+        <div class="bundle-choose-drop-spot-taken">
+          <img src="<%= resource.avatar.url %>">
+        </div>
+        <% end %>
+        <div class="bundle-choose-drop-spot">
+          <span>2</span>
+        </div>
+        <div class="bundle-choose-drop-spot">
+          <span>3</span>
+        </div>
+        <div class="bundle-choose-drop-spot">
+          <span>4</span>
+        </div>
+        <div class="bundle-choose-drop-spot">
+          <span>5</span>
+        </div>
+        <div class="bundle-choose-drop-describe">
+          <span>You have 3 spots remaining!</span>
+        </div>
+      </div>
+      <% @resources.try(:each) do |resource| %>
+        <img title="<%= resource.name %> - <%= resource.level.name %>" src="<%= resource.avatar.url %>" data-resource="<%= resource.id %>" class="bundle-choose-image">
+      <% end %>
+    </div>
+  </div>
+</div>
