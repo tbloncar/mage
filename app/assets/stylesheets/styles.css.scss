@@ -277,6 +277,9 @@ header {
 	z-index: 2001 !important;
 	padding-top: 20px;
 	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
 	.logo {
 		font-family: 'Arbutus Slab', serif;
 		font-size: 24px;
