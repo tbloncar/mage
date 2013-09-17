@@ -4,7 +4,7 @@ gem 'rails', '3.2.13'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'progress_bar'
 gem 'sunspot_solr' 
-gem 'aws-sdk'
+gem 'aws-sdk', '~> 1.15.0'
 gem 'imgkit'
 # gem 'screencap'
 # gem "phantomjs.rb", "~> 0.0.5"
@@ -63,4 +63,4 @@ gem 'gravatar_image_tag'
 gem 'sunspot_rails', '~> 1.3.0'
 
 # Paperclip for image uploading
-gem "paperclip", "~> 3.0"
+gem "paperclip", "~> 3.4.2"

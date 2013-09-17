@@ -9,7 +9,7 @@ class Resource < ActiveRecord::Base
 	has_many :comments, :as => :commentable
 	has_many :bundles, :through => :inclusions
 	has_many :inclusions
-	has_attached_file :avatar, :styles => { :medium => "255x255>", :thumb => "100x100>" }, :default_url => "/assets/eloquent.jpg"
+	has_attached_file :avatar, :path => ":rails_root/public/system/:attachment/:id/:style/:filename", :url => "/system/:attachment/:id/:style/:filename", :styles => { :medium => "255x255>", :thumb => "100x100>" }, :default_url => "/assets/eloquent.jpg"
 
 	validates :name, uniqueness: true
 	validates :name, presence: true

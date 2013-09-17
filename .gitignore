@@ -24,4 +24,4 @@
 solr/data
 
 # Ignore seeds
-/db/seeds.rb
+db/seeds.rb
