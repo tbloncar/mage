@@ -227,7 +227,8 @@ resources.each_with_index do |resource, i|
 
 	u = Upvote.new
 	u.user_id = r.user_id
-	u.resource_id = r.id
+	u.upvotable_id = r.id
+	u.upvotable_type = "Resource"
 	u.save
 end
 
