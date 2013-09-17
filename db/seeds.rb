@@ -65,19 +65,19 @@ users = [
 		:bio => "I enjoy learning and stuff like that."
 	},
 	{
-		:username => "jefftest",
+		:username => "jeffcohen",
 		:password => "password",
 		:email => "jeff@starterleague.com",
 		:bio => "I enjoy learning and stuff like that."
 	},
 	{
-		:username => "raghutest",
+		:username => "raghubetina",
 		:password => "password",
 		:email => "raghu@starterleague.com",
 		:bio => "I enjoy learning and stuff like that."
 	},
 	{
-		:username => "shaytest",
+		:username => "shayhowe",
 		:password => "password",
 		:email => "shay@starterleague.com",
 		:bio => "I enjoy learning and stuff like that."
